@@ -1,5 +1,7 @@
 import { Atom, Calendar1, Contact, Handshake } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import TagCloud from "../../components/molecules/WordSphere";
+import MainCards from "../../components/atoms/MainCards";
 
 const Main = () => {
   const { t } = useTranslation();
@@ -49,6 +51,29 @@ const Main = () => {
                   <p className="text-xl text-bordo">{t("numCard4")}</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="mx-auto mt-[550px]">
+          <div className="flex  justify-between items-center">
+            <div className="w-1/2">
+              <p className="text-white text-2xl mb-10">{t("ourMission")}</p>
+              <p className="text-white text-xl mb-3">{t("keyOfSuccess")}</p>
+              <p className="text-justify text-lg text-white">
+                {t("keyOfSuccessText")}
+              </p>
+            </div>
+            <div>
+              <TagCloud />
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full h-[1000px] bg-bordo flex items-center shadow-2xl">
+          <div className="w-full h-[980px] bg-gray-200  mx-2 shadow-2xl ">
+            <p className="text-bordo text-2xl p-2">Our napravlenia</p>
+            <div className="w-full h-full mt-14">
+              <MainCards />
             </div>
           </div>
         </div>
