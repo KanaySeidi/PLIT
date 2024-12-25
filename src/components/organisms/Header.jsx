@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import Logo from "../atoms/logo";
 import LanguageSwitcher from "../molecules/LanguageSwitcher";
 import SocialMedia from "../molecules/SocialMedia";
 import { useState } from "react";
 import MinLogo from "../atoms/MinLogo";
+import NormLogo from "../atoms/NormLogo";
 
 const Header = () => {
   const [isScroll, setIsScroll] = useState(false);
@@ -31,7 +31,7 @@ const Header = () => {
           </div>
         ) : (
           <div className="transition-all duration-1000 opacity-100">
-            <Logo />
+            <NormLogo />
           </div>
         )}
       </div>
