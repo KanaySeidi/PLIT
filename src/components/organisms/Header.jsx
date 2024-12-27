@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import LanguageSwitcher from "../molecules/LanguageSwitcher";
-import SocialMedia from "../molecules/SocialMedia";
 import { useState } from "react";
 import MinLogo from "../atoms/MinLogo";
 import NormLogo from "../atoms/NormLogo";
@@ -55,7 +54,6 @@ const Header = () => {
                 isScroll ? "opacity-100 visible" : "opacity-0 invisible"
               } `}
             >
-              <SocialMedia />
               <LanguageSwitcher />
             </div>
           </div>
@@ -69,7 +67,6 @@ const Header = () => {
             <p>{t("header.info")}</p>
           </div>
           <div className="flex text-[#63001F] justify-end items-center gap-3 text-2xl w-1/3  ">
-            <SocialMedia />
             <LanguageSwitcher />
           </div>
         </div>

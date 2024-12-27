@@ -11,7 +11,9 @@ const MainCards = () => {
             />
           </div>
           <div className="flex justify-center items-end">
-            <p className="text-white text-lg font-semibold mb-4">FRONT-END</p>
+            <p className="text-white text-lg font-semibold mb-4 mt-4">
+              FRONT-END
+            </p>
           </div>
         </div>
         <div className="w-96 h-72 bg-bordo rounded-lg">
@@ -23,7 +25,9 @@ const MainCards = () => {
             />
           </div>
           <div className="flex justify-center items-end">
-            <p className="text-white text-lg font-semibold mb-4">BACK-END</p>
+            <p className="text-white text-lg font-semibold mb-4 mt-4">
+              BACK-END
+            </p>
           </div>
         </div>
         <div className="w-96 h-72 bg-bordo rounded-lg">
@@ -35,7 +39,7 @@ const MainCards = () => {
             />
           </div>
           <div className="flex justify-center items-end">
-            <p className="text-white text-lg font-semibold mb-4">
+            <p className="text-white text-lg font-semibold mb-4 mt-4">
               Мобильная разработка
             </p>
           </div>
@@ -49,7 +53,7 @@ const MainCards = () => {
             />
           </div>
           <div className="flex justify-center items-end">
-            <p className="text-white text-lg font-semibold mb-4">
+            <p className="text-white text-lg font-semibold mb-4 mt-4">
               Мехатроника и робототехника
             </p>
           </div>
@@ -63,7 +67,7 @@ const MainCards = () => {
             />
           </div>
           <div className="flex justify-center items-end">
-            <p className="text-white text-lg font-semibold mb-4">
+            <p className="text-white text-lg font-semibold mb-4 mt-4 mt-4">
               Технология Дизайна
             </p>
           </div>
@@ -77,7 +81,7 @@ const MainCards = () => {
             />
           </div>
           <div className="flex justify-center items-end">
-            <p className="text-white text-lg font-semibold mb-4">
+            <p className="text-white text-lg font-semibold mb-4 mt-4">
               Системный администратор
             </p>
           </div>
@@ -91,7 +95,7 @@ const MainCards = () => {
             />
           </div>
           <div className="flex justify-center items-end">
-            <p className="text-white text-lg font-semibold mb-4">
+            <p className="text-white text-lg font-semibold mb-4 mt-4">
               Информационная безопастность
             </p>
           </div>
@@ -105,7 +109,7 @@ const MainCards = () => {
             />
           </div>
           <div className="flex justify-center items-end">
-            <p className="text-white text-lg font-semibold mb-4">
+            <p className="text-white text-lg font-semibold mb-4 mt-4">
               Автослесарь по ремонту автомобилей
             </p>
           </div>
@@ -119,7 +123,7 @@ const MainCards = () => {
             />
           </div>
           <div className="flex justify-center items-end">
-            <p className="text-white text-lg text-center font-semibold mb-4">
+            <p className="text-white text-lg text-center font-semibold mb-2 mt-1">
               Эксплуатация,техническое обслуживание и ремонт спец техники
             </p>
           </div>

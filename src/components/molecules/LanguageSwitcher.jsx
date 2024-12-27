@@ -20,7 +20,7 @@ const LanguageSwitcher = () => {
           src={lang.img}
           alt={lang.key}
           className={`h-10 w-12 rounded-md cursor-pointer ${
-            currentLanguage === lang.key ? "border border-bordo" : ""
+            currentLanguage === lang.key ? "scale-100" : "scale-75"
           }`}
           onClick={() => changeLanguage(lang.key)}
         />
