@@ -69,9 +69,9 @@ const Main = () => {
           </div>
         </div>
 
-        <div className="w-full h-[1000px] bg-bordo flex items-center shadow-2xl">
-          <div className="w-full h-[980px] bg-gray-200  mx-2 shadow-2xl ">
-            <p className="text-bordo text-2xl p-2">Our napravlenia</p>
+        <div className="w-full h-[1200px] bg-bordo flex items-center shadow-2xl">
+          <div className="w-full h-[1180px] bg-gray-200  mx-2 shadow-2xl ">
+            <p className="text-bordo text-4xl p-10">{t("ourDirection")}</p>
             <div className="w-full h-full mt-14">
               <MainCards />
             </div>
