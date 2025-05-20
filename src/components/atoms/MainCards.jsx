@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 const MainCards = () => {
   const cards = [
     {
@@ -53,12 +51,15 @@ const MainCards = () => {
     <>
       <div className="w-full flex flex-wrap gap-10 justify-center">
         {cards.map((item) => (
-          <div key={item.id} className="w-96 h-72 bg-bordo rounded-lg">
-            <div  className="w-full h-56 flex justify-center items-center">
+          <div
+            key={item.id}
+            className="w-96 h-72 bg-bordo rounded-lg shadow-2xl cursor-pointer transition duration-500 relative transform hover:-translate-y-3"
+          >
+            <div className="w-full h-56 flex justify-center items-center">
               <img
                 src={item.img}
-                alt=""
-                className="w-full h-full object-cover rounded-lg brightness-50 hover:brightness-100"
+                alt={item.title}
+                className="w-full h-full object-cover rounded-lg brightness-50 hover:brightness-100 transition duration-500"
               />
             </div>
             <div className="flex justify-center items-end ">
