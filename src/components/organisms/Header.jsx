@@ -3,6 +3,7 @@ import LanguageSwitcher from "../molecules/LanguageSwitcher";
 import MinLogo from "../atoms/MinLogo";
 import NormLogo from "../atoms/NormLogo";
 import { useTranslation } from "react-i18next";
+import BurgerMenu from "../../BurgerMenu"
 
 const Header = () => {
   const { t } = useTranslation();
@@ -44,12 +45,10 @@ const Header = () => {
               <p>{t("header.info")}</p>
             </div>
             <div className="md:hidden flex w-1/3">
-              <button
-                className="text-white text-3xl"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              >
-                ☰
-              </button>
+              <BurgerMenu
+                isOpen={isMobileMenuOpen}
+                toggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              />
             </div>
 
             <div

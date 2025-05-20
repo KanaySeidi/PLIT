@@ -67,7 +67,7 @@ const MainCards = () => {
             />
           </div>
           <div className="flex justify-center items-end">
-            <p className="text-white text-lg font-semibold mb-4 mt-4 mt-4">
+            <p className="text-white text-lg font-semibold mb-4 mt-4">
               Технология Дизайна
             </p>
           </div>
