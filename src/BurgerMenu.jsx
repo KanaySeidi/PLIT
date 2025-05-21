@@ -1,10 +1,9 @@
-// src/components/BurgerMenu.jsx
 import React from "react";
 
 const BurgerMenu = ({ isOpen, toggle }) => {
   return (
     <button
-      className="relative w-10 h-8 flex flex-col justify-between items-center cursor-pointer z-50"
+      className="relative w-10 h-8 flex flex-col justify-between items-center cursor-pointer z-50 "
       onClick={toggle}
     >
       <span
