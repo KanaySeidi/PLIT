@@ -22,17 +22,6 @@ const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <Frontend />
-
-      <Information />
-      <AutoMechanic />
-=======
-      <Backend/>
-      <MobileDevelopment/>
-      <TD />
-      <SisAdm />
-      <MechRob />
-
     </div>
   );
 };
