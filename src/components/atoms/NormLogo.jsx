@@ -1,9 +1,9 @@
-import logo from "../../assets/icon/logo-background.svg";
+import logo from "../../assets/icon/rus_logo.png";
 
 const NormLogo = () => {
   return (
     <div>
-      <img src={logo} alt="logo" />
+      <img src={logo} className="w-[400px]" alt="logo" />
     </div>
   );
 };
