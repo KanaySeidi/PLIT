@@ -49,26 +49,29 @@ const MainCards = () => {
 
   return (
     <>
-      <div className="w-full flex flex-wrap gap-10 justify-center">
-        {cards.map((item) => (
-          <div
-            key={item.id}
-            className="w-96 h-72 bg-bordo rounded-lg shadow-2xl cursor-pointer transition duration-500 relative transform hover:-translate-y-3"
-          >
-            <div className="w-full h-56 flex justify-center items-center">
-              <img
-                src={item.img}
-                alt={item.title}
-                className="w-full h-full object-cover rounded-lg brightness-50 hover:brightness-100 transition duration-500"
-              />
+      <div className="w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+          {cards.map((item) => (
+            <div
+              key={item.id}
+              className="relative group overflow-hidden rounded-lg shadow-xl transition-all duration-300 hover:-translate-y-2"
+            >
+              <div className="aspect-[4/3] w-full">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105 brightness-75 group-hover:brightness-100"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h3 className="text-white text-lg sm:text-xl font-semibold text-center leading-tight">
+                  {item.title}
+                </h3>
+              </div>
             </div>
-            <div className="flex justify-center items-end ">
-              <p className="text-white text-lg text-center  font-semibold mb-2 mt-1">
-                {item.title}
-              </p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );
