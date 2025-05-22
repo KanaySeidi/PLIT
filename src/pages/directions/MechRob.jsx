@@ -7,7 +7,7 @@ import img2 from "../../assets/img/mechRab2.png";
 import time from "../../assets/icon/time.svg";
 import money from "../../assets/icon/money.svg";
 
-export const MechRob = () => {
+const MechRob = () => {
   const { t } = useTranslation();
 
   return (
@@ -33,3 +33,5 @@ export const MechRob = () => {
     </>
   );
 };
+
+export default MechRob;

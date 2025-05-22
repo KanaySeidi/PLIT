@@ -6,7 +6,7 @@ import img2 from "../../assets/img/mobDeveloper.webp";
 import time from "../../assets/icon/time.svg";
 import money from "../../assets/icon/money.svg";
 
-export const MobileDevelopment = () => {
+const MobileDevelopment = () => {
   const { t } = useTranslation();
 
   return (
@@ -32,3 +32,5 @@ export const MobileDevelopment = () => {
     </>
   );
 };
+
+export default MobileDevelopment;
