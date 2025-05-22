@@ -9,6 +9,8 @@ const Header = () => {
   const { t } = useTranslation();
   const [isScroll, setIsScroll] = useState(false);
 
+  
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY >= 60) {

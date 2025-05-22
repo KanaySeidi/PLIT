@@ -17,5 +17,4 @@ const routes = [
   { path: "/sa", element: <SisAdm /> },
   { path: "/td", element: <TD /> },
 ];
-
 export default routes;
