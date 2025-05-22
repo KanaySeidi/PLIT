@@ -5,6 +5,7 @@ import { Frontend } from "../directions/Frontend";
 import { TD } from "../directions/TD";
 import { SisAdm } from "../directions/SisAdm";
 import { MechRob } from "../directions/MechRob";
+import { TeacherSl } from "../../components/teachersSlider/TeacherSl";
 
 const Layout = () => {
   return (
@@ -19,6 +20,7 @@ const Layout = () => {
       <TD />
       <SisAdm />
       <MechRob />
+      <TeacherSl />
     </div>
   );
 };
