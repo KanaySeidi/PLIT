@@ -40,37 +40,13 @@ const DirectionPage = ({
 
   return (
     <>
-      <div className="w-full flex flex-col items-center mt-12 md:mt-28">
-        <img
-          src={image}
-          alt=""
-          className="w-full md:w-[80%] h-[200px] md:h-[300px] object-cover"
-        />
-        <div className="w-full md:w-[80%] flex flex-col md:flex-row mt-6 md:mt-8 px-4 md:px-0">
-          <img
-            src={image1}
-            alt=""
-            className="w-full md:w-[450px] h-[250px] md:h-[400px] object-cover"
-          />
-          <div className="flex flex-col justify-around text-black mt-4 md:mt-0 md:ml-10">
-            <motion.h1
-              ref={titleRef}
-              className="text-2xl md:text-[30px] font-bold"
-              variants={fadeInUp}
-              initial="hidden"
-              animate={isTitleInView ? 'visible' : 'hidden'}
-            >
-              {title}
-            </motion.h1>
-            <motion.p
-              ref={textRef}
-              className="text-base md:text-lg mt-4"
-              variants={fadeInUp}
-              initial="hidden"
-              animate={isTextInView ? 'visible' : 'hidden'}
-            >
-              {text}
-            </motion.p>
+      <div className="w-full flex flex-col items-center mt-28">
+        <img src={image} alt="" className="w-[80%] h-[300px]" />
+        <div className="w-[80%] flex mt-8">
+          <img src={image1} alt="" className="w-[450px] h-[400px]" />
+          <div className="flex flex-col justify-around text-black ml-10">
+            <h1 className="text-[30px]">{title}</h1>
+            <p>{text}</p>
           </div>
         </div>
         <div className="bg-gray-400 w-full h-auto md:h-[500px] flex flex-col justify-around py-8 md:py-0">
