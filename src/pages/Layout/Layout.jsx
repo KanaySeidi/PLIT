@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../../components/organisms/Header";
+import TeacherInfo from "../../components/teachersSlider/Teacherinfo";
+import TeacherSl from "../../components/teachersSlider/TeacherSl";
 
 const Layout = () => {
   return (
@@ -10,6 +12,8 @@ const Layout = () => {
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>
+        <TeacherInfo />
+        <TeacherSl />
       </main>
     </div>
   );
