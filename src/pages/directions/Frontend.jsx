@@ -1,5 +1,4 @@
 import DirectionPage from "../../components/molecules/DirectionPage";
-import LanguageSwitcher from "../../components/molecules/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 
 import img from "../../assets/img/front.png";

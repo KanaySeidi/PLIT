@@ -19,7 +19,7 @@ const DirectionPage = ({
   return (
     <>
       <div className="w-full flex flex-col items-center mt-28">
-        <img src={image} alt="" className="w-[80%] h-[300px]" />
+        <img src={image} alt="" className="w-[80%] h-[400px]" />
         <div className="w-[80%] flex mt-8">
           <img src={image1} alt="" className="w-[450px] h-[400px]" />
           <div className="flex flex-col justify-around text-black ml-10">
