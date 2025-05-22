@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const DirectionPage = ({
   image,
   image1,
@@ -18,9 +20,18 @@ const DirectionPage = ({
 }) => {
   return (
     <>
-      <div className="w-full flex flex-col items-center mt-28">
-        <img src={image} alt="" className="w-[80%] h-[400px]" />
-        <div className="w-[80%] flex mt-8">
+      <div className="relative w-full flex flex-col items-center justify-around h-[1450px]">
+        <div className="relative w-full h-[500px]">
+          <img src={image} alt="cover" className="w-full h-full object-cover" />
+          <Link to={"/"}>
+            <div className="absolute top-4 left-4 flex items-center gap-1 px-3 py-1 bg-gray-200 hover:bg-gray-300 text-black rounded shadow">
+              <span className="text-xl">←</span>
+              <span>Назад</span>
+            </div>
+          </Link>
+        </div>
+
+        <div className="w-[80%] flex">
           <img src={image1} alt="" className="w-[450px] h-[400px]" />
           <div className="flex flex-col justify-around text-black ml-10">
             <h1 className="text-[30px]">{title}</h1>

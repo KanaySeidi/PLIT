@@ -1,9 +1,6 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../../components/organisms/Header";
-<<<<<<< HEAD
-=======
-import { Frontend } from "../directions/Frontend";
 
 const Layout = () => {
   return (
@@ -14,9 +11,6 @@ const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
-<<<<<<< HEAD
-=======
-      <Frontend />
     </div>
   );
 };
