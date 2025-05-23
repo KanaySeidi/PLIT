@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -56,110 +57,130 @@ const DirectionPage = ({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
+  const levels = [
+    { text: junior, id: 1 },
+    { text: middle, id: 2 },
+    { text: senior, id: 3 },
+  ];
+
   return (
-    <motion.div
-      ref={ref}
-      className="w-full flex flex-col items-center mt-10 md:mt-28"
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={containerVariants}
-    >
-      {/* Main Image */}
-      <motion.img
-        src={image}
-        alt=""
-        className="w-full md:w-[80%] h-[200px] md:h-[400px] object-cover"
-        variants={imageVariants}
-      />
-
-      {/* Content Section */}
-      <motion.div
-        className="w-full md:w-[80%] flex flex-col md:flex-row mt-6 md:mt-8"
-        variants={containerVariants}
-      >
-        <motion.img
-          src={image1}
-          alt=""
-          className="w-full md:w-[450px] h-[200px] md:h-[400px] object-cover"
-          variants={imageVariants}
+    <div className="relative w-full min-h-screen flex flex-col items-center pb-8">
+      {/* Верхний блок с изображением */}
+      <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px]">
+        <img
+          src={image}
+          alt="cover"
+          className="w-full h-full object-cover brightness-90"
         />
-        <motion.div
-          className="flex flex-col justify-around text-black mt-4 md:mt-0 md:ml-10"
-          variants={itemVariants}
-        >
-          <h1 className="text-[24px] md:text-[30px] font-bold">{title}</h1>
-          <p className="text-[14px] md:text-[16px] mt-2">{text}</p>
-        </motion.div>
-      </motion.div>
+        <Link to={"/"}>
+          <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm hover:bg-white/90 text-black rounded-lg shadow-lg transition-all duration-300">
+            <span className="text-xl">←</span>
+            <span className="text-sm">Назад</span>
+          </div>
+        </Link>
+      </div>
 
-      {/* Gray Section */}
+      {/* Основной контент */}
       <motion.div
-        className="bg-gray-400 w-full min-h-[600px] md:h-[500px] flex flex-col justify-around items-center py-6 md:py-0"
+        ref={ref}
+        className="w-[95%] sm:w-[90%] lg:w-[85%] flex flex-col items-center py-4 sm:py-8 md:py-12 space-y-6"
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
       >
+        {/* Информационная секция */}
         <motion.div
-          className="text-white text-[16px] md:text-[18px] w-full md:w-[600px] flex flex-col md:flex-row items-center md:items-start px-4 md:ml-36"
-          variants={itemVariants}
-        >
-          <div className="flex items-center mb-4 md:mb-0">
-            <img src={icon} alt="" className="w-6 h-6 mr-2" />
-            <p>{txt1}</p>
-          </div>
-          <div className="flex items-center md:ml-6">
-            <img src={icon} alt="" className="w-6 h-6 mr-2" />
-            <p>{txt2}</p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="flex flex-col md:flex-row justify-center md:justify-around w-full px-4 md:px-0 mt-4 md:mt-[-100px] md:ml-[-50px]"
+          className="w-full flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8"
           variants={containerVariants}
         >
+          <motion.img
+            src={image1}
+            alt={title}
+            className="w-full lg:w-[400px] h-[200px] sm:h-[250px] md:h-[300px] object-cover rounded-xl shadow-lg"
+            variants={imageVariants}
+          />
           <motion.div
-            className="w-full md:w-[450px] flex flex-col items-start justify-around mb-6 md:mb-0"
+            className="flex flex-col justify-center space-y-3 px-2 sm:px-4 lg:px-0"
             variants={itemVariants}
           >
-            <div className="flex flex-col justify-around min-h-[250px] md:h-[300px]">
-              <h1 className="text-[24px] md:text-[30px] font-bold text-white">
-                {master}
-              </h1>
-              <p className="text-[14px] md:text-[16px] text-white">{lvl1}</p>
-              <p className="text-[14px] md:text-[16px] text-white">{lvl2}</p>
-              <p className="text-[14px] md:text-[16px] text-white">{lvl3}</p>
-            </div>
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800">
+              {title}
+            </h1>
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
+              {text}
+            </p>
+          </motion.div>
+        </motion.div>
+
+        {/* Серая секция */}
+        <motion.div
+          className="bg-gray-400/95 backdrop-blur-sm w-full rounded-xl p-4 sm:p-6 md:p-8 space-y-6"
+          variants={containerVariants}
+        >
+          {/* Верхняя часть с иконками */}
+          <motion.div
+            className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6"
+            variants={itemVariants}
+          >
+            {[
+              { icon: icon, text: txt1 },
+              { icon: icon, text: txt2 },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-3 rounded-lg w-full sm:w-auto"
+              >
+                <img src={item.icon} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
+                <p className="text-white text-sm sm:text-base">{item.text}</p>
+              </div>
+            ))}
           </motion.div>
 
+          {/* Нижняя часть */}
           <motion.div
-            className="flex flex-col justify-between w-full md:w-[400px] md:h-52 md:mt-32"
-            variants={itemVariants}
+            className="flex flex-col lg:flex-row gap-6 lg:gap-8"
+            variants={containerVariants}
           >
-            <div className="w-full h-[60px] bg-[#A1012B] rounded-[10px] text-center text-white flex items-center justify-center mb-6 md:mb-18">
-              {salary}
-            </div>
-            <div className="flex flex-col justify-around">
-              <div className="flex items-center mb-4">
-                <img src={icon2} alt="" className="w-5 h-5" />
-                <p className="ml-4 text-white text-[14px] md:text-[16px]">
-                  {junior}
-                </p>
+            {/* Левая колонка */}
+            <motion.div className="lg:w-1/2 space-y-4" variants={itemVariants}>
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
+                {master}
+              </h2>
+              <div className="space-y-3">
+                {[lvl1, lvl2, lvl3].map((level, index) => (
+                  <p
+                    key={index}
+                    className="text-white text-sm sm:text-base bg-white/10 backdrop-blur-sm p-3 rounded-lg"
+                  >
+                    {level}
+                  </p>
+                ))}
               </div>
-              <div className="flex items-center mb-4">
-                <img src={icon2} alt="" className="w-5 h-5" />
-                <p className="ml-4 text-white text-[14px] md:text-[16px]">
-                  {middle}
-                </p>
+            </motion.div>
+
+            {/* Правая колонка */}
+            <motion.div className="lg:w-1/2 space-y-4" variants={itemVariants}>
+              <div className="bg-[#A1012B] rounded-xl p-4 text-center text-white text-base sm:text-lg lg:text-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
+                {salary}
               </div>
-              <div className="flex items-center">
-                <img src={icon2} alt="" className="w-5 h-5" />
-                <p className="ml-4 text-white text-[14px] md:text-[16px]">
-                  {senior}
-                </p>
+              <div className="space-y-3">
+                {levels.map((level) => (
+                  <div
+                    key={level.id}
+                    className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-3 rounded-lg"
+                  >
+                    <img src={icon2} alt="" className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <p className="text-white text-sm sm:text-base">
+                      {level.text}
+                    </p>
+                  </div>
+                ))}
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 

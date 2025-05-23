@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 const Header = () => {
   const { t, i18n } = useTranslation();
   const [isScroll, setIsScroll] = useState(false);
-  const [isKy, setIsKy] = useState(i18n.language === "ky");
+  const [isKy, setIsKy] = useState(false);
 
   // Обработка скролла
   useEffect(() => {

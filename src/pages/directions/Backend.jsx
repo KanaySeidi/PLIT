@@ -6,7 +6,7 @@ import img2 from "../../assets/img/backend.jpg";
 import time from "../../assets/icon/time.svg";
 import money from "../../assets/icon/money.svg";
 
-export const Backend = () => {
+const Backend = () => {
   const { t } = useTranslation();
 
   return (
@@ -32,3 +32,5 @@ export const Backend = () => {
     </>
   );
 };
+
+export default Backend;
