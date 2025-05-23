@@ -40,7 +40,7 @@ const MainCards = () => {
     },
     {
       id: 7,
-      title: "Информационная безопастность",
+      title: "Информационная безопасность",
       img: "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600",
       path: "/in",
     },
@@ -52,38 +52,39 @@ const MainCards = () => {
     },
     {
       id: 9,
-      title: "Эксплуатация,техническое обслуживание и ремонт спец техники",
+      title: "Эксплуатация, техническое обслуживание и ремонт спец техники",
       img: "https://avatars.mds.yandex.net/i?id=c1f8eb382f66f9dd43d013eb7c33bc63_l-5162789-images-thumbs&n=13",
       path: "/ex",
     },
   ];
 
   return (
-    <>
-      <div className="w-full flex flex-wrap gap-10 justify-center">
-        {cards.map((item) => (
-          <Link to={item.path}>
-            <div
-              key={item.id}
-              className="w-96 h-72 bg-bordo rounded-lg shadow-2xl cursor-pointer transition duration-500 relative transform hover:-translate-y-3"
-            >
-              <div className="w-full h-56 flex justify-center items-center">
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="w-full h-full object-cover rounded-lg brightness-50 hover:brightness-100 transition duration-500"
-                />
-              </div>
-              <div className="flex justify-center items-end ">
-                <p className="text-white text-lg text-center  font-semibold mb-2 mt-1">
-                  {item.title}
-                </p>
-              </div>
+    <div className="w-full flex flex-wrap gap-6 justify-center p-6 bg-gray-100">
+      {cards.map((item) => (
+        <Link
+          to={item.path}
+          key={item.id}
+          aria-label={`Navigate to ${item.title} page`}
+        >
+          <div className="w-80 h-60 rounded-xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl relative group">
+            {/* Image Section */}
+            <img
+              src={item.img}
+              alt={item.title}
+              className="w-full h-full object-cover brightness-75 group-hover:brightness-100 transition duration-300"
+            />
+            {/* Gradient Overlay */}
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/70 to-transparent"></div>
+            {/* Text Section */}
+            <div className="absolute bottom-0 w-full p-3">
+              <p className="text-white text-base sm:text-lg font-semibold text-center line-clamp-2">
+                {item.title}
+              </p>
             </div>
-          </Link>
-        ))}
-      </div>
-    </>
+          </div>
+        </Link>
+      ))}
+    </div>
   );
 };
 
