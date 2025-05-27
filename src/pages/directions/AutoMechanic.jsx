@@ -5,8 +5,7 @@ import Cimg from "../../assets/img/CarMechanic.jpg";
 import Cimg2 from "../../assets/img/CarMechanic2.jpg";
 import time from "../../assets/icon/time.svg";
 import money from "../../assets/icon/money.svg";
-
-export const AutoMechanic = () => {
+const AutoMechanic = () => {
   const { t } = useTranslation();
 
   return (
@@ -32,3 +31,4 @@ export const AutoMechanic = () => {
     </>
   );
 };
+export default Exploitation;

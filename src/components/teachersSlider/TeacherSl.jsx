@@ -42,20 +42,20 @@ const groupTeachers = (teachers, groupSize = 6) => {
   return groups;
 };
 
-export const TeacherSl = () => {
+const TeacherSl = () => {
   const groupedTeachers = groupTeachers(teachers);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
   return (
-    <div className="w-10/12 mx-auto py-6 relative">
-      <div className="flex justify-center text-2xl mb-4">
+    <div className="relative w-full py-6">
+      <div className="w-full  flex justify-center text-2xl mb-4">
         <p className="text-[#63001F] font-bold">Наши преподаватели</p>
       </div>
 
       <div
         ref={prevRef}
-        className="swiper-button-prev-custom absolute top-1/2 -left-6 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-gray-100 cursor-pointer"
+        className="swiper-button-prev-custom absolute top-1/2 left-10 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-gray-100 cursor-pointer"
       >
         <svg
           className="w-6 h-6 text-gray-600"
@@ -74,7 +74,7 @@ export const TeacherSl = () => {
 
       <div
         ref={nextRef}
-        className="swiper-button-next-custom absolute top-1/2 -right-6 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-gray-100 cursor-pointer"
+        className="swiper-button-next-custom absolute top-1/2 right-10 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-gray-100 cursor-pointer"
       >
         <svg
           className="w-6 h-6 text-gray-600"
@@ -103,7 +103,7 @@ export const TeacherSl = () => {
       >
         {groupedTeachers.map((group, index) => (
           <SwiperSlide key={index}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-10/12 mx-auto">
               {group.map((teacher, idx) => (
                 <div
                   key={idx}
