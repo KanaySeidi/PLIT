@@ -53,7 +53,7 @@ const MainCards = () => {
         {cards.map((item) => (
           <div
             key={item.id}
-            className="w-96 h-72 bg-bordo rounded-lg shadow-2xl cursor-pointer transition duration-500 relative transform hover:-translate-y-3"
+            className="w-96 h-72 bg-bordo rounded-lg shadow-2xl cursor-pointer transition duration-500 relative transform hover:-translate-y-3 will-change-transform"
           >
             <div className="w-full h-56 flex justify-center items-center">
               <img
@@ -62,8 +62,8 @@ const MainCards = () => {
                 className="w-full h-full object-cover rounded-lg brightness-50 hover:brightness-100 transition duration-500"
               />
             </div>
-            <div className="flex justify-center items-end ">
-              <p className="text-white text-lg text-center  font-semibold mb-2 mt-1">
+            <div className="flex justify-center items-end">
+              <p className="text-white text-lg text-center font-semibold mb-2 mt-1">
                 {item.title}
               </p>
             </div>

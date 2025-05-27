@@ -90,5 +90,21 @@
     "junior": "На уровне junior вы можете зарабатывать от 300 до 500 $",
     "middle": "На уровне middle вы можете зарабатывать от 500 до 1500 $",
     "senior": "На уровне senior вы можете зарабатывать от 1500 до 3000 $"
+  },
+  "informations": {
+    "title": "Немного об истории лицея",
+    "text": "Мы обучаем будущих специалистов с 1971 года",
+    "information": "Лицей предлагает качественное образование по современным программам, сочетая теорию и практику. Мы создаем условия для успешного развития учащихся и подготовки к поступлению в вузы. Лицей предлагает качественное образование по современным программам, сочетая теорию и практику. Мы создаем условия для успешного развития учащихся и подготовки",
+    "advantages": {
+      "feedback": "Обратная связь с учащимися",
+      "teachers": "Профессиональные учителя",
+      "potential": "Высокий потенциал развития"
+    }
+  },
+  "documents": {
+    "title": "Какие документы нужны для поступления",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo.",
+    "titleDocument": "Best Tax Advisor",
+    "textDocument": "Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do eiusmod tempor incididunt"
   }
 }
