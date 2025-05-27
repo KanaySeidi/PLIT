@@ -23,9 +23,9 @@ const AutoMechanic = () => {
         lvl2={t("AutoMechanic.2lvl")}
         lvl3={t("AutoMechanic.3lvl")}
         salary={t("AutoMechanic.salary")}
-        beginning={t("AutoMechanic.beginning")}
-        experienced={t("AutoMechanic.experienced")}
-        professional={t("AutoMechanic.professional")}
+        junior={t("AutoMechanic.junior")}
+        middle={t("AutoMechanic.middle")}
+        senior={t("AutoMechanic.senior")}
         icon2={money}
       />
     </>
