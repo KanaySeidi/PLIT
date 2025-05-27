@@ -7,7 +7,7 @@ import img2 from "../../assets/img/sisAdmin2.png";
 import time from "../../assets/icon/time.svg";
 import money from "../../assets/icon/money.svg";
 
-export const SisAdm = () => {
+const SisAdm = () => {
   const { t } = useTranslation();
 
   return (
@@ -33,3 +33,5 @@ export const SisAdm = () => {
     </>
   );
 };
+
+export default SisAdm;

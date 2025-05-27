@@ -7,7 +7,7 @@ import img2 from "../../assets/img/td2.png";
 import time from "../../assets/icon/time.svg";
 import money from "../../assets/icon/money.svg";
 
-export const TD = () => {
+const TD = () => {
   const { t } = useTranslation();
 
   return (
@@ -33,3 +33,5 @@ export const TD = () => {
     </>
   );
 };
+
+export default TD;

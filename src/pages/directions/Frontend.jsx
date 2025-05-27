@@ -6,7 +6,7 @@ import img2 from "../../assets/img/front2.png";
 import time from "../../assets/icon/time.svg";
 import money from "../../assets/icon/money.svg";
 
-export const Frontend = () => {
+const Frontend = () => {
   const { t } = useTranslation();
 
   return (
@@ -32,3 +32,5 @@ export const Frontend = () => {
     </>
   );
 };
+
+export default Frontend;
