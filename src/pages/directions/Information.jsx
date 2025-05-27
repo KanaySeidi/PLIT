@@ -6,7 +6,7 @@ import Iimg2 from "../../assets/img/Information2.jpg"
 import time from "../../assets/icon/time.svg";
 import money from "../../assets/icon/money.svg";
 
-export const Information = () => {
+const Information = () => {
   const { t } = useTranslation();
 
   return (
@@ -32,3 +32,6 @@ export const Information = () => {
     </>
   );
 };
+
+
+export default Information;

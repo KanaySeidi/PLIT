@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.4",
+    "@heroicons/react": "^2.2.0",
     "@vitejs/plugin-react": "^4.3.4",
     "framer-motion": "^12.12.1",
     "i18next": "^24.2.0",

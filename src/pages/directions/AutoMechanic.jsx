@@ -6,7 +6,7 @@ import Cimg2 from "../../assets/img/CarMechanic2.jpg";
 import time from "../../assets/icon/time.svg";
 import money from "../../assets/icon/money.svg";
 
-export const AutoMechanic = () => {
+const AutoMechanic = () => {
   const { t } = useTranslation();
 
   return (
@@ -24,11 +24,13 @@ export const AutoMechanic = () => {
         lvl2={t("AutoMechanic.2lvl")}
         lvl3={t("AutoMechanic.3lvl")}
         salary={t("AutoMechanic.salary")}
-        beginning={t("AutoMechanic.beginning")}
-        experienced={t("AutoMechanic.experienced")}
-        professional={t("AutoMechanic.professional")}
+        junior={t("AutoMechanic.junior")}
+        middle={t("AutoMechanic.middle")}
+        senior={t("AutoMechanic.senior")}
         icon2={money}
       />
     </>
   );
 };
+
+export default AutoMechanic;
