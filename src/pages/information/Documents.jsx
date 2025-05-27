@@ -49,7 +49,7 @@ export const Documents = () => {
               {t("documents.title")}
             </h1>
             <div className="w-20 h-1 bg-white mb-6"> </div>
-            <p className="text-base leading-relaxed mb-12 max-w-xl leading-snug">{t("documents.text")}</p>
+            <p className="text-base leading-relaxed mb-12 max-w-xl ">{t("documents.text")}</p>
 
             <div className="flex flex-wrap md:flex-row flex-col gap-y-8">
               {textDocuments.map((doc) => (

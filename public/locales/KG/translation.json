@@ -126,5 +126,21 @@
     "junior": "Жаңы баштагандар айына 200дөн 500 АКШ долларына чейин таба алышат",
     "middle": "Тажрыйбалуу адистер 500дөн 1100 АКШ долларына чейин таба алышат",
     "senior": "Кесипкөйлөр 1100дөн 1500 АКШ долларына чейин таба алышат"
+  },
+  "informations": {
+    "title": "Лицейдин тарыхы жөнүндө кыскача маалымат",
+    "text": "Биз 1971-жылдан бери келечектеги адистерди окутуп келебиз",
+    "information": "Лицей заманбап программалар менен теорияны жана практиканы айкалыштырып, сапаттуу билим берет. Биз окуучулардын ийгиликтүү өнүгүүсүнө жана жогорку окуу жайларына тапшырууга шарт түзөбүз. Лицей заманбап программалар менен теорияны жана практиканы айкалыштырып, сапаттуу билим берет. Биз окуучулардын ийгиликтүү өнүгүүсүнө жана жогорку окуу жайларына тапшырууга шарт түзөбүз.",
+    "advantages": {
+      "feedback": "Окуучулар менен байланыш",
+      "teachers": "Кесипкөй мугалимдер",
+      "potential": "Өнүгүүгө жогорку мүмкүнчүлүк"
+    }
+  },
+  "documents": {
+    "title": "Кандай документтер керек",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+    "titleDocument": "Эң мыкты салык кеңешчиси",
+    "textDocument": "Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do eiusmod tempor incididunt"
   }
 }
