@@ -126,5 +126,21 @@
     "junior": "Начинающий  может зарабатывать от 200 до 500 $",
     "middle": "Опытный может зарабатывать от 500 до 1100 $",
     "senior": "Профессиональный может зарабатывать от 1100 до 1500 $"
+  },
+  "informations": {
+    "title": "Немного об истории лицея",
+    "text": "Мы обучаем будущих специалистов с 1971 года",
+    "information": "Лицей предлагает качественное образование по современным программам, сочетая теорию и практику. Мы создаем условия для успешного развития учащихся и подготовки к поступлению в вузы. Лицей предлагает качественное образование по современным программам, сочетая теорию и практику. Мы создаем условия для успешного развития учащихся и подготовки",
+    "advantages": {
+      "feedback": "Обратная связь с учащимися",
+      "teachers": "Профессиональные учителя",
+      "potential": "Высокий потенциал развития"
+    }
+  },
+  "documents": {
+    "title": "Какие документы нужны для поступления",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enimad minim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo.",
+    "titleDocument": "Best Tax Advisor",
+    "textDocument": "Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do eiusmod tempor incididunt"
   }
 }
