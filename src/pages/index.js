@@ -1,5 +1,3 @@
-import { Information } from "./directions/Information";
-
 export { Main } from "./Main/Main.async";
 export { Frontend } from "./directions/Frontend.async";
 export { TD } from "./directions/TD.async";

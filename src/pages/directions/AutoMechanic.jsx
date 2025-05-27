@@ -1,12 +1,11 @@
+import DirectionPage from "../../components/molecules/DirectionPage";
 import { useTranslation } from "react-i18next";
 
 import Cimg from "../../assets/img/CarMechanic.jpg";
 import Cimg2 from "../../assets/img/CarMechanic2.jpg";
 import time from "../../assets/icon/time.svg";
 import money from "../../assets/icon/money.svg";
-import DirectionPage from "../../components/molecules/DirectionPage";
-
-export const AutoMechanic = () => {
+const AutoMechanic = () => {
   const { t } = useTranslation();
 
   return (
@@ -32,3 +31,4 @@ export const AutoMechanic = () => {
     </>
   );
 };
+export default Exploitation;

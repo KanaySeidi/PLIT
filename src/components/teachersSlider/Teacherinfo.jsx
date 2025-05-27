@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FaTwitter, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaInstagram,
+  FaFacebook,
+  FaLinkedin,
+} from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import girl from "../../assets/img/girl.png";
 
 const skillBarVariants = {
   hidden: { width: 0 },
@@ -13,14 +18,18 @@ const skillBarVariants = {
   }),
 };
 
-export const TeacherInfo = ({ teacherId = 0 }) => {
+export const TeacherInfo = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const { t } = useTranslation();
-  const teacher = t(`teachers.list.${teacherId}`, { returnObjects: true });
+  const teachers = t("teachers.list", { returnObjects: true }) || [];
+  const currentTeacherId = location.pathname.split("/").pop();
+  const teacher = Array.isArray(teachers) ? teachers[currentTeacherId] : null;
+
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: false,
     threshold: 0.2,
-    rootMargin: "-50px",
   });
 
   useEffect(() => {
@@ -31,180 +40,149 @@ export const TeacherInfo = ({ teacherId = 0 }) => {
     }
   }, [controls, inView]);
 
-  const [errors, setErrors] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newErrors = {};
-    const name = e.target.elements.name.value;
-    const email = e.target.elements.email.value;
-    const message = e.target.elements.message.value;
-
-    if (!name.trim()) {
-      newErrors.name = "Пожалуйста, введите ваше имя";
-    }
-    if (!email.trim()) {
-      newErrors.email = "Пожалуйста, введите email";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = "Пожалуйста, введите корректный email";
-    }
-    if (!message.trim()) {
-      newErrors.message = "Пожалуйста, введите сообщение";
-    }
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length === 0) {
-      console.log("Форма отправлена:", { name, email, message });
-    }
+  const handleBack = () => {
+    navigate("/", { state: { scrollToTeachers: true } });
   };
 
-  return (
-    <div className="flex flex-col md:flex-row max-w-5xl mx-auto p-5 font-sans">
-      <div className="md:w-1/3 w-full md:mr-5">
-        <img
-          src={girl}
-          alt="Profile"
-          className="w-full h-auto rounded-lg shadow-lg"
-        />
-        <div className="bg-gray-100 p-5 rounded-lg mt-5 shadow-md">
-          <p className="mb-2">
-            <strong>Телефон:</strong> {teacher.contact.phone}
-          </p>
-          <p className="mb-2">
-            <strong>Email:</strong> {teacher.contact.email}
-          </p>
-          <p className="mb-2">
-            <strong>Сайт:</strong> {teacher.contact.website}
-          </p>
-          <p className="mb-2">
-            <strong>Адрес:</strong> {teacher.contact.address}
-          </p>
-          <div className="flex gap-4 mt-4">
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#63001F] hover:text-[#4a0017] transition-colors duration-300"
-            >
-              <FaTwitter size={24} />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#63001F] hover:text-[#4a0017] transition-colors duration-300"
-            >
-              <FaInstagram size={24} />
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#63001F] hover:text-[#4a0017] transition-colors duration-300"
-            >
-              <FaFacebook size={24} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#63001F] hover:text-[#4a0017] transition-colors duration-300"
-            >
-              <FaLinkedin size={24} />
-            </a>
-          </div>
+  if (!teacher) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl text-[#63001F]">
+            Информация о преподавателе не найдена
+          </h2>
+          <button
+            onClick={handleBack}
+            className="mt-4 flex items-center text-[#63001F] hover:text-[#4a0017]"
+          >
+            <FaArrowLeft className="mr-2" />
+            Назад к преподавателям
+          </button>
         </div>
       </div>
+    );
+  }
 
-      <div className="md:w-2/3 w-full">
-        <h1 className="text-4xl font-bold mb-4 text-[#63001F]">{teacher.name}</h1>
-        <p className="text-gray-600 leading-relaxed mb-6">
-          {teacher.description}
-        </p>
+  return (
+    <div className="min-h-screen bg-gray-50 py-12">
+      <div className="max-w-5xl mx-auto px-4">
+        <button
+          onClick={handleBack}
+          className="mb-8 flex items-center text-[#63001F] hover:text-[#4a0017]"
+        >
+          <FaArrowLeft className="mr-2" />
+          Назад к преподавателям
+        </button>
 
-        <div ref={ref}>
-          <h2 className="text-2xl font-semibold mt-6 mb-4 text-[#63001F]">
-            Навыки преподавателя
-          </h2>
-          <div className="space-y-4">
-            {teacher.skills.map((skill, index) => (
-              <div key={index}>
-                <span className="block mb-2">{skill.name}</span>
-                <div className="flex items-center bg-gray-200 rounded-full h-2.5 relative">
-                  <motion.div
-                    className="bg-[#63001F] h-2.5 rounded-full"
-                    initial="hidden"
-                    animate={controls}
-                    variants={skillBarVariants}
-                    custom={skill.level}
-                    style={{ originX: 0 }}
-                  />
-                  <span className="absolute right-2 text-sm text-gray-700">
-                    {skill.level}%
-                  </span>
+        <div className="bg-white rounded-xl shadow-lg p-8">
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="md:w-1/3">
+              <img
+                src={teacher.img}
+                alt={teacher.name}
+                className="w-full h-auto rounded-xl shadow-md"
+              />
+              <div className="mt-6 bg-gray-50 rounded-xl p-6">
+                <h3 className="text-lg font-semibold text-[#63001F] mb-4">
+                  Контактная информация
+                </h3>
+                <div className="space-y-3">
+                  {teacher.contact?.phone && (
+                    <p>
+                      <strong>Телефон:</strong> {teacher.contact.phone}
+                    </p>
+                  )}
+                  {teacher.contact?.email && (
+                    <p>
+                      <strong>Email:</strong> {teacher.contact.email}
+                    </p>
+                  )}
+                  {teacher.contact?.website && (
+                    <p>
+                      <strong>Сайт:</strong> {teacher.contact.website}
+                    </p>
+                  )}
+                  {teacher.contact?.address && (
+                    <p>
+                      <strong>Адрес:</strong> {teacher.contact.address}
+                    </p>
+                  )}
                 </div>
+                {teacher.social && (
+                  <div className="mt-6 flex justify-center gap-4">
+                    {teacher.social.facebook && (
+                      <a
+                        href={teacher.social.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#63001F] hover:text-[#4a0017] transition-colors"
+                      >
+                        <FaFacebook size={24} />
+                      </a>
+                    )}
+                    {teacher.social.instagram && (
+                      <a
+                        href={teacher.social.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#63001F] hover:text-[#4a0017] transition-colors"
+                      >
+                        <FaInstagram size={24} />
+                      </a>
+                    )}
+                    {teacher.social.linkedin && (
+                      <a
+                        href={teacher.social.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#63001F] hover:text-[#4a0017] transition-colors"
+                      >
+                        <FaLinkedin size={24} />
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
-            ))}
+            </div>
+
+            <div className="md:w-2/3">
+              <h1 className="text-4xl font-bold text-[#63001F] mb-2">
+                {teacher.name}
+              </h1>
+              <h2 className="text-xl text-gray-600 mb-6">{teacher.role}</h2>
+              <p className="text-gray-700 leading-relaxed mb-8">
+                {teacher.description}
+              </p>
+
+              {teacher.skills && teacher.skills.length > 0 && (
+                <div ref={ref}>
+                  <h3 className="text-2xl font-semibold text-[#63001F] mb-6">
+                    Профессиональные навыки
+                  </h3>
+                  <div className="space-y-4">
+                    {teacher.skills.map((skill, index) => (
+                      <div key={index}>
+                        <div className="flex justify-between mb-2">
+                          <span className="font-medium">{skill.name}</span>
+                          <span>{skill.level}%</span>
+                        </div>
+                        <div className="h-2 bg-gray-200 rounded-full">
+                          <motion.div
+                            className="h-full bg-[#63001F] rounded-full"
+                            initial="hidden"
+                            animate={controls}
+                            variants={skillBarVariants}
+                            custom={skill.level}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-
-        <h2 className="text-2xl font-semibold mt-6 mb-4 text-[#63001F]">
-          Отправить сообщение
-        </h2>
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          <div>
-            <input
-              type="text"
-              name="name"
-              placeholder="Ваше имя..."
-              className={`w-full p-2 border ${
-                errors.name ? "border-red-500" : "border-gray-300"
-              } rounded-lg focus:border-[#63001F] focus:ring-1 focus:ring-[#63001F] outline-none`}
-            />
-            {errors.name && (
-              <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-            )}
-          </div>
-
-          <div>
-            <input
-              type="email"
-              name="email"
-              placeholder="Электронная почта..."
-              className={`w-full p-2 border ${
-                errors.email ? "border-red-500" : "border-gray-300"
-              } rounded-lg focus:border-[#63001F] focus:ring-1 focus:ring-[#63001F] outline-none`}
-            />
-            {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-            )}
-          </div>
-
-          <div>
-            <textarea
-              name="message"
-              placeholder="Сообщение..."
-              className={`w-full p-2 border ${
-                errors.message ? "border-red-500" : "border-gray-300"
-              } rounded-lg h-24 resize-none focus:border-[#63001F] focus:ring-1 focus:ring-[#63001F] outline-none`}
-            />
-            {errors.message && (
-              <p className="text-red-500 text-sm mt-1">{errors.message}</p>
-            )}
-          </div>
-
-          <button
-            type="submit"
-            className="w-full p-2 bg-[#63001F] text-white rounded-lg hover:bg-[#4a0017] transition-colors duration-300 focus:ring-2 focus:ring-offset-2 focus:ring-[#63001F]"
-          >
-            Отправить
-          </button>
-        </form>
       </div>
     </div>
   );
