@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaTwitter, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import girl from "../../assets/img/girl.png";
 
 const skillBarVariants = {
@@ -12,14 +13,9 @@ const skillBarVariants = {
   }),
 };
 
-const skills = [
-  { name: "Химия", level: 85 },
-  { name: "Биология", level: 90 },
-  { name: "Объяснение", level: 90 },
-  { name: "Поддержка", level: 92 },
-];
-
-export const TeacherInfo = () => {
+export const TeacherInfo = ({ teacherId = 0 }) => {
+  const { t } = useTranslation();
+  const teacher = t(`teachers.list.${teacherId}`, { returnObjects: true });
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: false,
@@ -77,16 +73,16 @@ export const TeacherInfo = () => {
         />
         <div className="bg-gray-100 p-5 rounded-lg mt-5 shadow-md">
           <p className="mb-2">
-            <strong>Телефон:</strong> (+996) 123 456 789
+            <strong>Телефон:</strong> {teacher.contact.phone}
           </p>
           <p className="mb-2">
-            <strong>Email:</strong> email@zamira.com
+            <strong>Email:</strong> {teacher.contact.email}
           </p>
           <p className="mb-2">
-            <strong>Сайт:</strong> www.yourwebsitehere.com
+            <strong>Сайт:</strong> {teacher.contact.website}
           </p>
           <p className="mb-2">
-            <strong>Адрес:</strong> токтогулова 47 А
+            <strong>Адрес:</strong> {teacher.contact.address}
           </p>
           <div className="flex gap-4 mt-4">
             <a
@@ -126,15 +122,9 @@ export const TeacherInfo = () => {
       </div>
 
       <div className="md:w-2/3 w-full">
-        <h1 className="text-4xl font-bold mb-4 text-[#63001F]">Замира Эже</h1>
+        <h1 className="text-4xl font-bold mb-4 text-[#63001F]">{teacher.name}</h1>
         <p className="text-gray-600 leading-relaxed mb-6">
-          Замира эже — опытный и талантливый педагог, прекрасно разбирающийся в
-          химии и биологии. Её уроки всегда проходят интересно и понятно,
-          благодаря её умению объяснять сложные вещи простым языком. Ученики
-          ценят её за терпение, доброжелательность и глубокие знания в
-          предметах. Благодаря Замира эже многие школьники начинают любить химию
-          и биологию, а некоторые даже выбирают эти науки своей будущей
-          профессией.
+          {teacher.description}
         </p>
 
         <div ref={ref}>
@@ -142,7 +132,7 @@ export const TeacherInfo = () => {
             Навыки преподавателя
           </h2>
           <div className="space-y-4">
-            {skills.map((skill, index) => (
+            {teacher.skills.map((skill, index) => (
               <div key={index}>
                 <span className="block mb-2">{skill.name}</span>
                 <div className="flex items-center bg-gray-200 rounded-full h-2.5 relative">
