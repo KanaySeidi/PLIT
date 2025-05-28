@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -18,9 +19,27 @@ import teacher9 from "../../assets/img/teacher9.jpg";
 import teacher10 from "../../assets/img/teacher10.jpg";
 
 const teachers = [
-  { name: "Замира Эже", role: "Учитель химии и биологии", img: teacher1 },
-  { name: "Алмаз Агай", role: "Учитель информатики", img: teacher2 },
-  { name: "Айгуль Эже", role: "Учитель математики", img: teacher3 },
+  {
+    id: 1,
+    name: "Замира Эже",
+    role: "Учитель химии и биологии",
+    img: teacher1,
+    hasDetails: true,
+  },
+  {
+    id: 2,
+    name: "Алмаз Агай",
+    role: "Учитель информатики",
+    img: teacher2,
+    hasDetails: true,
+  },
+  {
+    id: 3,
+    name: "Айгуль Эже",
+    role: "Учитель математики",
+    img: teacher3,
+    hasDetails: true,
+  },
   { name: "Бакыт Агай", role: "Учитель физики", img: teacher4 },
   { name: "Гульмира Эже", role: "Учитель английского", img: teacher5 },
   { name: "Нурлан Агай", role: "Учитель робототехники", img: teacher6 },
@@ -34,22 +53,20 @@ const teachers = [
   },
 ];
 
-const groupTeachers = (teachers, groupSize = 6) => {
-  const groups = [];
-  for (let i = 0; i < teachers.length; i += groupSize) {
-    groups.push(teachers.slice(i, i + groupSize));
-  }
-  return groups;
-};
-
 const TeacherSl = () => {
-  const groupedTeachers = groupTeachers(teachers);
+  const navigate = useNavigate();
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
+  const handleTeacherClick = (teacher) => {
+    if (teacher.hasDetails) {
+      navigate(`/teacher/${teacher.id - 1}`);
+    }
+  };
+
   return (
     <div className="relative w-full py-6">
-      <div className="w-full  flex justify-center text-2xl mb-4">
+      <div className="w-full flex justify-center text-2xl mb-4">
         <p className="text-[#63001F] font-bold">Наши преподаватели</p>
       </div>
 
@@ -88,7 +105,7 @@ const TeacherSl = () => {
       </div>
 
       <Swiper
-        modules={[Navigation]}
+        modules={[Navigation, Pagination]}
         navigation={{
           prevEl: prevRef.current,
           nextEl: nextRef.current,
@@ -99,27 +116,42 @@ const TeacherSl = () => {
         }}
         pagination={{ clickable: true }}
         spaceBetween={30}
-        slidesPerView={1}
+        slidesPerView={3}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        }}
       >
-        {groupedTeachers.map((group, index) => (
-          <SwiperSlide key={index}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-10/12 mx-auto">
-              {group.map((teacher, idx) => (
-                <div
-                  key={idx}
-                  className="flex flex-col items-center text-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
-                >
-                  <img
-                    src={teacher.img}
-                    alt={teacher.name}
-                    className="mb-4 w-full h-80 md:h-96 lg:h-[400px] object-cover rounded-lg transition-transform duration-300 hover:scale-105"
-                  />
-                  <p className="font-bold text-lg text-[#63001F]">
-                    {teacher.name}
-                  </p>
-                  <p className="text-gray-700 mt-2">{teacher.role}</p>
-                </div>
-              ))}
+        {teachers.map((teacher, idx) => (
+          <SwiperSlide key={idx}>
+            <div
+              onClick={() => handleTeacherClick(teacher)}
+              className={`flex flex-col items-center text-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ${
+                teacher.hasDetails ? "cursor-pointer" : ""
+              }`}
+            >
+              <img
+                src={teacher.img}
+                alt={teacher.name}
+                className="mb-4 w-full h-80 md:h-96 lg:h-[400px] object-cover rounded-lg transition-transform duration-300 hover:scale-105"
+              />
+              <p className="font-bold text-lg text-[#63001F]">{teacher.name}</p>
+              <p className="text-gray-700 mt-2">{teacher.role}</p>
+              {teacher.hasDetails && (
+                <span className="text-sm text-blue-600 mt-2">
+                  Нажмите для подробной информации
+                </span>
+              )}
             </div>
           </SwiperSlide>
         ))}

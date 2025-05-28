@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const { t, i18n } = useTranslation();
   const [isScroll, setIsScroll] = useState(false);
-  const [isKy, setIsKy] = useState(false);
+  const [isKy, setIsKy] = useState(i18n.language === "ky");
 
   // Обработка скролла
   useEffect(() => {
@@ -35,10 +35,10 @@ const Header = () => {
 
   // Выбор логотипа
   const renderLogo = () => {
-    if (isScroll || isKy) {
-      return isKy ? <MinLogoKy /> : <MinLogoRu />;
+    if (isKy) {
+      return isScroll ? <MinLogoKy /> : <NormLogoKy />;
     } else {
-      return isKy ? <NormLogoKy /> : <NormLogoRu />;
+      return isScroll ? <MinLogoRu /> : <NormLogoRu />;
     }
   };
 
