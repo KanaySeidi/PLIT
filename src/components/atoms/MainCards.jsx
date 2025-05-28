@@ -59,32 +59,32 @@ const MainCards = () => {
   ];
 
   return (
-    <div className="w-full flex flex-wrap gap-6 justify-center p-6 bg-gray-100">
-      {cards.map((item) => (
-        <Link
-          to={item.path}
-          key={item.id}
-          aria-label={`Navigate to ${item.title} page`}
-        >
-          <div className="w-80 h-60 rounded-xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl relative group">
-            {/* Image Section */}
-            <img
-              src={item.img}
-              alt={item.title}
-              className="w-full h-full object-cover brightness-75 group-hover:brightness-100 transition duration-300"
-            />
-            {/* Gradient Overlay */}
-            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/70 to-transparent"></div>
-            {/* Text Section */}
-            <div className="absolute bottom-0 w-full p-3">
-              <p className="text-white text-base sm:text-lg font-semibold text-center line-clamp-2">
-                {item.title}
-              </p>
-            </div>
-          </div>
-        </Link>
-      ))}
-    </div>
+<div className="w-full flex flex-wrap gap-6 justify-center p-6 bg-gray-100">
+  {cards.map((item) => (
+    <Link
+      to={item.path}
+      key={item.id}
+      aria-label={`Navigate to ${item.title} page`}
+    >
+      <div className="w-80 h-60 rounded-xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl relative group">
+        {/* Image Section */}
+        <img
+          src={item.img}
+          alt={item.title}
+          className="w-full h-full object-cover brightness-75 group-hover:brightness-100 transition duration-300"
+        />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/70 to-transparent"></div>
+        {/* Text Section */}
+        <div className="absolute bottom-0 w-full p-3">
+          <p className="text-white text-base sm:text-lg font-semibold text-center line-clamp-2">
+            {item.title}
+          </p>
+        </div>
+      </div>
+    </Link>
+  ))}
+</div>
   );
 };
 

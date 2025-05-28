@@ -41,6 +41,11 @@ export const InformationLyceum = () => {
               </div>
             </div>
             <div className="lg:w-1/2 relative">
+              <img
+                src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt=""
+                className="shadow-lg w-full"
+              />
               <iframe
                 width="100%"
                 height="400"

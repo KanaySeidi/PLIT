@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
+import documentImg from "../../assets/img/document.webp"
 import documentImg from "../../assets/img/document.webp";
+
 
 export const Documents = () => {
   const { t } = useTranslation();
@@ -41,6 +43,7 @@ export const Documents = () => {
     <>
       <div className="flex flex-col lg:flex-row w-full">
         <div className="w-full lg:w-1/2 relative">
+          <img src={documentImg} alt="" className="w-full h-full object-cover" />
           <img
             src={documentImg}
             alt=""
@@ -53,6 +56,7 @@ export const Documents = () => {
               {t("documents.title")}
             </h1>
             <div className="w-20 h-1 bg-white mb-6"> </div>
+            <p className="text-base leading-relaxed mb-12 max-w-xl ">{t("documents.text")}</p>
             <p className="text-base leading-relaxed mb-12 max-w-xl leading-snug">
               {t("documents.text")}
             </p>
