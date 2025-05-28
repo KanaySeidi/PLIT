@@ -14,6 +14,7 @@ const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
+      <TeacherSl />
     </div>
   );
 };
