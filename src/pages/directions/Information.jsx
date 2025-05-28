@@ -32,4 +32,4 @@ const Information = () => {
     </>
   );
 };
-export default Exploitation;
+export default Information;

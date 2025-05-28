@@ -136,7 +136,7 @@ const TeacherSl = () => {
           <SwiperSlide key={idx}>
             <div
               onClick={() => handleTeacherClick(teacher)}
-              className={`flex flex-col items-center text-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ${
+              className={`flex flex-col items-center text-center bg-grey-400 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ${
                 teacher.hasDetails ? "cursor-pointer" : ""
               }`}
             >
