@@ -31,4 +31,4 @@ const AutoMechanic = () => {
     </>
   );
 };
-export default Exploitation;
+export default AutoMechanic;
