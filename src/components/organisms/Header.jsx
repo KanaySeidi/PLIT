@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import LanguageSwitcher from "../molecules/LanguageSwitcher";
-import MinLogo from "../atoms/MinLogo";
-import NormLogo from "../atoms/NormLogo";
 import MinLogoKy from "../atoms/MinLogoKy";
 import MinLogoRu from "../atoms/MinLogoRu";
 import NormLogoKy from "../atoms/NormLogoKy";

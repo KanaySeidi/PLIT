@@ -4,9 +4,6 @@ import TagCloud from "../../components/molecules/WordSphere";
 import MainCards from "../../components/atoms/MainCards";
 import hero from "../../assets/img/hero.png";
 import CountUp from "react-countup";
-import { useInView } from "react-intersection-observer";
-import ExampleTabs from "../../components/ExampleTabs";
-import Example from "../../components/Example";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
