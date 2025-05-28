@@ -5,6 +5,8 @@ import { TbEaseInOutControlPoints } from "react-icons/tb";
 import TeacherSl from "../../components/teachersSlider/TeacherSl";
 import TeacherInfo from "../../components/teachersSlider/Teacherinfo";
 
+
+
 const Layout = () => {
   return (
     <div>
