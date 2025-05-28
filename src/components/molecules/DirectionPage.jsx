@@ -147,16 +147,6 @@ const DirectionPage = ({
               <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-bordo">
                 {master}
               </h2>
-              <div className="space-y-3">
-                {[lvl1, lvl2, lvl3].map((level, index) => (
-                  <p
-                    key={index}
-                    className="text-white text-sm sm:text-base bg-white/10 backdrop-blur-sm p-3 rounded-lg"
-                  >
-                    {level}
-                  </p>
-                ))}
-              </div>
               <Example
                 question={
                   <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
