@@ -129,7 +129,7 @@ const DirectionPage = ({
             ].map((item, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-3 rounded-lg w-full sm:w-auto"
+                className="flex items-center gap-3  bg-white/10 backdrop-blur-sm p-3 rounded-lg w-full sm:w-auto"
               >
                 <img src={item.icon} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
                 <p className="text-white text-sm sm:text-base">{item.text}</p>
@@ -169,7 +169,7 @@ const DirectionPage = ({
             <motion.div className="lg:w-1/2 space-y-4" variants={itemVariants}>
               <Example
                 question={
-                  <div className="bg-[#A1012B] rounded-xl p-4 text-center text-white text-base sm:text-lg lg:text-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
+                  <div className="bg-bordo rounded-xl p-4 text-center text-white text-base sm:text-lg lg:text-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
                     {salary}
                   </div>
                 }
