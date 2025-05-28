@@ -1,4 +1,7 @@
 import {
+  HomePage,
+  CoursesPage,
+  InfoPage,
   AutoMechanic,
   Backend,
   Exploitation,
@@ -13,6 +16,9 @@ import {
 import TeacherInfo from "../components/teachersSlider/Teacherinfo";
 
 const routes = [
+  { path: "/home", element: <HomePage /> },
+  { path: "/courses", element: <CoursesPage /> },
+  { path: "/info", element: <InfoPage /> },
   { path: "/", element: <Main /> },
   { path: "/fr", element: <Frontend /> },
   { path: "/br", element: <Backend /> },
@@ -20,7 +26,7 @@ const routes = [
   { path: "/md", element: <MobileDevelopment /> },
   { path: "/sa", element: <SisAdm /> },
   { path: "/td", element: <TD /> },
-  { path: "/am", element: <AutoMechanic /> },
+  { path: "am", element: <AutoMechanic /> },
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
   { path: "/teacher/:id", element: <TeacherInfo /> }
