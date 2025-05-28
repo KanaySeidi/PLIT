@@ -65,17 +65,17 @@ const TeacherSl = () => {
   };
 
   return (
-    <div className="relative w-full py-6">
-      <div className="w-full flex justify-center text-2xl mb-4">
+    <div className="relative w-full py-4 bg-gray-200">
+      <div className="w-full flex justify-center text-xl mb-4">
         <p className="text-[#63001F] font-bold">Наши преподаватели</p>
       </div>
 
       <div
         ref={prevRef}
-        className="swiper-button-prev-custom absolute top-1/2 left-10 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-gray-100 cursor-pointer"
+        className="swiper-button-prev-custom absolute top-1/2 left-6 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-gray-100 cursor-pointer"
       >
         <svg
-          className="w-6 h-6 text-gray-600"
+          className="w-5 h-5 text-gray-600"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -91,10 +91,10 @@ const TeacherSl = () => {
 
       <div
         ref={nextRef}
-        className="swiper-button-next-custom absolute top-1/2 right-10 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-gray-100 cursor-pointer"
+        className="swiper-button-next-custom absolute top-1/2 right-6 transform -translate-y-1/2 z-10 bg-white p-2 rounded-full shadow hover:bg-gray-100 cursor-pointer"
       >
         <svg
-          className="w-6 h-6 text-gray-600"
+          className="w-5 h-5 text-gray-600"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -115,20 +115,24 @@ const TeacherSl = () => {
           swiper.params.navigation.nextEl = nextRef.current;
         }}
         pagination={{ clickable: true }}
-        spaceBetween={30}
-        slidesPerView={3}
+        spaceBetween={1} // Уменьшаем расстояние между карточками до минимума
+        slidesPerView={4}
         breakpoints={{
           320: {
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 1,
           },
-          768: {
+          640: {
             slidesPerView: 2,
-            spaceBetween: 30,
+            spaceBetween: 1,
+          },
+          868: {
+            slidesPerView: 4,
+            spaceBetween: 1,
           },
           1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
+            slidesPerView: 4,
+            spaceBetween: 1,
           },
         }}
       >
@@ -136,17 +140,17 @@ const TeacherSl = () => {
           <SwiperSlide key={idx}>
             <div
               onClick={() => handleTeacherClick(teacher)}
-              className={`flex flex-col items-center text-center bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ${
+              className={`flex flex-col items-center text-center bg-gray-50 p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-[320px] mx-auto mb-8 ${
                 teacher.hasDetails ? "cursor-pointer" : ""
               }`}
             >
               <img
                 src={teacher.img}
                 alt={teacher.name}
-                className="mb-4 w-full h-80 md:h-96 lg:h-[400px] object-cover rounded-lg transition-transform duration-300 hover:scale-105"
+                className="mb-3 w-full h-72 md:h-64 lg:h-72 object-cover rounded-lg transition-transform duration-300 hover:scale-105"
               />
               <p className="font-bold text-lg text-[#63001F]">{teacher.name}</p>
-              <p className="text-gray-700 mt-2">{teacher.role}</p>
+              <p className="text-gray-700 mt-2 text-base">{teacher.role}</p>
               {teacher.hasDetails && (
                 <span className="text-sm text-blue-600 mt-2">
                   Нажмите для подробной информации
