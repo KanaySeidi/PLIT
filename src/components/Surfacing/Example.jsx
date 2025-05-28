@@ -11,7 +11,7 @@ export default function Example({ question, answer }) {
       <Disclosure as="div" className="p-6">
         {({ open }) => (
           <>
-            <Disclosure.Button className="group flex w-full items-center justify-between">
+            <DisclosureButton className="group flex w-full items-center justify-between">
               <span className="text-sm/6 font-medium text-white group-hover:text-white/80">
                 {question}
               </span>
@@ -20,16 +20,16 @@ export default function Example({ question, answer }) {
                   open ? "rotate-180" : ""
                 }`}
               />
-            </Disclosure.Button>
+            </DisclosureButton>
 
             <div
               className={`overflow-hidden transition-all duration-500 ease-in-out ${
                 open ? "max-h-96 mt-2" : "max-h-0"
               }`}
             >
-              <Disclosure.Panel static>
+              <DisclosurePanel static>
                 <div className="text-sm/5 text-white/50">{answer}</div>
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </div>
           </>
         )}

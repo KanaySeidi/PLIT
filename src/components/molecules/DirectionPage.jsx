@@ -147,20 +147,20 @@ const DirectionPage = ({
               <Example
                 question={
                   <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
-                  {master}
-                </h2>
+                    {master}
+                  </h2>
                 }
                 answer={
                   <div className="space-y-3">
-                  {[lvl1, lvl2, lvl3].map((level, index) => (
-                    <p
-                      key={index}
-                      className="text-white text-sm sm:text-base bg-white/10 backdrop-blur-sm p-3 rounded-lg"
-                    >
-                      {level}
-                    </p>
-                  ))}
-                </div>
+                    {[lvl1, lvl2, lvl3].map((level, index) => (
+                      <p
+                        key={index}
+                        className="text-white text-sm sm:text-base bg-white/10 backdrop-blur-sm p-3 rounded-lg"
+                      >
+                        {level}
+                      </p>
+                    ))}
+                  </div>
                 }
               />
             </motion.div>
