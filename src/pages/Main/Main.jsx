@@ -1,4 +1,3 @@
-
 import { Atom, Calendar1, Contact, Handshake } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import TagCloud from "../../components/molecules/WordSphere";
@@ -16,21 +15,31 @@ const Main = () => {
   const missionRef = useRef(null);
   const directionRef = useRef(null);
 
- 
-  const isHeroTextInView = useInView(heroTextRef, { once: true, margin: "-50px" });
+  const isHeroTextInView = useInView(heroTextRef, {
+    once: true,
+    margin: "-50px",
+  });
   const isStatsInView = useInView(statsRef, { once: true, margin: "-50px" });
-  const isMissionInView = useInView(missionRef, { once: true, margin: "-50px" });
-  const isDirectionInView = useInView(directionRef, { once: true, margin: "-50px" });
+  const isMissionInView = useInView(missionRef, {
+    once: true,
+    margin: "-50px",
+  });
+  const isDirectionInView = useInView(directionRef, {
+    once: true,
+    margin: "-50px",
+  });
 
-  
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
     <div className="w-full h-auto bg-gray-400">
-      
       <div className="w-full h-[300px] md:h-[500px] relative">
         <img src={hero} alt="Hero" className="w-full h-full object-cover" />
         <motion.div
@@ -41,11 +50,12 @@ const Main = () => {
           animate={isHeroTextInView ? "visible" : "hidden"}
         >
           <p className="text-white text-lg md:text-xl">{t("PLIT")}</p>
-          <p className="text-white text-2xl md:text-4xl mt-2 md:mt-4">{t("PLITDeviz")}</p>
+          <p className="text-white text-2xl md:text-4xl mt-2 md:mt-4">
+            {t("PLITDeviz")}
+          </p>
         </motion.div>
       </div>
 
-   
       <div className="w-11/12 md:w-11/12 mx-auto">
         <motion.div
           ref={statsRef}
@@ -55,52 +65,70 @@ const Main = () => {
           animate={isStatsInView ? "visible" : "hidden"}
         >
           <div className="w-11/12 mx-auto flex flex-col justify-center py-6 md:py-0">
-            <p className="text-2xl md:text-3xl text-white text-center">{t("PLITNum")}</p>
+            <p className="text-2xl md:text-3xl text-white text-center">
+              {t("PLITNum")}
+            </p>
             <div className="w-full flex flex-col md:flex-row justify-around mt-6 md:mt-10 gap-4 md:gap-2">
               <div className="flex gap-2 items-center">
                 <Calendar1 color="white" size={60} md={{ size: 90 }} />
                 <div className="flex flex-col h-full justify-center">
                   <p className="text-2xl md:text-3xl text-white">
                     {isStatsInView && (
-                      <CountUp start={0} end={1971} duration={2} useGrouping={false} />
+                      <CountUp
+                        start={0}
+                        end={1971}
+                        duration={2}
+                        useGrouping={false}
+                      />
                     )}
                   </p>
-                  <p className="text-base md:text-xl text-white">{t("numCard1")}</p>
+                  <p className="text-base md:text-xl text-white">
+                    {t("numCard1")}
+                  </p>
                 </div>
               </div>
               <div className="flex gap-2 items-center">
                 <Atom color="white" size={60} md={{ size: 90 }} />
                 <div className="flex flex-col h-full justify-center">
                   <p className="text-2xl md:text-3xl text-white">
-                    {isStatsInView && <CountUp start={0} end={630} duration={2.5} />}
+                    {isStatsInView && (
+                      <CountUp start={0} end={630} duration={2.5} />
+                    )}
                   </p>
-                  <p className="text-base md:text-xl text-white">{t("numCard2")}</p>
+                  <p className="text-base md:text-xl text-white">
+                    {t("numCard2")}
+                  </p>
                 </div>
               </div>
               <div className="flex gap-2 items-center">
                 <Contact color="white" size={60} md={{ size: 90 }} />
                 <div className="flex flex-col h-full justify-center">
                   <p className="text-2xl md:text-3xl text-white">
-
-
-{isStatsInView && <CountUp start={0} end={10000} duration={2} />}
+                    {isStatsInView && (
+                      <CountUp start={0} end={10000} duration={2} />
+                    )}
                   </p>
-                  <p className="text-base md:text-xl text-white">{t("numCard3")}</p>
+                  <p className="text-base md:text-xl text-white">
+                    {t("numCard3")}
+                  </p>
                 </div>
               </div>
               <div className="flex gap-2 items-center">
                 <Handshake color="white" size={60} md={{ size: 90 }} />
                 <div className="flex flex-col h-full justify-center">
                   <p className="text-2xl md:text-3xl text-white">
-                    {isStatsInView && <CountUp start={0} end={20} duration={4} />}
+                    {isStatsInView && (
+                      <CountUp start={0} end={20} duration={4} />
+                    )}
                   </p>
-                  <p className="text-base md:text-xl text-white">{t("numCard4")}</p>
+                  <p className="text-base md:text-xl text-white">
+                    {t("numCard4")}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </motion.div>
-
 
         <motion.div
           ref={missionRef}
@@ -111,8 +139,12 @@ const Main = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="w-full md:w-1/2 px-4 md:px-0">
-              <p className="text-bordo text-2xl md:text-4xl mb-6 md:mb-10">{t("ourMission")}</p>
-              <p className="text-bordo text-lg md:text-xl mb-3">{t("keyOfSuccess")}</p>
+              <p className="text-bordo text-2xl md:text-4xl mb-6 md:mb-10">
+                {t("ourMission")}
+              </p>
+              <p className="text-bordo text-lg md:text-xl mb-3">
+                {t("keyOfSuccess")}
+              </p>
               <p className="text-justify text-base md:text-lg text-bordo">
                 {t("keyOfSuccessText")}
               </p>
