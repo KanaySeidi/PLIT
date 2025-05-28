@@ -1,18 +1,16 @@
-import DirectionAM from "../../components/molecules/DirectionAM";
+import DirectionPage from "../../components/molecules/DirectionPage";
 import { useTranslation } from "react-i18next";
 
 import Cimg from "../../assets/img/CarMechanic.jpg";
-import Cimg2 from "../../assets/img/CarMechanic2.jpg"
+import Cimg2 from "../../assets/img/CarMechanic2.jpg";
 import time from "../../assets/icon/time.svg";
 import money from "../../assets/icon/money.svg";
-
-
-export const AutoMechanic = () => {
+const AutoMechanic = () => {
   const { t } = useTranslation();
 
   return (
     <>
-      <DirectionAM
+      <DirectionPage
         image={Cimg}
         image1={Cimg2}
         title={t("AutoMechanic.title")}
@@ -33,3 +31,4 @@ export const AutoMechanic = () => {
     </>
   );
 };
+export default AutoMechanic;

@@ -41,11 +41,15 @@ export const InformationLyceum = () => {
               </div>
             </div>
             <div className="lg:w-1/2 relative">
-              <img
-                src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt=""
+              <iframe
+                width="100%"
+                height="400"
+                src="https://www.youtube.com/embed/Sm2e3PeHQbI"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
                 className="shadow-lg w-full"
-              />
+              ></iframe>
             </div>
           </div>
         </div>
