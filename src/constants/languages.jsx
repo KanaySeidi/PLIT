@@ -3,12 +3,12 @@ import KG from "../assets/icon/flag-of-kyrgyzstan.svg";
 export const languages = [
   {
     title: "KG",
-    key: "ky",
+    key: "KG",
     img: KG,
   },
   {
     title: "RU",
-    key: "ru",
+    key: "RU",
     img: RU,
   },
 ];
