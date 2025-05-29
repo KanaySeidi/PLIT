@@ -1,4 +1,4 @@
-import minLogo from "../../assets/icon/kg_cut.png";
+import minLogo from "../../assets/icon/kg_сut.png";
 
 const MinLogoKy = () => {
   return (
