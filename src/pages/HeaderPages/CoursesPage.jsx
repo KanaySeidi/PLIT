@@ -1,5 +1,222 @@
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+
 const CoursesPage = () => {
-  return <div>Это страница курсов</div>;
+  const [openSections, setOpenSections] = useState({
+    sports: false,
+    language: false,
+    professional: false,
+  });
+
+  const toggleSection = (section) => {
+    setOpenSections((prev) => ({
+      sports: section === "sports" ? !prev.sports : false,
+      language: section === "language" ? !prev.language : false,
+      professional: section === "professional" ? !prev.professional : false,
+    }));
+  };
+
+  const sportsCourses = [
+    {
+      id: 1,
+      title: "Фитнес для начинающих",
+      price: "$20",
+      lessons: "Час за урок",
+    },
+    { id: 2, title: "Йога для здоровья", price: "$25", lessons: "Час за урок" },
+    {
+      id: 3,
+      title: "Плавание для детей",
+      price: "$15",
+      lessons: "Час за урок",
+    },
+    {
+      id: 4,
+      title: "Теннис для взрослых",
+      price: "$30",
+      lessons: "Час за урок",
+    },
+    {
+      id: 5,
+      title: "Бег для выносливости",
+      price: "$18",
+      lessons: "Час за урок",
+    },
+  ];
+
+  const languageCourses = [
+    {
+      id: 1,
+      title: "Английский для начинающих",
+      price: "$25",
+      lessons: "Час за урок",
+    },
+    {
+      id: 2,
+      title: "Испанский интенсив",
+      price: "$30",
+      lessons: "Час за урок",
+    },
+    {
+      id: 3,
+      title: "Французский для детей",
+      price: "$20",
+      lessons: "Час за урок",
+    },
+    {
+      id: 4,
+      title: "Немецкий для работы",
+      price: "$35",
+      lessons: "Час за урок",
+    },
+    {
+      id: 5,
+      title: "Итальянский для путешествий",
+      price: "$22",
+      lessons: "Час за урок",
+    },
+  ];
+
+  const professionalCourses = [
+    {
+      id: 1,
+      title: "Программирование на Python",
+      price: "$40",
+      lessons: "Час за урок",
+    },
+    {
+      id: 2,
+      title: "Графический дизайн",
+      price: "$35",
+      lessons: "Час за урок",
+    },
+    {
+      id: 3,
+      title: "Маркетинг для начинающих",
+      price: "$30",
+      lessons: "Час за урок",
+    },
+    {
+      id: 4,
+      title: "Управление проектами",
+      price: "$45",
+      lessons: "Час за урок",
+    },
+    {
+      id: 5,
+      title: "Финансовая грамотность",
+      price: "$25",
+      lessons: "Час за урок",
+    },
+  ];
+
+  const CourseCard = ({ title, price, lessons }) => (
+    <motion.div
+      className="bg-white rounded-xl overflow-hidden flex flex-col items-center p-4 text-[#A1012B] hover:scale-[1.02] transition-transform duration-300 shadow-lg"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="w-full h-32 bg-white/20 rounded-lg flex items-center justify-center">
+        <span className="text-[#A1012B] text-sm">Изображение</span>
+      </div>
+      <h3 className="text-lg font-semibold mt-4 text-center">{title}</h3>
+      <p className="text-xl font-bold mt-2">{price}</p>
+      <p className="text-sm">{lessons}</p>
+    </motion.div>
+  );
+
+  const Section = ({ title, courses, sectionKey }) => (
+    <motion.div
+      className="mb-6 rounded-xl overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+    >
+      <button
+        onClick={() => toggleSection(sectionKey)}
+        className="w-full text-left text-2xl font-bold text-white flex items-center justify-between py-4 px-6 bg-[#A1012B] hover:bg-[#8B0126] transition-colors"
+      >
+        {title}
+        {openSections[sectionKey] ? (
+          <FaAngleUp className="text-white text-2xl" />
+        ) : (
+          <FaAngleDown className="text-white text-2xl" />
+        )}
+      </button>
+      <AnimatePresence>
+        {openSections[sectionKey] && (
+          <motion.div
+            className="bg-black/30 p-6"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+              {courses.map((course) => (
+                <CourseCard
+                  key={course.id}
+                  title={course.title}
+                  price={course.price}
+                  lessons={course.lessons}
+                />
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+
+  return (
+    <motion.div
+      className="min-h-screen bg-gray-300 text-white"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <header className="bg-[#A1012B] py-6 text-center">
+        <motion.h1
+          className="text-4xl font-bold"
+          initial={{ y: -20 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Наши курсы
+        </motion.h1>
+        <motion.p
+          className="mt-2 text-lg max-w-3xl mx-auto"
+          initial={{ y: -20 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          Курсы 99 лицея — языковая точность и спортивная выносливость. Теория
+          сочетается с практикой, движения — с дисциплиной, а знания — с
+          уверенностью. Каждый участник — на пути к новым вершинам.
+        </motion.p>
+      </header>
+
+      <main className="max-w-7xl mx-auto p-6">
+        <Section
+          title="Спортивные курсы"
+          courses={sportsCourses}
+          sectionKey="sports"
+        />
+        <Section
+          title="Языковые курсы"
+          courses={languageCourses}
+          sectionKey="language"
+        />
+        <Section
+          title="Профессиональные курсы"
+          courses={professionalCourses}
+          sectionKey="professional"
+        />
+      </main>
+    </motion.div>
+  );
 };
 
 export default CoursesPage;
