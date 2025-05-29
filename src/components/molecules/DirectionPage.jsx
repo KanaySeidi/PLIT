@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Example from "../Surfacing/Example";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -146,36 +147,55 @@ const DirectionPage = ({
               <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-bordo">
                 {master}
               </h2>
-              <div className="space-y-3">
-                {[lvl1, lvl2, lvl3].map((level, index) => (
-                  <p
-                    key={index}
-                    className="text-white text-sm sm:text-base bg-white/10 backdrop-blur-sm p-3 rounded-lg"
-                  >
-                    {level}
-                  </p>
-                ))}
-              </div>
+              <Example
+                question={
+                  <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
+                    {master}
+                  </h2>
+                }
+                answer={
+                  <div className="space-y-3">
+                    {[lvl1, lvl2, lvl3].map((level, index) => (
+                      <p
+                        key={index}
+                        className="text-white text-sm sm:text-base bg-white/10 backdrop-blur-sm p-3 rounded-lg"
+                      >
+                        {level}
+                      </p>
+                    ))}
+                  </div>
+                }
+              />
             </motion.div>
 
             {/* Правая колонка */}
             <motion.div className="lg:w-1/2 space-y-4" variants={itemVariants}>
-              <div className="bg-bordo rounded-xl p-4 text-center text-white text-base sm:text-lg lg:text-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
-                {salary}
-              </div>
-              <div className="space-y-3">
-                {levels.map((level) => (
-                  <div
-                    key={level.id}
-                    className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-3 rounded-lg"
-                  >
-                    <img src={icon2} alt="" className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <p className="text-white text-sm sm:text-base">
-                      {level.text}
-                    </p>
+              <Example
+                question={
+                  <div className="bg-[#A1012B] rounded-xl p-4 text-center text-white text-base sm:text-lg lg:text-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
+                    {salary}
                   </div>
-                ))}
-              </div>
+                }
+                answer={
+                  <div className="space-y-3">
+                    {levels.map((level) => (
+                      <div
+                        key={level.id}
+                        className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-3 rounded-lg"
+                      >
+                        <img
+                          src={icon2}
+                          alt=""
+                          className="w-4 h-4 sm:w-5 sm:h-5"
+                        />
+                        <p className="text-white text-sm sm:text-base">
+                          {level.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                }
+              />
             </motion.div>
           </motion.div>
         </motion.div>

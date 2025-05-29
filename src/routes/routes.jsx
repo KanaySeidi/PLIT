@@ -13,6 +13,7 @@ import {
   SisAdm,
   TD,
 } from "../pages";
+import TeacherInfo from "../components/teachersSlider/Teacherinfo";
 
 const routes = [
   { path: "/home", element: <HomePage /> },
@@ -28,5 +29,6 @@ const routes = [
   { path: "am", element: <AutoMechanic /> },
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
+  { path: "/teacher/:id", element: <TeacherInfo /> }
 ];
 export default routes;
