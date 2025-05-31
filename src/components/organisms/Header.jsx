@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import LanguageSwitcher from "../molecules/LanguageSwitcher";
 import MinLogoKy from "../atoms/MinLogoKy";
 import MinLogoRu from "../atoms/MinLogoRu";
@@ -11,9 +12,11 @@ import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
+  const location = useLocation();
   const [isScroll, setIsScroll] = useState(false);
   const [isKG, setIsKy] = useState(i18n.language === "KG");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   // Обработка скролла
   useEffect(() => {
@@ -35,6 +38,10 @@ const Header = () => {
       i18n.off("languageChanged", handleLangChange);
     };
   }, [i18n]);
+
+  useEffect(() => {
+    setIsPopoverOpen(false); // Закрыть Popover при изменении пути
+  }, [location.pathname]);
 
   // Выбор логотипа
   const renderLogo = () => {
@@ -64,29 +71,34 @@ const Header = () => {
               <Popover>
                 {({ open }) => (
                   <>
-                    <PopoverButton className="focus:outline-none">
+                    <PopoverButton
+                      className="focus:outline-none"
+                      onClick={() => setIsPopoverOpen(!isPopoverOpen)}
+                    >
                       {t("header.info")}
                     </PopoverButton>
-                    <PopoverPanel
-                      className={`absolute ml-[-26px] mt-2 w-46 bg-[#63001F] text-white shadow-lg rounded-lg transition-opacity duration-300 ${
-                        open ? "opacity-100 visible" : "opacity-0 invisible"
-                      }`}
-                    >
-                      <div className="p-2 flex flex-col text-white">
-                        <Link
-                          to="/info/applicant"
-                          className="block px-3 py-2 hover:bg-gray-400 rounded"
-                        >
-                          {t("info.applicant")}
-                        </Link>
-                        <Link
-                          to="/info/docs"
-                          className="block px-3 py-2 hover:bg-gray-400 rounded"
-                        >
-                          {t("info.docs")}
-                        </Link>
-                      </div>
-                    </PopoverPanel>
+                    {isPopoverOpen && (
+                      <PopoverPanel
+                        className={`absolute ml-[-26px] mt-2 w-46 bg-[#63001F] text-white shadow-lg rounded-lg transition-opacity duration-300 ${
+                          open ? "opacity-100 visible" : "opacity-0 invisible"
+                        }`}
+                      >
+                        <div className="p-2 flex flex-col text-white">
+                          <Link
+                            to="/info/applicant"
+                            className="block px-3 py-2 hover:bg-gray-400 rounded"
+                          >
+                            {t("info.applicant")}
+                          </Link>
+                          <Link
+                            to="/info/docs"
+                            className="block px-3 py-2 hover:bg-gray-400 rounded"
+                          >
+                            {t("info.docs")}
+                          </Link>
+                        </div>
+                      </PopoverPanel>
+                    )}
                   </>
                 )}
               </Popover>
