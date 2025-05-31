@@ -1,11 +1,3 @@
-
-import AboutPage from "../about/About";
-
-const CoursesPage = () => {
-  return <div>
-    <AboutPage />
-  </div>;
-
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
@@ -231,7 +223,6 @@ const CoursesPage = () => {
       </main>
     </motion.div>
   );
-
 };
 
 export default CoursesPage;

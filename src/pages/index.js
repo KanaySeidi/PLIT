@@ -1,7 +1,5 @@
-export { HomePage } from "./HeaderPages/HomePage.async";
 export { CoursesPage } from "./HeaderPages/CouresPage.async";
 export { InfoPage } from "./HeaderPages/InfoPage.async";
-0;
 export { Main } from "./Main/Main.async";
 export { Frontend } from "./directions/Frontend.async";
 export { TD } from "./directions/TD.async";
@@ -13,3 +11,6 @@ export { Information } from "./directions/Information.async";
 export { Exploitation } from "./directions/Exploitation.async";
 export { AutoMechanic } from "./directions/AutoMechanic.async";
 export { LDocs } from "./HeaderPages/LDocs.async";
+export { About } from "./about/About.async"
+export { Teacherinfo } from "./HeaderPages/Teacherinfo.async"
+export {Students} from "./HeaderPages/Students.async"

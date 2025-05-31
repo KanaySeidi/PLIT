@@ -18,7 +18,7 @@ const skillBarVariants = {
   }),
 };
 
-export const TeacherInfo = () => {
+const Teacherinfo = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -31,6 +31,9 @@ export const TeacherInfo = () => {
     triggerOnce: false,
     threshold: 0.2,
   });
+
+  console.log(teachers);
+  
 
   useEffect(() => {
     if (inView) {
@@ -179,4 +182,4 @@ export const TeacherInfo = () => {
   );
 };
 
-export default TeacherInfo;
+export default Teacherinfo;
