@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const CoursesPage = () => {
+  const { t } = useTranslation();
+
   const [openSections, setOpenSections] = useState({
     sports: false,
     language: false,
@@ -189,7 +192,7 @@ const CoursesPage = () => {
           animate={{ y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Наши курсы
+          {t("curs.cursi")}
         </motion.h1>
         <motion.p
           className="mt-2 text-lg max-w-3xl mx-auto"
@@ -197,25 +200,23 @@ const CoursesPage = () => {
           animate={{ y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Курсы 99 лицея — языковая точность и спортивная выносливость. Теория
-          сочетается с практикой, движения — с дисциплиной, а знания — с
-          уверенностью. Каждый участник — на пути к новым вершинам.
+          {t("curs.cur")}
         </motion.p>
       </header>
 
       <main className="max-w-7xl mx-auto p-6">
         <Section
-          title="Спортивные курсы"
+          title={t("courses.sports")}
           courses={sportsCourses}
           sectionKey="sports"
         />
         <Section
-          title="Языковые курсы"
+          title={t("courses.language")}
           courses={languageCourses}
           sectionKey="language"
         />
         <Section
-          title="Профессиональные курсы"
+          title={t("courses.professional")}
           courses={professionalCourses}
           sectionKey="professional"
         />
