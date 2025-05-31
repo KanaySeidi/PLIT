@@ -11,3 +11,4 @@ export { MobileDevelopment } from "./directions/MobileDevelopment.async";
 export { Information } from "./directions/Information.async";
 export { Exploitation } from "./directions/Exploitation.async";
 export { AutoMechanic } from "./directions/AutoMechanic.async";
+export { LDocs } from "./HeaderPages/LDocs.async";
