@@ -361,7 +361,7 @@ export default Header;
               isScroll ? "text-white" : "text-[#63001F]"
             }`}
           >
-            <div className="flex justify-between gap-3 text-2xl w-1/3">
+            <div className="flex justify-between text-md w-1/3 -ml-5">
               <Link to="/">{t("header.home")}</Link>
               <Link to="/courses">{t("header.course")}</Link>
               <Link to="/info">{t("header.info")}</Link>
@@ -386,7 +386,7 @@ export default Header;
 
       <div className="w-full h-14 bg-white mt-14">
         <div className="w-11/12 h-full mx-auto flex justify-between items-center">
-          <div className="flex justify-between gap-3 text-2xl w-1/3">
+          <div className="flex justify-between text-md w-1/3 -ml-5">
             <Link to="/">{t("header.home")}</Link>
             <Link to="/courses">{t("header.course")}</Link>
             <Link to="/info">{t("header.info")}</Link>
