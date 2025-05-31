@@ -5,13 +5,14 @@ import MinLogoRu from "../atoms/MinLogoRu";
 import NormLogoKy from "../atoms/NormLogoKy";
 import NormLogoRu from "../atoms/NormLogoRu";
 import { useTranslation } from "react-i18next";
-import BurgerMenu from "../../BurgerMenu"
+import { Link } from "react-router-dom";
+import BurgerMenu from "../../BurgerMenu";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
   const [isScroll, setIsScroll] = useState(false);
+  const [isKG, setIsKy] = useState(i18n.language === "KG");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isKy, setIsKy] = useState(false);
 
   // Обработка скролла
   useEffect(() => {
@@ -25,7 +26,7 @@ const Header = () => {
   // Подписка на смену языка
   useEffect(() => {
     const handleLangChange = (lng) => {
-      setIsKy(lng === "ky");
+      setIsKy(lng === "KG");
     };
 
     i18n.on("languageChanged", handleLangChange);
@@ -36,10 +37,10 @@ const Header = () => {
 
   // Выбор логотипа
   const renderLogo = () => {
-    if (isScroll || isKy) {
-      return isKy ? <MinLogoKy /> : <MinLogoRu />;
+    if (isKG) {
+      return isScroll ? <MinLogoKy /> : <NormLogoKy />;
     } else {
-      return isKy ? <NormLogoKy /> : <NormLogoRu />;
+      return isScroll ? <MinLogoRu /> : <NormLogoRu />;
     }
   };
 
@@ -56,10 +57,10 @@ const Header = () => {
               isScroll ? "text-white" : "text-[#63001F] "
             }`}
           >
-            <div className="flex justify-between gap-3 text-2xl w-1/3">
-              <p>{t("header.home")}</p>
-              <p>{t("header.course")}</p>
-              <p>{t("header.info")}</p>
+            <div className="flex justify-between text-md w-1/3 -ml-5">
+              <Link to="/">{t("header.home")}</Link>
+              <Link to="/courses">{t("header.course")}</Link>
+              <Link to="/info">{t("header.info")}</Link>
             </div>
             <div className="md:hidden flex w-1/3 ">
               <BurgerMenu
@@ -78,13 +79,13 @@ const Header = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="w-full h-14 bg-white mt-14">
         <div className="w-11/12 h-full mx-auto flex justify-between items-center">
-          <div className="flex justify-between gap-3 text-2xl w-1/3">
-            <p>{t("header.home")}</p>
-            <p>{t("header.course")}</p>
-            <p>{t("header.info")}</p>
+          <div className="flex justify-between text-md w-1/3 -ml-5">
+            <Link to="/">{t("header.home")}</Link>
+            <Link to="/courses">{t("header.course")}</Link>
+            <Link to="/info">{t("header.info")}</Link>
           </div>
 
           <div className="flex text-[#63001F] justify-end items-center gap-3 text-2xl w-1/3">

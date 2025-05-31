@@ -132,7 +132,7 @@ const DirectionPage = ({
                 className="flex items-center gap-3  bg-white/10 backdrop-blur-sm p-3 rounded-lg w-full sm:w-auto"
               >
                 <img src={item.icon} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
-                <p className="text-white text-sm sm:text-base">{item.text}</p>
+                <p className="text-bordo text-sm sm:text-base">{item.text}</p>
               </div>
             ))}
           </motion.div>
