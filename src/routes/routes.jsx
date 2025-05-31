@@ -29,6 +29,6 @@ const routes = [
   { path: "am", element: <AutoMechanic /> },
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
-  { path: "/teacher/:id", element: <TeacherInfo /> }
+  { path: "/teacher/:id", element: <TeacherInfo /> },
 ];
 export default routes;
