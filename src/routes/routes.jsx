@@ -12,6 +12,7 @@ import {
   MobileDevelopment,
   SisAdm,
   TD,
+  LDocs,
 } from "../pages";
 import TeacherInfo from "../components/teachersSlider/Teacherinfo";
 
@@ -30,5 +31,6 @@ const routes = [
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
   { path: "/teacher/:id", element: <TeacherInfo /> },
+  { path: "/info/docs", element: <LDocs /> },
 ];
 export default routes;
