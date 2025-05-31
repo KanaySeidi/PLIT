@@ -1,5 +1,9 @@
+import AboutPage from "../about/About";
+
 const CoursesPage = () => {
-  return <div>Это страница курсов</div>;
+  return <div>
+    <AboutPage />
+  </div>;
 };
 
 export default CoursesPage;

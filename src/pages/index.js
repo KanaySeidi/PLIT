@@ -1,6 +1,7 @@
 export { HomePage } from "./HeaderPages/HomePage.async";
 export { CoursesPage } from "./HeaderPages/CouresPage.async";
 export { InfoPage } from "./HeaderPages/InfoPage.async";
+0;
 export { Main } from "./Main/Main.async";
 export { Frontend } from "./directions/Frontend.async";
 export { TD } from "./directions/TD.async";
