@@ -6,7 +6,6 @@ import hero from "../../assets/img/hero.png";
 import CountUp from "react-countup";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import PDFViewer from "../../docsviewer/PDFViewer";
 
 const Main = () => {
   const { t } = useTranslation();
@@ -155,7 +154,6 @@ const Main = () => {
             </div>
           </div>
         </motion.div>
-        
 
         <motion.div
           ref={directionRef}
