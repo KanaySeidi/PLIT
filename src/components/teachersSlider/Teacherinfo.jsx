@@ -156,24 +156,15 @@ export const TeacherInfo = () => {
 
               {teacher.skills && teacher.skills.length > 0 && (
                 <div ref={ref}>
-                  <h3 className="text-2xl font-semibold text-[#63001F] mb-6">
-                    Профессиональные навыки
+                  <h3 className="text-2xl font-semibold text-[#63001F] mb-6 mt-20">
+                    Немного о себе
                   </h3>
                   <div className="space-y-4">
                     {teacher.skills.map((skill, index) => (
                       <div key={index}>
                         <div className="flex justify-between mb-2">
-                          <span className="font-medium">{skill.name}</span>
-                          <span>{skill.level}%</span>
-                        </div>
-                        <div className="h-2 bg-gray-200 rounded-full">
-                          <motion.div
-                            className="h-full bg-[#63001F] rounded-full"
-                            initial="hidden"
-                            animate={controls}
-                            variants={skillBarVariants}
-                            custom={skill.level}
-                          />
+                          {" "}
+                          <span className="font-medium">{skill.about}</span>
                         </div>
                       </div>
                     ))}
