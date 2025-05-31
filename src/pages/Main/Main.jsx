@@ -154,6 +154,7 @@ const Main = () => {
             </div>
           </div>
         </motion.div>
+
         <motion.div
           ref={directionRef}
           className="w-full h-[1200px] bg-bordo flex items-center shadow-2xl"

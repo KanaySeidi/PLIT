@@ -1,5 +1,10 @@
 const InfoPage = () => {
-  return <div>Это страница информации</div>;
+  return;
+  <>
+    <div>
+      <h1>Hello World</h1>
+    </div>
+  </>;
 };
 
 export default InfoPage;
