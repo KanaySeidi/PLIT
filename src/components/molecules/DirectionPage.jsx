@@ -169,7 +169,10 @@ const DirectionPage = ({
             </motion.div>
 
             {/* Правая колонка */}
-            <motion.div className="lg:w-1/2 space-y-4" variants={itemVariants}>
+            <motion.div
+              className="lg:w-1/2 space-y-4 mt-10"
+              variants={itemVariants}
+            >
               <Example
                 question={
                   <div className="bg-[#A1012B] rounded-xl p-4 text-center text-white text-base sm:text-lg lg:text-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
