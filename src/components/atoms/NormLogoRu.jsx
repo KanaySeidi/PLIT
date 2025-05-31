@@ -1,4 +1,4 @@
-import logo from "../../assets/icon/rusLogo.png";
+import logo from "../../assets/icon/rus_logo.png";
 
 const NormLogoRu = () => {
   return (
