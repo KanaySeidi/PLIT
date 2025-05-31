@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import {useLocation} from "react-router-dom"
 import LanguageSwitcher from "../molecules/LanguageSwitcher";
 import MinLogoKy from "../atoms/MinLogoKy";
 import MinLogoRu from "../atoms/MinLogoRu";
@@ -11,9 +12,11 @@ import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
+  const location = useLocation()
   const [isScroll, setIsScroll] = useState(false);
   const [isKG, setIsKy] = useState(i18n.language === "KG");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isPopoverOpen, setIsPopoverOpen ] =useState(false);
 
   // Обработка скролла
   useEffect(() => {
@@ -35,6 +38,10 @@ const Header = () => {
       i18n.off("languageChanged", handleLangChange);
     };
   }, [i18n]);
+
+  useEffect(() => {
+    setIsPopoverOpen(false);
+  }, [location.pathname]);
 
   // Выбор логотипа
   const renderLogo = () => {
@@ -64,10 +71,14 @@ const Header = () => {
               <Popover>
                 {({ open }) => (
                   <>
-                    <PopoverButton className="focus:outline-none">
+                    <PopoverButton 
+                     className="focus:outline-none"
+                     onClick={() => setIsPopoverOpen(!isPopoverOpen)}
+                    >
                       {t("header.info")}
                     </PopoverButton>
-                    <PopoverPanel
+                    {isPopoverOpen && (
+                      <PopoverPanel
                       className={`absolute ml-[-26px] mt-2 w-46 bg-[#63001F] text-white shadow-lg rounded-lg transition-opacity duration-300 ${
                         open ? "opacity-100 visible" : "opacity-0 invisible"
                       }`}
@@ -87,6 +98,7 @@ const Header = () => {
                         </Link>
                       </div>
                     </PopoverPanel>
+                    )}
                   </>
                 )}
               </Popover>
@@ -112,9 +124,11 @@ const Header = () => {
                 <Popover className="relative mr-20 text-base">
                   {({ open }) => (
                     <>
-                      <PopoverButton className="focus:outline-none">
+                      <PopoverButton className="focus:outline-none"
+                      onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
                         {t("header.news")}
                       </PopoverButton>
+                      {isPopoverOpen && (
                       <PopoverPanel
                         className={`absolute ml-[-38px] mt-2 w-46 bg-[#63001F] shadow-lg rounded-lg transition-opacity duration-300 ${
                           open ? "opacity-100 visible" : "opacity-0 invisible"
@@ -140,16 +154,18 @@ const Header = () => {
                             {t("news.lifeLyceum")}
                           </Link>
                         </div>
-                      </PopoverPanel>
+                      </PopoverPanel>)}
                     </>
                   )}
                 </Popover>
                 <Popover className="relative">
                   {({ open }) => (
                     <>
-                      <PopoverButton className="focus:outline-none">
+                      <PopoverButton className="focus:outline-none"
+                      onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
                         {t("header.plit")}
                       </PopoverButton>
+                      {isPopoverOpen && (
                       <PopoverPanel
                         className={`absolute ml-[-60px] mt-2 w-46 bg-[#63001F] shadow-lg rounded-lg transition-opacity duration-300 ${
                           open ? "opacity-100 visible" : "opacity-0 invisible"
@@ -181,7 +197,7 @@ const Header = () => {
                             {t("plit.masters")}
                           </Link>
                         </div>
-                      </PopoverPanel>
+                      </PopoverPanel>)}
                     </>
                   )}
                 </Popover>
@@ -201,9 +217,11 @@ const Header = () => {
             <Popover className="relative z-20">
               {({ open }) => (
                 <>
-                  <PopoverButton className="focus:outline-none">
+                  <PopoverButton className="focus:outline-none"
+                  onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
                     {t("header.info")}
                   </PopoverButton>
+                  {isPopoverOpen && (
                   <PopoverPanel
                     className={`absolute ml-[-20px] mt-2 w-46 text-base bg-white shadow-lg rounded-lg transition-opacity duration-300 ${
                       open ? "opacity-100 visible" : "opacity-0 invisible"
@@ -223,7 +241,7 @@ const Header = () => {
                         {t("info.docs")}
                       </Link>
                     </div>
-                  </PopoverPanel>
+                  </PopoverPanel>)}
                 </>
               )}
             </Popover>
@@ -233,9 +251,11 @@ const Header = () => {
             <Popover className="relative z-20 mr-8">
               {({ open }) => (
                 <>
-                  <PopoverButton className="focus:outline-none">
+                  <PopoverButton className="focus:outline-none"
+                  onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
                     {t("header.news")}
                   </PopoverButton>
+                  {isPopoverOpen && (
                   <PopoverPanel
                     className={`absolute ml-[-38px] mt-2 w-46 bg-white shadow-lg rounded-lg transition-opacity duration-300 ${
                       open ? "opacity-100 visible" : "opacity-0 invisible"
@@ -261,16 +281,18 @@ const Header = () => {
                         {t("news.lifeLyceum")}
                       </Link>
                     </div>
-                  </PopoverPanel>
+                  </PopoverPanel>)}
                 </>
               )}
             </Popover>
             <Popover className="relative z-20">
               {({ open }) => (
                 <>
-                  <PopoverButton className="focus:outline-none">
+                  <PopoverButton className="focus:outline-none"
+                  onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
                     {t("header.plit")}
                   </PopoverButton>
+                  {isPopoverOpen && (
                   <PopoverPanel
                     className={`absolute ml-[-60px] mt-2 w-46 bg-white shadow-lg rounded-lg transition-opacity duration-300 ${
                       open ? "opacity-100 visible" : "opacity-0 invisible"
@@ -302,7 +324,7 @@ const Header = () => {
                         {t("plit.masters")}
                       </Link>
                     </div>
-                  </PopoverPanel>
+                  </PopoverPanel>)}
                 </>
               )}
             </Popover>
@@ -319,9 +341,11 @@ const Header = () => {
           <Popover className="relative z-50">
             {({ open }) => (
               <>
-                <PopoverButton className="focus:outline-none">
+                <PopoverButton className="focus:outline-none"
+                onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
                   {t("header.info")}
                 </PopoverButton>
+                {isPopoverOpen && (
                 <PopoverPanel
                   className={`absolute ml-[-20px] mt-2 w-46 bg-white shadow-lg rounded-lg transition-opacity duration-300 ${
                     open ? "opacity-100 visible" : "opacity-0 invisible"
@@ -341,7 +365,7 @@ const Header = () => {
                       {t("info.docs")}
                     </Link>
                   </div>
-                </PopoverPanel>
+                </PopoverPanel>)}
               </>
             )}
           </Popover>
