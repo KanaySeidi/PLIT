@@ -13,4 +13,5 @@ export { AutoMechanic } from "./directions/AutoMechanic.async";
 export { LDocs } from "./HeaderPages/LDocs.async";
 export { About } from "./about/About.async"
 export { Teacherinfo } from "./HeaderPages/Teacherinfo.async"
-export {Students} from "./HeaderPages/Students.async"
+export { Students} from "./HeaderPages/Students.async"
+export { NPA } from "./HeaderPages/NPA.async"

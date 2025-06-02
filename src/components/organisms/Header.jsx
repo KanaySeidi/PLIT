@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {useLocation} from "react-router-dom"
+import { useLocation } from "react-router-dom";
 import LanguageSwitcher from "../molecules/LanguageSwitcher";
 import MinLogoKy from "../atoms/MinLogoKy";
 import MinLogoRu from "../atoms/MinLogoRu";
@@ -12,11 +12,11 @@ import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
-  const location = useLocation()
+  const location = useLocation();
   const [isScroll, setIsScroll] = useState(false);
   const [isKG, setIsKy] = useState(i18n.language === "KG");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isPopoverOpen, setIsPopoverOpen ] =useState(false);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   // Обработка скролла
   useEffect(() => {
@@ -69,36 +69,44 @@ const Header = () => {
               <Link to="/">{t("header.home")}</Link>
               <Link to="/courses">{t("header.course")}</Link>
               <Popover>
-                {({ open }) => (
+                {({ open, close }) => (
                   <>
-                    <PopoverButton 
-                     className="focus:outline-none"
-                     onClick={() => setIsPopoverOpen(!isPopoverOpen)}
+                    <PopoverButton
+                      className="focus:outline-none"
+                      onClick={() => close()}
                     >
                       {t("header.info")}
                     </PopoverButton>
-                    {isPopoverOpen && (
-                      <PopoverPanel
+
+                    <PopoverPanel
                       className={`absolute ml-[-26px] mt-2 w-46 bg-[#63001F] text-white shadow-lg rounded-lg transition-opacity duration-300 ${
                         open ? "opacity-100 visible" : "opacity-0 invisible"
                       }`}
                     >
                       <div className="p-2 flex flex-col text-white text-base">
                         <Link
+                          onClick={() => close()}
                           to="/info/applicant"
                           className="block px-3 py-2 hover:bg-gray-400 rounded"
                         >
                           {t("info.applicant")}
                         </Link>
                         <Link
+                          onClick={() => close()}
                           to="/info/docs"
                           className="block px-3 py-2 hover:bg-gray-400 rounded"
                         >
                           {t("info.docs")}
                         </Link>
+                        <Link
+                          onClick={() => close()}
+                          to="/info/npa"
+                          className="block px-3 py-2 hover:bg-gray-400 rounded"
+                        >
+                          {t("info.npa")}
+                        </Link>
                       </div>
                     </PopoverPanel>
-                    )}
                   </>
                 )}
               </Popover>
@@ -122,13 +130,15 @@ const Header = () => {
                 }`}
               >
                 <Popover className="relative mr-20 text-base">
-                  {({ open }) => (
+                  {({ open, close }) => (
                     <>
-                      <PopoverButton className="focus:outline-none"
-                      onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
+                      <PopoverButton
+                        className="focus:outline-none"
+                        onClick={() => close()}
+                      >
                         {t("header.news")}
                       </PopoverButton>
-                      {isPopoverOpen && (
+
                       <PopoverPanel
                         className={`absolute ml-[-38px] mt-2 w-46 bg-[#63001F] shadow-lg rounded-lg transition-opacity duration-300 ${
                           open ? "opacity-100 visible" : "opacity-0 invisible"
@@ -136,12 +146,14 @@ const Header = () => {
                       >
                         <div className="p-2 flex flex-col">
                           <Link
+                            onClick={() => close()}
                             to="/info/applicant"
                             className="block px-3 py-2 hover:bg-gray-400 rounded"
                           >
                             {t("news.holidays")}
                           </Link>
                           <Link
+                            onClick={() => close()}
                             to="/info/docs"
                             className="block px-3 py-2 hover:bg-gray-400 hover:text-white rounded"
                           >
@@ -154,18 +166,20 @@ const Header = () => {
                             {t("news.lifeLyceum")}
                           </Link>
                         </div>
-                      </PopoverPanel>)}
+                      </PopoverPanel>
                     </>
                   )}
                 </Popover>
                 <Popover className="relative">
-                  {({ open }) => (
+                  {({ open, close }) => (
                     <>
-                      <PopoverButton className="focus:outline-none"
-                      onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
+                      <PopoverButton
+                        className="focus:outline-none"
+                        onClick={() => close()}
+                      >
                         {t("header.plit")}
                       </PopoverButton>
-                      {isPopoverOpen && (
+
                       <PopoverPanel
                         className={`absolute ml-[-60px] mt-2 w-46 bg-[#63001F] shadow-lg rounded-lg transition-opacity duration-300 ${
                           open ? "opacity-100 visible" : "opacity-0 invisible"
@@ -173,31 +187,35 @@ const Header = () => {
                       >
                         <div className="p-2 flex flex-col">
                           <Link
+                            onClick={() => close()}
                             to="/plit/about"
                             className="block px-3 py-2 hover:bg-gray-400 rounded"
                           >
                             {t("plit.about")}
                           </Link>
                           <Link
+                            onClick={() => close()}
                             to="/info/docs"
                             className="block px-3 py-2 hover:bg-gray-400 hover:text-white rounded"
                           >
                             {t("plit.administration")}
                           </Link>
                           <Link
+                            onClick={() => close()}
                             to="/plit/teachers"
                             className="block px-3 py-2 hover:bg-gray-400 hover:text-white rounded"
                           >
                             {t("plit.teachers")}
                           </Link>
                           <Link
+                            onClick={() => close()}
                             to="/info/docs"
                             className="block px-3 py-2 hover:bg-gray-400 hover:text-white rounded"
                           >
                             {t("plit.masters")}
                           </Link>
                         </div>
-                      </PopoverPanel>)}
+                      </PopoverPanel>
                     </>
                   )}
                 </Popover>
@@ -215,13 +233,14 @@ const Header = () => {
             <Link to="/">{t("header.home")}</Link>
             <Link to="/courses">{t("header.course")}</Link>
             <Popover className="relative z-20">
-              {({ open }) => (
+              {({ open, close }) => (
                 <>
-                  <PopoverButton className="focus:outline-none"
-                  onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
+                  <PopoverButton
+                    className="focus:outline-none"
+                    onClick={() => close()}
+                  >
                     {t("header.info")}
                   </PopoverButton>
-                  {isPopoverOpen && (
                   <PopoverPanel
                     className={`absolute ml-[-20px] mt-2 w-46 text-base bg-white shadow-lg rounded-lg transition-opacity duration-300 ${
                       open ? "opacity-100 visible" : "opacity-0 invisible"
@@ -229,19 +248,28 @@ const Header = () => {
                   >
                     <div className="p-2 flex flex-col">
                       <Link
+                        onClick={() => close()}
                         to="/info/applicant"
                         className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                       >
                         {t("info.applicant")}
                       </Link>
                       <Link
+                        onClick={() => close()}
                         to="/info/docs"
                         className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                       >
                         {t("info.docs")}
                       </Link>
+                      <Link
+                        onClick={() => close()}
+                        to="/info/npa"
+                        className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
+                      >
+                        {t("info.npa")}
+                      </Link>
                     </div>
-                  </PopoverPanel>)}
+                  </PopoverPanel>
                 </>
               )}
             </Popover>
@@ -249,13 +277,15 @@ const Header = () => {
 
           <div className="flex justify-around items-center gap-3 text-lg w-1/3 font-semibold">
             <Popover className="relative z-20 mr-8">
-              {({ open }) => (
+              {({ open, close }) => (
                 <>
-                  <PopoverButton className="focus:outline-none"
-                  onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
+                  <PopoverButton
+                    className="focus:outline-none"
+                    onClick={() => close()}
+                  >
                     {t("header.news")}
                   </PopoverButton>
-                  {isPopoverOpen && (
+
                   <PopoverPanel
                     className={`absolute ml-[-38px] mt-2 w-46 bg-white shadow-lg rounded-lg transition-opacity duration-300 ${
                       open ? "opacity-100 visible" : "opacity-0 invisible"
@@ -263,36 +293,40 @@ const Header = () => {
                   >
                     <div className="p-2 flex flex-col">
                       <Link
+                        onClick={() => close()}
                         to="/info/applicant"
                         className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                       >
                         {t("news.holidays")}
                       </Link>
                       <Link
+                        onClick={() => close()}
                         to="/info/docs"
                         className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                       >
                         {t("news.saturdays")}
                       </Link>
                       <Link
-                        to="/info/docs"
+                        onClick={() => close()}
+                        to="/info/npa"
                         className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                       >
                         {t("news.lifeLyceum")}
                       </Link>
                     </div>
-                  </PopoverPanel>)}
+                  </PopoverPanel>
                 </>
               )}
             </Popover>
             <Popover className="relative z-20">
-              {({ open }) => (
+              {({ open, close }) => (
                 <>
-                  <PopoverButton className="focus:outline-none"
-                  onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
+                  <PopoverButton
+                    className="focus:outline-none"
+                    onClick={() => close()}
+                  >
                     {t("header.plit")}
                   </PopoverButton>
-                  {isPopoverOpen && (
                   <PopoverPanel
                     className={`absolute ml-[-60px] mt-2 w-46 bg-white shadow-lg rounded-lg transition-opacity duration-300 ${
                       open ? "opacity-100 visible" : "opacity-0 invisible"
@@ -300,35 +334,38 @@ const Header = () => {
                   >
                     <div className="p-2 flex flex-col">
                       <Link
+                        onClick={() => close()}
                         to="/plit/about"
                         className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                       >
                         {t("plit.about")}
                       </Link>
                       <Link
+                        onClick={() => close()}
                         to="/info/docs"
                         className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                       >
                         {t("plit.administration")}
                       </Link>
                       <Link
+                        onClick={() => close()}
                         to="/plit/teachers"
                         className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                       >
                         {t("plit.teachers")}
                       </Link>
                       <Link
+                        onClick={() => close()}
                         to="/info/docs"
                         className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                       >
                         {t("plit.masters")}
                       </Link>
                     </div>
-                  </PopoverPanel>)}
+                  </PopoverPanel>
                 </>
               )}
             </Popover>
-
             <LanguageSwitcher />
           </div>
         </div>
@@ -339,13 +376,14 @@ const Header = () => {
           <p>{t("header.home")}</p>
           <p>{t("header.course")}</p>
           <Popover className="relative z-50">
-            {({ open }) => (
+            {({ open, close }) => (
               <>
-                <PopoverButton className="focus:outline-none"
-                onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
+                <PopoverButton
+                  className="focus:outline-none"
+                  onClick={() => close()}
+                >
                   {t("header.info")}
                 </PopoverButton>
-                {isPopoverOpen && (
                 <PopoverPanel
                   className={`absolute ml-[-20px] mt-2 w-46 bg-white shadow-lg rounded-lg transition-opacity duration-300 ${
                     open ? "opacity-100 visible" : "opacity-0 invisible"
@@ -353,19 +391,21 @@ const Header = () => {
                 >
                   <div className="p-2 flex flex-col">
                     <Link
+                      onClick={() => close()}
                       to="/info/applicant"
                       className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                     >
                       {t("info.applicant")}
                     </Link>
                     <Link
+                      onClick={() => close()}
                       to="/info/docs"
                       className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                     >
                       {t("info.docs")}
                     </Link>
                   </div>
-                </PopoverPanel>)}
+                </PopoverPanel>
               </>
             )}
           </Popover>
@@ -376,4 +416,3 @@ const Header = () => {
 };
 
 export default Header;
-
