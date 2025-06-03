@@ -115,7 +115,7 @@ const TeacherSl = () => {
           swiper.params.navigation.nextEl = nextRef.current;
         }}
         pagination={{ clickable: true }}
-        spaceBetween={1} // Уменьшаем расстояние между карточками до минимума
+        spaceBetween={1}
         slidesPerView={4}
         breakpoints={{
           320: {
