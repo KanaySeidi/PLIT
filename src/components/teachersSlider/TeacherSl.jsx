@@ -60,7 +60,7 @@ const TeacherSl = () => {
 
   const handleTeacherClick = (teacher) => {
     if (teacher.hasDetails) {
-      navigate(`/teacher/${teacher.id - 1}`);
+      navigate(`/plit/teachers/${teacher.id - 1}`);
     }
   };
 
