@@ -14,6 +14,7 @@ const Frontend = () => {
       <DirectionPage
         image={img}
         image1={img2}
+        name={t("front.name")}
         title={t("front.title")}
         text={t("front.text")}
         icon={time}

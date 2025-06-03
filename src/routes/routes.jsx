@@ -14,7 +14,8 @@ import {
   LDocs,
   About,
   Teacherinfo,
-  Students
+  Students,
+  NPA,
 } from "../pages";
 
 const routes = [
@@ -30,9 +31,10 @@ const routes = [
   { path: "am", element: <AutoMechanic /> },
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
-  {path: "/info/applicant", element: <Students />},
+  { path: "/info/applicant", element: <Students /> },
+  { path: "/info/npa", element: <NPA /> },
   { path: "/info/docs", element: <LDocs /> },
   { path: "/plit/teachers/:id", element: <Teacherinfo /> },
-  { path: "/plit/about", element: <About />}
+  { path: "/plit/about", element: <About /> },
 ];
 export default routes;
