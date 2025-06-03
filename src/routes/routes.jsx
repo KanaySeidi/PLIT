@@ -16,6 +16,7 @@ import {
   Teacherinfo,
   Students,
   NPA,
+  Masters,
 } from "../pages";
 
 const routes = [
@@ -36,5 +37,6 @@ const routes = [
   { path: "/info/docs", element: <LDocs /> },
   { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   { path: "/plit/about", element: <About /> },
+  { path: "/plit/masters", element: <Masters /> },
 ];
 export default routes;
