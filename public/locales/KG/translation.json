@@ -144,79 +144,83 @@
     "textDocument": "Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do eiusmod tempor incididunt"
   },
   "teachers": {
-    "list": [
-      {
-        "id": 1,
-        "name": "Замира Эже",
-        "role": "Учитель химии и биологии",
-        "description": "Замира эже — опытный и талантливый педагог, прекрасно разбирающийся в химии и биологии. Её уроки всегда проходят интересно и понятно, благодаря её умению объяснять сложные вещи простым языком.",
-        "img": "/src/assets/img/girl.png",
-        "contact": {
-          "phone": "(+996) 123 456 789",
-          "email": "zamira@plit.edu.kg",
-          "website": "www.plit.edu.kg",
-          "address": "ул. Токтогулова 47 А"
+    "teachers": {
+      "list": [
+        {
+          "id": 1,
+          "name": "Замира Эже",
+          "role": "Учитель химии и биологии",
+          "description": "Замира эже — опытный и талантливый педагог, прекрасно разбирающийся в химии и биологии. Её уроки всегда проходят интересно и понятно, благодаря её умению объяснять сложные вещи простым языком.",
+          "img": "/src/assets/img/girl.png",
+          "contact": {
+            "phone": "(+996) 123 456 789",
+            "email": "zamira@plit.edu.kg",
+            "website": "www.plit.edu.kg",
+            "address": "ул. Токтогулова 47 А"
+          },
+
+          "social": {
+            "facebook": "https://facebook.com/aigul",
+            "instagram": "https://instagram.com/aigul",
+            "linkedin": "https://linkedin.com/in/aigul"
+          },
+          "skills": [
+            { "name": "Химия", "level": 95 },
+            { "name": "Биология", "level": 90 },
+            { "name": "Методика преподавания", "level": 88 },
+            { "name": "Лабораторные работы", "level": 92 }
+          ]
         },
-        "social": {
-          "facebook": "https://facebook.com/aigul",
-          "instagram": "https://instagram.com/aigul",
-          "linkedin": "https://linkedin.com/in/aigul"
+        {
+          "id": 2,
+          "name": "Алмаз Агай",
+          "role": "Учитель информатики",
+          "description": "Алмаз агай - опытный преподаватель информатики с современным подходом к обучению. Специализируется на программировании и веб-разработке. Его студенты регулярно побеждают на олимпиадах.",
+          "img": "/src/assets/img/girl.png",
+          "contact": {
+            "phone": "(+996) 234 567 890",
+            "email": "almaz@plit.edu.kg",
+            "website": "www.plit.edu.kg",
+            "address": "ул. Токтогулова 47 А"
+          },
+
+          "social": {
+            "facebook": "https://facebook.com/aigul",
+            "instagram": "https://instagram.com/aigul",
+            "linkedin": "https://linkedin.com/in/aigul"
+          },
+          "skills": [
+            { "name": "Программирование", "level": 95 },
+            { "name": "Веб-разработка", "level": 92 },
+            { "name": "Базы данных", "level": 88 },
+            { "name": "Сетевые технологии", "level": 85 }
+          ]
         },
-        "skills": [
-          { "name": "Химия", "level": 95 },
-          { "name": "Биология", "level": 90 },
-          { "name": "Методика преподавания", "level": 88 },
-          { "name": "Лабораторные работы", "level": 92 }
-        ]
-      },
-      {
-        "id": 2,
-        "name": "Алмаз Агай",
-        "role": "Учитель информатики",
-        "description": "Алмаз агай - опытный преподаватель информатики с современным подходом к обучению. Специализируется на программировании и веб-разработке. Его студенты регулярно побеждают на олимпиадах.",
-        "img": "/src/assets/img/girl.png",
-        "contact": {
-          "phone": "(+996) 234 567 890",
-          "email": "almaz@plit.edu.kg",
-          "website": "www.plit.edu.kg",
-          "address": "ул. Токтогулова 47 А"
-        },
-        "social": {
-          "facebook": "https://facebook.com/aigul",
-          "instagram": "https://instagram.com/aigul",
-          "linkedin": "https://linkedin.com/in/aigul"
-        },
-        "skills": [
-          { "name": "Программирование", "level": 95 },
-          { "name": "Веб-разработка", "level": 92 },
-          { "name": "Базы данных", "level": 88 },
-          { "name": "Сетевые технологии", "level": 85 }
-        ]
-      },
-      {
-        "id": 3,
-        "name": "Айгуль Эже",
-        "role": "Учитель математики",
-        "description": "Айгуль эже - преподаватель математики с 10-летним опытом. Её методика преподавания помогает ученикам не только понять математику, но и полюбить её. Её ученики показывают высокие результаты на ОРТ и олимпиадах.",
-        "img": "/src/assets/img/girl.png",
-        "contact": {
-          "phone": "(+996) 345 678 901",
-          "email": "aigul@plit.edu.kg",
-          "website": "www.plit.edu.kg",
-          "address": "ул. Токтогулова 47 А"
-        },
-        "social": {
-          "facebook": "https://facebook.com/aigul",
-          "instagram": "https://instagram.com/aigul",
-          "linkedin": "https://linkedin.com/in/aigul"
-        },
-        "skills": [
-          { "name": "Алгебра", "level": 95 },
-          { "name": "Геометрия", "level": 90 },
-          { "name": "Методика преподавания", "level": 92 },
-          { "name": "Подготовка к ОРТ", "level": 94 }
-        ]
-      }
-    ]
+        {
+          "id": 3,
+          "name": "Айгуль Эже",
+          "role": "Учитель математики",
+          "description": "Айгуль эже - преподаватель математики с 10-летним опытом. Её методика преподавания помогает ученикам не только понять математику, но и полюбить её. Её ученики показывают высокие результаты на ОРТ и олимпиадах.",
+          "img": "/src/assets/img/girl.png",
+          "contact": {
+            "phone": "(+996) 345 678 901",
+            "email": "aigul@plit.edu.kg",
+            "website": "www.plit.edu.kg",
+            "address": "ул. Токтогулова 47 А"
+          },
+          "social": {
+            "facebook": "https://facebook.com/aigul",
+            "instagram": "https://instagram.com/aigul",
+            "linkedin": "https://linkedin.com/in/aigul"
+          },
+          "skills": [
+            { "name": "Алгебра", "level": 95 },
+            { "name": "Геометрия", "level": 90 },
+            { "name": "Методика преподавания", "level": 92 },
+            { "name": "Подготовка к ОРТ", "level": 94 }
+          ]
+        }
+      ]
+    }
   }
 }

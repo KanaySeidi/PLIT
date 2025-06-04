@@ -2,7 +2,6 @@ import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../../components/organisms/Header";
 
-
 const Layout = () => {
   return (
     <div>
@@ -12,7 +11,7 @@ const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
-      </div>
+    </div>
   );
 };
 

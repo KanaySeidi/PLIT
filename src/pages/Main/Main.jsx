@@ -49,8 +49,8 @@ const Main = () => {
           initial="hidden"
           animate={isHeroTextInView ? "visible" : "hidden"}
         >
-          <p className="text-white text-lg md:text-xl">{t("PLIT")}</p>
-          <p className="text-white text-2xl md:text-4xl mt-2 md:mt-4">
+          <p className="text-white text-lg md:text-lg">{t("PLIT")}</p>
+          <p className="text-white text-2xl md:text-2xl mt-2 md:mt-4">
             {t("PLITDeviz")}
           </p>
         </motion.div>
@@ -65,14 +65,14 @@ const Main = () => {
           animate={isStatsInView ? "visible" : "hidden"}
         >
           <div className="w-11/12 mx-auto flex flex-col justify-center py-6 md:py-0">
-            <p className="text-2xl md:text-3xl text-white text-center">
+            <p className="text-2xl md:text-xl text-white text-center">
               {t("PLITNum")}
             </p>
             <div className="w-full flex flex-col md:flex-row justify-around mt-6 md:mt-10 gap-4 md:gap-2">
               <div className="flex gap-2 items-center">
                 <Calendar1 color="white" size={60} md={{ size: 90 }} />
                 <div className="flex flex-col h-full justify-center">
-                  <p className="text-2xl md:text-3xl text-white">
+                  <p className="text-2xl md:text-xl text-white">
                     {isStatsInView && (
                       <CountUp
                         start={0}
@@ -82,7 +82,7 @@ const Main = () => {
                       />
                     )}
                   </p>
-                  <p className="text-base md:text-xl text-white">
+                  <p className="text-base md:text-lg text-white">
                     {t("numCard1")}
                   </p>
                 </div>
@@ -90,7 +90,7 @@ const Main = () => {
               <div className="flex gap-2 items-center">
                 <Atom color="white" size={60} md={{ size: 90 }} />
                 <div className="flex flex-col h-full justify-center">
-                  <p className="text-2xl md:text-3xl text-white">
+                  <p className="text-2xl md:text-xl text-white">
                     {isStatsInView && (
                       <CountUp start={0} end={630} duration={2.5} />
                     )}
@@ -103,12 +103,12 @@ const Main = () => {
               <div className="flex gap-2 items-center">
                 <Contact color="white" size={60} md={{ size: 90 }} />
                 <div className="flex flex-col h-full justify-center">
-                  <p className="text-2xl md:text-3xl text-white">
+                  <p className="text-2xl md:text-xl text-white">
                     {isStatsInView && (
                       <CountUp start={0} end={10000} duration={2} />
                     )}
                   </p>
-                  <p className="text-base md:text-xl text-white">
+                  <p className="text-base md:text-lg text-white">
                     {t("numCard3")}
                   </p>
                 </div>
@@ -116,12 +116,12 @@ const Main = () => {
               <div className="flex gap-2 items-center">
                 <Handshake color="white" size={60} md={{ size: 90 }} />
                 <div className="flex flex-col h-full justify-center">
-                  <p className="text-2xl md:text-3xl text-white">
+                  <p className="text-2xl md:text-xl text-white">
                     {isStatsInView && (
                       <CountUp start={0} end={20} duration={4} />
                     )}
                   </p>
-                  <p className="text-base md:text-xl text-white">
+                  <p className="text-base md:text-lg text-white">
                     {t("numCard4")}
                   </p>
                 </div>
@@ -137,8 +137,8 @@ const Main = () => {
           initial="hidden"
           animate={isMissionInView ? "visible" : "hidden"}
         >
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="w-full md:w-1/2 px-4 md:px-0">
+          <div className="w-full flex flex-col md:flex-row justify-between items-center">
+            <div className="w-full px-4 md:px-0 mr-10">
               <p className="text-bordo text-2xl md:text-4xl mb-6 md:mb-10">
                 {t("ourMission")}
               </p>
@@ -149,7 +149,7 @@ const Main = () => {
                 {t("keyOfSuccessText")}
               </p>
             </div>
-            <div className="mt-6 md:mt-0">
+            <div className="mt-6 md:mt-0 ml-40">
               <TagCloud />
             </div>
           </div>
@@ -168,6 +168,7 @@ const Main = () => {
             </div>
           </div>
         </motion.div>
+        
       </div>
     </div>
   );

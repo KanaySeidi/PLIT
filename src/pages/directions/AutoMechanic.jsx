@@ -31,6 +31,4 @@ const AutoMechanic = () => {
     </>
   );
 };
-
 export default AutoMechanic;
-
