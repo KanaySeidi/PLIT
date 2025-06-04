@@ -13,7 +13,7 @@ const LDocs = () => {
   };
 
   return (
-    <div className="w-full px-4 pt-32 bg-gradient-to-b from-gray-100 to-gray-300">
+    <div className="w-full px-4 pt-32 pb-20 bg-gradient-to-b from-gray-100 to-gray-300">
       <div className="mx-auto w-full max-w-lg h-auto divide-y divide-gray-300 rounded-xl bg-white shadow-lg">
         {/* Первая секция */}
         <Disclosure>

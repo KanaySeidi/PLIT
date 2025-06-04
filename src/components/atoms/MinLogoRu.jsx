@@ -1,4 +1,4 @@
-import minLogo from "../../assets/icon/rus_Cut.png";
+import minLogo from "../../assets/icon/rus_cut.png";
 
 const MinLogoRu = () => {
   return (
