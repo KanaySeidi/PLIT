@@ -12,6 +12,8 @@ import {
   MobileDevelopment,
   SisAdm,
   TD,
+  News,
+  NewsCards,
 } from "../pages";
 import TeacherInfo from "../components/teachersSlider/Teacherinfo";
 
@@ -26,9 +28,11 @@ const routes = [
   { path: "/md", element: <MobileDevelopment /> },
   { path: "/sa", element: <SisAdm /> },
   { path: "/td", element: <TD /> },
-  { path: "am", element: <AutoMechanic /> },
+  { path: "/am", element: <AutoMechanic /> },
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
   { path: "/teacher/:id", element: <TeacherInfo /> },
+  { path: "/news/:id", element: <News /> },
+  { path: "/newsCards", element: <NewsCards /> },
 ];
 export default routes;

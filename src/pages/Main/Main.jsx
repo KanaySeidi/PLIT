@@ -168,7 +168,6 @@ const Main = () => {
             </div>
           </div>
         </motion.div>
-        
       </div>
     </div>
   );
