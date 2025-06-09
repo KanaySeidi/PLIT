@@ -1,5 +1,3 @@
-// src/pages/AboutUs.jsx
-
 import { useParams, Link } from "react-router-dom";
 import img1 from "../../assets/img/backend.jpg";
 import { useEffect, useRef } from "react";
@@ -86,7 +84,7 @@ export const News = () => {
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-5xl mx-auto px-4 py-12">
         <Link
-          to="/newsCards"
+          to="/news"
           className="inline-flex items-center text-white hover:bg-bordoLight transform transition duration-300 mb-8 bg-bordo rounded p-2"
         >
           <ArrowLeft className="w-5 h-5 mr-2" />

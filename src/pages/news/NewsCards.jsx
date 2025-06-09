@@ -1,4 +1,3 @@
-// src/pages/News.jsx
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import img1 from "../../assets/img/1.jpg";

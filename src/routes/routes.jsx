@@ -1,5 +1,4 @@
 import {
-  HomePage,
   CoursesPage,
   InfoPage,
   AutoMechanic,
@@ -12,16 +11,19 @@ import {
   MobileDevelopment,
   SisAdm,
   TD,
-  News,
+  LDocs,
+  About,
+  Teacherinfo,
+  Students,
+  NPA,
   NewsCards,
+  News,
 } from "../pages";
-import TeacherInfo from "../components/teachersSlider/Teacherinfo";
 
 const routes = [
-  { path: "/home", element: <HomePage /> },
+  { path: "/", element: <Main /> },
   { path: "/courses", element: <CoursesPage /> },
   { path: "/info", element: <InfoPage /> },
-  { path: "/", element: <Main /> },
   { path: "/fr", element: <Frontend /> },
   { path: "/br", element: <Backend /> },
   { path: "/mr", element: <MechRob /> },
@@ -31,8 +33,12 @@ const routes = [
   { path: "/am", element: <AutoMechanic /> },
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
-  { path: "/teacher/:id", element: <TeacherInfo /> },
+  { path: "/info/applicant", element: <Students /> },
+  { path: "/info/npa", element: <NPA /> },
+  { path: "/info/docs", element: <LDocs /> },
+  { path: "/plit/teachers/:id", element: <Teacherinfo /> },
+  { path: "/news", element: <NewsCards /> },
   { path: "/news/:id", element: <News /> },
-  { path: "/newsCards", element: <NewsCards /> },
+  { path: "/plit/about", element: <About /> },
 ];
 export default routes;
