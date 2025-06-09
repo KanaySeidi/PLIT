@@ -381,5 +381,34 @@
     "carMaintenanceRepair": "«Автомобилди тейлөө жана оңдоо» сабагы боюнча жумушчу программа",
     "carRepairTechnology": "«Автомобилдин электр жабдууларын оңдоо технологиясы» сабагы боюнча жумушчу программа",
     "carElectricalSystems": "«Автомобилдердин электр жана электрондук системалары» сабагы боюнча жумушчу программа"
+  },
+  "footer": {
+    "logoAlt": "Лицейдин логотиби",
+    "title": "«Мурас» лицейи",
+    "description": "Кесиптик лицей №99 — бул жөн гана билим эмес, идеялар жаралган, мүнөз бекемделген жана жаңы горизонттор ачылган мейкиндик.",
+    "pagesTitle": "Баракчалар",
+    "contactTitle": "Биз менен байланышуу",
+    "emailLabel": "Электрондук почта",
+    "phoneLabel": "Телефон",
+    "contacts": {
+      "email": "professionalnyylitsey99@gmail.com",
+      "phone": "+996 (312) 53-39-05",
+      "address": "Горький көчөсү 18, Бишкек"
+    },
+    "instagram": "https://www.instagram.com/99litsey?igsh=cmp3bDdlOTM5ajFw",
+    "pageslink": [
+      { "label": "Курстар", "link": "/courses" },
+      { "label": "Абитуриенттерге", "link": "/info/applicant" },
+      { "label": "Документация", "link": "/info/docs" },
+      { "label": "КР мыйзам актылары", "link": "/info/npa" },
+      { "label": "Майрамдар", "link": "/teachers" },
+      { "label": "Ишембиликтер", "link": "/contacts" },
+      { "label": "Лицейдеги жашоо", "link": "" },
+      { "label": "Лицей жөнүндө", "link": "" },
+      { "label": "Администрация", "link": "" },
+      { "label": "Мугалимдер", "link": "" },
+      { "label": "Усталар", "link": "" }
+    ],
+    "rights": "Бардык укуктар корголгон."
   }
 }
