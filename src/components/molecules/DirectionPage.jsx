@@ -40,6 +40,7 @@ const imageVariants = {
 const DirectionPage = ({
   image,
   image1,
+  name,
   title,
   text,
   icon,
@@ -74,11 +75,14 @@ const DirectionPage = ({
           className="w-full h-full object-cover brightness-90"
         />
         <Link to={"/"}>
-          <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm hover:bg-white/90 text-black rounded-lg shadow-lg transition-all duration-300">
+          <div className="z-20 absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm hover:bg-white/90 text-black rounded-lg shadow-lg transition-all duration-300">
             <span className="text-xl">←</span>
             <span className="text-sm">Назад</span>
           </div>
         </Link>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-white text-4xl font-bold">{name}</h1>
+        </div>
       </div>
 
       {/* Основной контент */}
@@ -129,7 +133,7 @@ const DirectionPage = ({
             ].map((item, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 bg-white/10 backdrop-blur-sm p-3 rounded-lg w-full sm:w-auto"
+                className="flex items-center gap-3  bg-white/10 backdrop-blur-sm p-3 rounded-lg w-full sm:w-auto"
               >
                 <img src={item.icon} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
                 <p className="text-bordo text-sm sm:text-base">{item.text}</p>
@@ -143,10 +147,10 @@ const DirectionPage = ({
             variants={containerVariants}
           >
             {/* Левая колонка */}
-            <motion.div className="lg:w-1/2 space-y-4" variants={itemVariants}>
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-bordo">
-                {master}
-              </h2>
+            <motion.div
+              className="lg:w-1/2 space-y-4 ml-[120px]"
+              variants={itemVariants}
+            >
               <Example
                 question={
                   <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
@@ -169,10 +173,13 @@ const DirectionPage = ({
             </motion.div>
 
             {/* Правая колонка */}
-            <motion.div className="lg:w-1/2 space-y-4" variants={itemVariants}>
+            <motion.div
+              className="lg:w-1/2 space-y-4 mr-[115px]"
+              variants={itemVariants}
+            >
               <Example
                 question={
-                  <div className="bg-[#A1012B] rounded-xl p-4 text-center text-white text-base sm:text-lg lg:text-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
+                  <div className="bg-bordo rounded-xl p-4 text-center text-white text-base sm:text-lg lg:text-xl shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
                     {salary}
                   </div>
                 }
