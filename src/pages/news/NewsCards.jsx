@@ -1,40 +1,46 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import img1 from "../../assets/img/1.jpg";
 
 export const NewsCards = () => {
+  const { t } = useTranslation();
+
   const cards = [
     {
       id: 1,
-      title: "Почему исследования важны",
-      category: "В ЦЕНТРЕ ВНИМАНИЯ",
+      title: t("newsPage.id1.title"),
+      category: t("newsPage.id1.category"),
+      date: t("newsPage.id1.date"),
       image: img1,
       highlight: true,
     },
     {
       id: 2,
-      title:
-        "Нанобиосенсор позволяет учёным отслеживать молекулы в режиме реального времени",
-      category: "НАУКА И ТЕХНИКА",
+      title: t("newsPage.id2.title"),
+      category: t("newsPage.id2.category"),
+      date: t("newsPage.id2.date"),
       image: img1,
     },
     {
       id: 3,
-      title:
-        "Новая технология CRISPR может помочь восстановить повреждённые нейроны",
-      category: "НАУКА И ТЕХНИКА",
+      title: t("newsPage.id3.title"),
+      category: t("newsPage.id3.category"),
+      date: t("newsPage.id3.date"),
       image: img1,
     },
     {
       id: 4,
-      title: "Учёные восстанавливают бактерии",
-      category: "НАУКА И ТЕХНИКА",
+      title: t("newsPage.id4.title"),
+      category: t("newsPage.id4.category"),
+      date: t("newsPage.id4.date"),
       image: img1,
     },
     {
       id: 5,
-      title: "Исследование выявило паттерны в ИИ",
-      category: "ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ",
+      title: t("newsPage.id5.title"),
+      category: t("newsPage.id5.category"),
+      date: t("newsPage.id5.date"),
       image: img1,
     },
   ];
@@ -73,6 +79,9 @@ export const NewsCards = () => {
                 <h2 className="text-lg font-bold mt-1 line-clamp-2">
                   {card.title}
                 </h2>
+                <p className="text-sm font-medium uppercase tracking-widest mt-1">
+                  {card.date}
+                </p>
               </div>
             </Link>
           </motion.div>

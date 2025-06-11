@@ -149,6 +149,14 @@ const Header = () => {
                             to="/news"
                             className="block px-3 py-2 hover:bg-gray-400 hover:text-white rounded"
                           >
+                            {t("news.news")}
+                          </Link>
+                        </div>
+                        <div className="p-2 flex flex-col">
+                          <Link
+                            to="/news"
+                            className="block px-3 py-2 hover:bg-gray-400 hover:text-white rounded"
+                          >
                             {t("news.lifeLyceum")}
                           </Link>
                         </div>
@@ -277,6 +285,14 @@ const Header = () => {
                       open ? "opacity-100 visible" : "opacity-0 invisible"
                     }`}
                   >
+                    <div className="p-2 flex flex-col">
+                      <Link
+                        to="/news"
+                        className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
+                      >
+                        {t("news.news")}
+                      </Link>
+                    </div>
                     <div className="p-2 flex flex-col">
                       <Link
                         onClick={() => close()}

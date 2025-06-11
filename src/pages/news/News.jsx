@@ -1,6 +1,7 @@
+import { useTranslation } from "react-i18next";
 import { useParams, Link } from "react-router-dom";
-import img1 from "../../assets/img/backend.jpg";
-import { useEffect, useRef } from "react";
+import img1 from "../../assets/img/1.jpg";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -9,64 +10,63 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 export const News = () => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const [swiperInstance, setSwiperInstance] = useState(null);
 
   const mainArticle = {
     id: 1,
-    title: "Почему исследования важны",
-    category: "В ЦЕНТРЕ ВНИМАНИЯ",
-    date: "3 июня 2025",
+    title: t("newsPage.id1.title"),
+    category: t("newsPage.id1.category"),
+    date: t("newsPage.id1.date"),
     image: img1,
-    content: `Исследования играют ключевую роль в развитии человечества. Благодаря им появляются новые технологии, лекарства и подходы к решению глобальных проблем.
-
-В Uneza University мы поощряем студентов и преподавателей заниматься наукой. Наши проекты охватывают всё: от искусственного интеллекта до устойчивого развития.
-
-Наука — это не только цифры и формулы. Это способ мышления, способ задавать важные вопросы и находить на них ответы. Каждый шаг в исследовании — это шаг в будущее.`,
+    content: t("newsPage.id1.content"),
   };
 
   const articles = [
     {
       id: 2,
-      title: "CRISPR и восстановление нейронов",
-      category: "НАУКА И ТЕХНИКА",
-      date: "2 июня 2025",
+      title: t("newsPage.id2.title"),
+      category: t("newsPage.id2.category"),
+      date: t("newsPage.id2.date"),
       image: img1,
-      content: "CRISPR помогает в лечении нейродегенеративных заболеваний...",
+      content: t("newsPage.id2.content"),
     },
     {
       id: 3,
-      title: "ИИ и паттерны мышления",
-      category: "НАУКА И ТЕХНИКА",
-      date: "1 июня 2025",
+      title: t("newsPage.id3.title"),
+      category: t("newsPage.id3.category"),
+      date: t("newsPage.id3.date"),
       image: img1,
-      content: "ИИ способен анализировать и повторять когнитивные схемы...",
+      content: t("newsPage.id3.content"),
     },
     {
       id: 4,
-      title: "Устойчивое сельское хозяйство и ИИ",
-      category: "ТЕХНОЛОГИИ",
-      date: "31 мая 2025",
+      title: t("newsPage.id4.title"),
+      category: t("newsPage.id4.category"),
+      date: t("newsPage.id4.date"),
       image: img1,
-      content:
-        "ИИ помогает в развитии агротехнологий и устойчивого сельского хозяйства...",
+      content: t("newsPage.id4.content"),
     },
     {
       id: 5,
-      title: "Нанотехнологии в медицине",
-      category: "НАУКА",
-      date: "30 мая 2025",
+      title: t("newsPage.id5.title"),
+      category: t("newsPage.id5.category"),
+      date: t("newsPage.id5.date"),
       image: img1,
-      content:
-        "Наночастицы позволяют доставлять лекарства точечно и эффективно...",
+      content: t("newsPage.id5.content"),
     },
   ];
 
-  const article =
-    parseInt(id) === 1
-      ? mainArticle
-      : articles.find((a) => a.id === parseInt(id));
+  const article = useMemo(
+    () =>
+      parseInt(id) === 1
+        ? mainArticle
+        : articles.find((a) => a.id === parseInt(id)),
+    [id, mainArticle, articles]
+  );
 
   if (!article) {
     return (
@@ -80,12 +80,29 @@ export const News = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    if (
+      swiperInstance &&
+      swiperInstance.params &&
+      swiperInstance.params.navigation &&
+      prevRef.current &&
+      nextRef.current &&
+      swiperInstance.params.navigation
+    ) {
+      swiperInstance.params.navigation.prevEl = prevRef.current;
+      swiperInstance.params.navigation.nextEl = nextRef.current;
+      swiperInstance.navigation.destroy();
+      swiperInstance.navigation.init();
+      swiperInstance.navigation.update();
+    }
+  }, [swiperInstance, prevRef, nextRef]);
+
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-5xl mx-auto px-4 py-12">
         <Link
           to="/news"
-          className="inline-flex items-center text-white hover:bg-bordoLight transform transition duration-300 mb-8 bg-bordo rounded p-2"
+          className="inline-flex items-center text-white hover:bg-red-900 transform transition duration-300 mb-8 bg-bordo rounded p-2"
         >
           <ArrowLeft className="w-5 h-5 mr-2" />
           Назад к новостям
@@ -111,6 +128,7 @@ export const News = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           src={article.image}
           alt={article.title}
+          loading="lazy"
           className="w-full h-[400px] object-cover rounded shadow-xl mb-10"
         />
 
@@ -127,11 +145,12 @@ export const News = () => {
 
         <div className="relative w-full max-w-6xl mx-auto py-10">
           <button
+            aria-label="Previous slide"
             ref={prevRef}
             className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md rounded-full p-3 hover:bg-gray-200 transition-all"
           >
             <svg
-              className="w-6 h-6 text-black"
+              className="w-6 h-6 text-bordo"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -146,11 +165,12 @@ export const News = () => {
           </button>
 
           <button
+            aria-label="Next slide"
             ref={nextRef}
             className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md rounded-full p-3 hover:bg-gray-200 transition-all"
           >
             <svg
-              className="w-6 h-6 text-black"
+              className="w-6 h-6 text-bordo"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -165,20 +185,14 @@ export const News = () => {
           </button>
 
           <Swiper
+            watchOverflow={true}
+            onSwiper={setSwiperInstance}
             modules={[Navigation]}
             spaceBetween={20}
             slidesPerView={1}
             breakpoints={{
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
-            }}
-            onSwiper={(swiper) => {
-              if (prevRef.current && nextRef.current) {
-                swiper.params.navigation.prevEl = prevRef.current;
-                swiper.params.navigation.nextEl = nextRef.current;
-                swiper.navigation.init();
-                swiper.navigation.update();
-              }
             }}
             navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
           >
