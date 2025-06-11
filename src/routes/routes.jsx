@@ -16,6 +16,15 @@ import {
   Teacherinfo,
   Students,
   NPA,
+  AdminPanel,
+  KyrgyzstanTours,
+  AddTour,
+  AdminAbout,
+  CentralAsiaTours,
+  TourDetail,
+  Pictures,
+  Video,
+  StaffDetails,
 } from "../pages";
 import TeacherSl from "../components/teachersSlider/TeacherSl";
 
@@ -29,7 +38,7 @@ const routes = [
   { path: "/md", element: <MobileDevelopment /> },
   { path: "/sa", element: <SisAdm /> },
   { path: "/td", element: <TD /> },
-  { path: "am", element: <AutoMechanic /> },
+  { path: "/am", element: <AutoMechanic /> },
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
   { path: "/info/applicant", element: <Students /> },
@@ -38,5 +47,15 @@ const routes = [
   { path: "/plit/teachers", element: <TeacherSl /> },
   { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   { path: "/plit/about", element: <About /> },
+  { path: "/admin/sign", element: <AdminPanel /> },
+  { path: "/admin/tours/kyrgyzstan", element: <KyrgyzstanTours /> },
+  { path: "/admin/tours/addKGTours", element: <AddTour /> },
+  { path: "/admin/tours/addCentralAsiaTours", element: <AddTour /> },
+  { path: "/admin/tours/centralAsia", element: <CentralAsiaTours /> },
+  { path: "/admin/staff", element: <AdminAbout /> },
+  { path: "/admin/pictures", element: <Pictures /> },
+  { path: "/admin/video", element: <Video /> },
+  { path: "/admin/tour_detail/:id", element: <TourDetail /> },
+  { path: "/admin/staff_details/:id", element: <StaffDetails /> },
 ];
 export default routes;
