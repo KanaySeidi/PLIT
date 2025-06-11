@@ -25,8 +25,11 @@ import {
   Pictures,
   Video,
   StaffDetails,
-} from "../pages";
+} from "../index";
+
 import TeacherSl from "../components/teachersSlider/TeacherSl";
+
+
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -58,4 +61,5 @@ const routes = [
   { path: "/admin/tour_detail/:id", element: <TourDetail /> },
   { path: "/admin/staff_details/:id", element: <StaffDetails /> },
 ];
+
 export default routes;

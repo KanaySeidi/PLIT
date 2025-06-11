@@ -1,0 +1,26 @@
+export { CoursesPage } from "./pages/HeaderPages/CouresPage.async";
+export { InfoPage } from "./pages/HeaderPages/InfoPage.async";
+export { Main } from "./pages/Main/Main.async";
+export { Frontend } from "./pages/directions/Frontend.async";
+export { TD } from "./pages/directions/TD.async";
+export { SisAdm } from "./pages/directions/SisAdm.async";
+export { Backend } from "./pages/directions/Backend.async";
+export { MechRob } from "./pages/directions/MechRob.async";
+export { MobileDevelopment } from "./pages/directions/MobileDevelopment.async";
+export { Information } from "./pages/directions/Information.async";
+export { Exploitation } from "./pages/directions/Exploitation.async";
+export { AutoMechanic } from "./pages/directions/AutoMechanic.async";
+export { LDocs } from "./pages/HeaderPages/LDocs.async";
+export { About } from "./pages/about/About.async";
+export { Teacherinfo } from "./pages/HeaderPages/Teacherinfo.async";
+export { Students } from "./pages/HeaderPages/Students.async";
+export { NPA } from "./pages/HeaderPages/NPA.async";
+export { AdminPanel } from "./pages/admin/AdminPanel.async";
+export { KyrgyzstanTours } from "./pages/admin/tours/KyrgyzstanTours.async";
+export { AddTour } from "./pages/admin/tours/AddCourse.async"; // Исправленный путь
+export { AdminAbout } from "./pages/admin/about/AdminAbout.async";
+export { CentralAsiaTours } from "./pages/admin/tours/CentralAsiaTours.async";
+export { TourDetail } from "./pages/admin/tour_details/TourDetails.async";
+export { StaffDetails } from "./pages/admin/staff_details/StaffDetails.async";
+export { Pictures } from "../pages/aboutadmin/Pictures.async";
+export { Video } from "../pages/admin/video/Video.async";
