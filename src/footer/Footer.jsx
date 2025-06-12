@@ -38,7 +38,7 @@ const Footer = () => {
           <h3 className="font-semibold text-lg pl-2 sm:pl-0">
             {t("footer.title")}
           </h3>
-          <p className="mt-2 text-sm pl-2 sm:pl-0 pr-2">
+          <p className="mt-2 text-sm pl-2 sm:pl-0 pr-2 text-justify">
             {t("footer.description")}
           </p>
         </motion.div>
@@ -48,7 +48,7 @@ const Footer = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="text-sm space-y-1 text-center"
+          className="text-sm space-y-1 text-start ml-40"
         >
           <h4 className="font-semibold mb-2">{t("footer.pagesTitle")}</h4>
           {footerLinks.map(({ label, link }) => (
