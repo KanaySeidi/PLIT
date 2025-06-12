@@ -16,6 +16,8 @@ import {
   Teacherinfo,
   Students,
   NPA,
+  // Masters,
+  TeacherSl,
 } from "../pages";
 
 const routes = [
@@ -32,9 +34,12 @@ const routes = [
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
   { path: "/info/applicant", element: <Students /> },
-  { path: "/info/npa", element: <NPA /> },
   { path: "/info/docs", element: <LDocs /> },
+  { path: "/info/npa", element: <NPA /> },
+  { path: "/plit/teachers", element: <TeacherSl /> },
   { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   { path: "/plit/about", element: <About /> },
+  // { path: "/plit/masters", element: <Masters /> },
 ];
+
 export default routes;
