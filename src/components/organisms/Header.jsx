@@ -79,7 +79,7 @@ const Header = () => {
                     </PopoverButton>
 
                     <PopoverPanel
-                      className={`absolute ml-[-26px] mt-2 w-46 bg-[#63001F] text-white shadow-lg rounded-lg transition-opacity duration-300 ${
+                      className={`absolute ml-[-22px] mt-2 w-46 bg-[#63001F] text-white shadow-lg rounded-lg transition-opacity duration-300 ${
                         open ? "opacity-100 visible" : "opacity-0 invisible"
                       }`}
                     >
@@ -260,6 +260,13 @@ const Header = () => {
                         >
                           {t("info.docs")}
                         </Link>
+                        <Link
+                          onClick={() => close()}
+                          to="/info/npa"
+                          className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
+                        >
+                          {t("info.npa")}
+                        </Link>
                       </div>
                     </PopoverPanel>
                   )}
@@ -359,100 +366,6 @@ const Header = () => {
             <LanguageSwitcher />
           </div>
         </div>
-      </div>
-
-      <div className="flex justify-around items-center gap-3 text-lg w-1/3 font-semibold">
-        <Popover className="relative z-20 mr-8">
-          {({ open, close }) => (
-            <>
-              <PopoverButton
-                className="focus:outline-none"
-                onClick={() => close()}
-              >
-                {t("header.news")}
-              </PopoverButton>
-
-              <PopoverPanel
-                className={`absolute ml-[-38px] mt-2 w-46 bg-white shadow-lg rounded-lg transition-opacity duration-300 ${
-                  open ? "opacity-100 visible" : "opacity-0 invisible"
-                }`}
-              >
-                <div className="p-2 flex flex-col">
-                  <Link
-                    onClick={() => close()}
-                    to="/info/applicant"
-                    className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
-                  >
-                    {t("news.holidays")}
-                  </Link>
-                  <Link
-                    onClick={() => close()}
-                    to="/info/docs"
-                    className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
-                  >
-                    {t("news.saturdays")}
-                  </Link>
-                  <Link
-                    onClick={() => close()}
-                    to="/info/npa"
-                    className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
-                  >
-                    {t("news.lifeLyceum")}
-                  </Link>
-                </div>
-              </PopoverPanel>
-            </>
-          )}
-        </Popover>
-        <Popover className="relative z-20">
-          {({ open, close }) => (
-            <>
-              <PopoverButton
-                className="focus:outline-none"
-                onClick={() => close()}
-              >
-                {t("header.plit")}
-              </PopoverButton>
-              <PopoverPanel
-                className={`absolute ml-[-60px] mt-2 w-46 bg-white shadow-lg rounded-lg transition-opacity duration-300 ${
-                  open ? "opacity-100 visible" : "opacity-0 invisible"
-                }`}
-              >
-                <div className="p-2 flex flex-col">
-                  <Link
-                    onClick={() => close()}
-                    to="/plit/about"
-                    className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
-                  >
-                    {t("plit.about")}
-                  </Link>
-                  <Link
-                    onClick={() => close()}
-                    to="/info/docs"
-                    className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
-                  >
-                    {t("plit.administration")}
-                  </Link>
-                  <Link
-                    onClick={() => close()}
-                    to="/plit/teachers"
-                    className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
-                  >
-                    {t("plit.teachers")}
-                  </Link>
-                  <Link
-                    onClick={() => close()}
-                    to="/info/docs"
-                    className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
-                  >
-                    {t("plit.masters")}
-                  </Link>
-                </div>
-              </PopoverPanel>
-            </>
-          )}
-        </Popover>
-        <LanguageSwitcher />
       </div>
 
       {isMobileMenuOpen && (

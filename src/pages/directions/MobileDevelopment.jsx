@@ -14,6 +14,7 @@ const MobileDevelopment = () => {
       <DirectionPage
         image={img}
         image1={img2}
+        name={t("mobDevelopment.name")}
         title={t("mobDevelopment.title")}
         text={t("mobDevelopment.text")}
         icon={time}
