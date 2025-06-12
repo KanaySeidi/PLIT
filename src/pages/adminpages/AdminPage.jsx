@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import AdminSidebar from "./adminSidebar/AdminSidebar.jsx";
 import { useAdminStore } from "./adminSidebar/useAdminStore.js";
 
@@ -14,7 +13,8 @@ export default function AdminPage() {
         ⇨
       </button>
       <div className="ml-64 w-full p-8">
-        <Outlet />
+        <h1 className="text-2xl font-bold">Добро пожаловать в админку!</h1>
+        {/* Здесь можно добавить содержимое админки */}
       </div>
     </div>
   );
