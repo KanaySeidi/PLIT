@@ -66,13 +66,13 @@ const CoursesPage = () => {
 
   const CourseCard = ({ title, price, lessons }) => (
     <motion.div
-      className="bg-white rounded-xl overflow-hidden flex flex-col items-center p-4 text-[#A1012B] hover:scale-[1.02] transition-transform duration-300 shadow-lg"
+      className="bg-white rounded-xl overflow-hidden flex flex-col items-center p-4 text-bordo hover:scale-[1.02] transition-transform duration-300 shadow-lg"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="w-full h-32 bg-white/20 rounded-lg flex items-center justify-center">
-        <span className="text-[#A1012B] text-sm">Изображение</span>
+        <span className="text-bordo text-sm">Изображение</span>
       </div>
       <h3 className="text-lg font-semibold mt-4 text-center">{title}</h3>
       <p className="text-xl font-bold mt-2">{price}</p>
@@ -84,7 +84,7 @@ const CoursesPage = () => {
     <motion.div className="mb-6 rounded-xl overflow-hidden" layout>
       <button
         onClick={() => toggleSection(sectionKey)}
-        className="w-full text-left text-2xl font-bold text-white flex items-center justify-between py-4 px-6 bg-[#800020] hover:bg-[#5A0015] transition-colors"
+        className="w-full text-left text-2xl font-bold text-white flex items-center justify-between py-4 px-6 bg-bordo hover:bg-[#8B0126] transition-colors"
       >
         {title}
         <motion.span
@@ -153,7 +153,7 @@ const CoursesPage = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <header className="bg-[#800020] py-6 text-center">
+      <header className="bg-bordo py-6 text-center">
         <motion.h1
           className="text-4xl font-bold"
           initial={{ y: -20 }}

@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import BurgerMenu from "../../BurgerMenu";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 
+
 const Header = () => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
@@ -209,7 +210,7 @@ const Header = () => {
                           </Link>
                           <Link
                             onClick={() => close()}
-                            to="/info/docs"
+                            to="/plit/masters"
                             className="block px-3 py-2 hover:bg-gray-400 hover:text-white rounded"
                           >
                             {t("plit.masters")}
@@ -359,6 +360,42 @@ const Header = () => {
                       </div>
                     </PopoverPanel>
                   )}
+                  <PopoverPanel
+                    className={`absolute ml-[-60px] mt-2 w-46 bg-white shadow-lg rounded-lg transition-opacity duration-300 ${
+                      open ? "opacity-100 visible" : "opacity-0 invisible"
+                    }`}
+                  >
+                    <div className="p-2 flex flex-col">
+                      <Link
+                        onClick={() => close()}
+                        to="/plit/about"
+                        className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
+                      >
+                        {t("plit.about")}
+                      </Link>
+                      <Link
+                        onClick={() => close()}
+                        to="/info/docs"
+                        className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
+                      >
+                        {t("plit.administration")}
+                      </Link>
+                      <Link
+                        onClick={() => close()}
+                        to="/plit/teachers"
+                        className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
+                      >
+                        {t("plit.teachers")}
+                      </Link>
+                      <Link
+                        onClick={() => close()}
+                        to="/plit/masters"
+                        className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
+                      >
+                        {t("plit.masters")}
+                      </Link>
+                    </div>
+                  </PopoverPanel>
                 </>
               )}
             </Popover>

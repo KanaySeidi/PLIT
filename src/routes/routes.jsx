@@ -16,9 +16,9 @@ import {
   Teacherinfo,
   Students,
   NPA,
-} from "../index";
-
-import TeacherSl from "../components/teachersSlider/TeacherSl";
+  // Masters,
+  TeacherSl,
+} from "../pages";
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -39,6 +39,7 @@ const routes = [
   { path: "/plit/teachers", element: <TeacherSl /> },
   { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   { path: "/plit/about", element: <About /> },
+  // { path: "/plit/masters", element: <Masters /> },
 ];
 
 export default routes;
