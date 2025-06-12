@@ -125,7 +125,7 @@ const Header = () => {
               }`}
             >
               <div
-                className={`h-full flex justify-end items-center transition-all duration-500 font-semibold ${
+                className={`h-full flex justify-end items-center gap-9 transition-all duration-500 font-semibold ${
                   isScroll ? "text-white" : "text-[#63001F]"
                 }`}
               >
