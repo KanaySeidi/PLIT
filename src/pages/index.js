@@ -1,0 +1,19 @@
+export { CoursesPage } from "./HeaderPages/CouresPage.async";
+export { InfoPage } from "./HeaderPages/InfoPage.async";
+export { Main } from "./Main/Main.async";
+export { Frontend } from "./directions/Frontend.async";
+export { TD } from "./directions/TD.async";
+export { SisAdm } from "./directions/SisAdm.async";
+export { Backend } from "./directions/Backend.async";
+export { MechRob } from "./directions/MechRob.async";
+export { MobileDevelopment } from "./directions/MobileDevelopment.async";
+export { Information } from "./directions/Information.async";
+export { Exploitation } from "./directions/Exploitation.async";
+export { AutoMechanic } from "./directions/AutoMechanic.async";
+export { LDocs } from "./HeaderPages/LDocs.async";
+export { About } from "./about/About.async"
+export { Teacherinfo } from "./HeaderPages/Teacherinfo.async"
+export { Students} from "./HeaderPages/Students.async"
+export { NPA } from "./HeaderPages/NPA.async"
+// export { Masters } from "./HeaderPages/Masters.async"
+export { TeacherSl } from "../components/teachersSlider/TeacherSl.async"
