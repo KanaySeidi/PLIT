@@ -71,7 +71,7 @@ const MainCards = () => {
             <img
               src={item.img}
               alt={item.title}
-              className="w-full h-full object-cover brightness-75 group-hover:brightness-100 transition duration-300"
+              className="w-full h-full object-cover brightness-75 group-hover:brightness-100 transition duration-300 "
             />
             {/* Gradient Overlay */}
             <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/70 to-transparent"></div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
