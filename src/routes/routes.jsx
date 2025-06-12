@@ -52,31 +52,9 @@ const routes = [
   { path: "/plit/about", element: <About /> },
   {
     path: "/admin",
-    element: <AdminPage />,
     children: [
-      { path: "main", element: <MainAdmin /> },
-      { path: "courses", element: <CoursesAdmin /> },
-      { path: "information", element: <InfoAdmin /> },
-      { path: "news", element: <NewsAdmin /> },
-      { path: "plit", element: <PlitAdmin /> },
-      { path: "internal-pages", element: <InternalPagesAdmin /> },
-      {
-        path: "/admin",
-        children: [
-          { path: "sign", element: <LoginPage /> }, // Страница входа
-          {
-            path: "main",
-            element: <AdminPage />, // Страница админки после входа
-            children: [
-              { path: "courses", element: <CoursesAdmin /> },
-              { path: "information", element: <InfoAdmin /> },
-              { path: "news", element: <NewsAdmin /> },
-              { path: "plit", element: <PlitAdmin /> },
-              { path: "internal-pages", element: <InternalPagesAdmin /> },
-            ],
-          },
-        ],
-      },
+      { path: "sign", element: <LoginPage /> }, // Страница входа
+      { path: "main", element: <AdminPage /> }, // Страница админки
     ],
   },
 ];
