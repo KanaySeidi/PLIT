@@ -8,8 +8,8 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Простая проверка логина и пароля
-    if (username === "admin" && password === "password") {
+    // Проверка логина и пароля
+    if (username === "admin" && password === "12345") {
       navigate("/admin/main"); // Перенаправление на страницу админки
     } else {
       setError("Неверный логин или пароль");
