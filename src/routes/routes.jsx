@@ -16,7 +16,9 @@ import {
   Teacherinfo,
   Students,
   NPA,
-} from "../pages";
+} from "../index";
+
+import TeacherSl from "../components/teachersSlider/TeacherSl";
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -28,13 +30,15 @@ const routes = [
   { path: "/md", element: <MobileDevelopment /> },
   { path: "/sa", element: <SisAdm /> },
   { path: "/td", element: <TD /> },
-  { path: "am", element: <AutoMechanic /> },
+  { path: "/am", element: <AutoMechanic /> },
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
   { path: "/info/applicant", element: <Students /> },
-  { path: "/info/npa", element: <NPA /> },
   { path: "/info/docs", element: <LDocs /> },
+  { path: "/info/npa", element: <NPA /> },
+  { path: "/plit/teachers", element: <TeacherSl /> },
   { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   { path: "/plit/about", element: <About /> },
 ];
+
 export default routes;
