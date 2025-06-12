@@ -23,6 +23,7 @@ import {
   NewsAdmin,
   PlitAdmin,
   InternalPagesAdmin,
+  TeacherSl,
 } from "../pages";
 
 const routes = [
@@ -39,8 +40,9 @@ const routes = [
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
   { path: "/info/applicant", element: <Students /> },
-  { path: "/info/npa", element: <NPA /> },
   { path: "/info/docs", element: <LDocs /> },
+  { path: "/info/npa", element: <NPA /> },
+  { path: "/plit/teachers", element: <TeacherSl /> },
   { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   { path: "/plit/about", element: <About /> },
   {
@@ -56,4 +58,5 @@ const routes = [
     ],
   },
 ];
+
 export default routes;

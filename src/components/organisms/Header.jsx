@@ -209,7 +209,7 @@ const Header = () => {
                           </Link>
                           <Link
                             onClick={() => close()}
-                            to="/info/docs"
+                            to="/plit/masters"
                             className="block px-3 py-2 hover:bg-gray-400 hover:text-white rounded"
                           >
                             {t("plit.masters")}
@@ -356,7 +356,7 @@ const Header = () => {
                       </Link>
                       <Link
                         onClick={() => close()}
-                        to="/info/docs"
+                        to="/plit/masters"
                         className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                       >
                         {t("plit.masters")}
@@ -367,7 +367,6 @@ const Header = () => {
               )}
             </Popover>
             <LanguageSwitcher />
-            
             {/* Иконка для перехода на админку */}
             {location.pathname === "/" && (
               <Link to="/admin">
