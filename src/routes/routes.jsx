@@ -1,4 +1,6 @@
 import {
+  CoursesPage,
+  InfoPage,
   AutoMechanic,
   Backend,
   Exploitation,
@@ -9,18 +11,30 @@ import {
   MobileDevelopment,
   SisAdm,
   TD,
+  LDocs,
+  About,
+  Teacherinfo,
+  Students,
+  NPA,
 } from "../pages";
 
 const routes = [
   { path: "/", element: <Main /> },
+  { path: "/courses", element: <CoursesPage /> },
+  { path: "/info", element: <InfoPage /> },
   { path: "/fr", element: <Frontend /> },
   { path: "/br", element: <Backend /> },
   { path: "/mr", element: <MechRob /> },
   { path: "/md", element: <MobileDevelopment /> },
   { path: "/sa", element: <SisAdm /> },
   { path: "/td", element: <TD /> },
-  { path: "/am", element: <AutoMechanic /> },
+  { path: "am", element: <AutoMechanic /> },
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
+  { path: "/info/applicant", element: <Students /> },
+  { path: "/info/npa", element: <NPA /> },
+  { path: "/info/docs", element: <LDocs /> },
+  { path: "/plit/teachers/:id", element: <Teacherinfo /> },
+  { path: "/plit/about", element: <About /> },
 ];
 export default routes;
