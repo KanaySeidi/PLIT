@@ -15,12 +15,3 @@ export { About } from "./pages/about/About.async";
 export { Teacherinfo } from "./pages/HeaderPages/Teacherinfo.async";
 export { Students } from "./pages/HeaderPages/Students.async";
 export { NPA } from "./pages/HeaderPages/NPA.async";
-export { AdminPanel } from "./pages/admin/AdminPanel.async";
-export { KyrgyzstanTours } from "./pages/admin/tours/KyrgyzstanTours.async";
-export { AddTour } from "./pages/admin/tours/AddCourse.async"; // Исправленный путь
-export { AdminAbout } from "./pages/admin/about/AdminAbout.async";
-export { CentralAsiaTours } from "./pages/admin/tours/CentralAsiaTours.async";
-export { TourDetail } from "./pages/admin/tour_details/TourDetails.async";
-export { StaffDetails } from "./pages/admin/staff_details/StaffDetails.async";
-export { Pictures } from "../pages/aboutadmin/Pictures.async";
-export { Video } from "../pages/admin/video/Video.async";

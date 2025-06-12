@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react"; // Добавляем useState
+import { motion, AnimatePresence } from "framer-motion";
 import Modal from "../../components/Surfacing/Modal";
 import { useTranslation } from "react-i18next";
 
 const Students = () => {
   const { t } = useTranslation();
+  const [openQuestion, setOpenQuestion] = useState(null);
 
   return (
     <>
@@ -17,7 +19,7 @@ const Students = () => {
           <div className="w-full md:w-[55%] space-y-8">
             <div className="bg-white text-gray-800 rounded-3xl shadow-[6px_6px_12px_rgba(128,0,32,0.15)] p-4 sm:p-6 border border-gray-100">
               <p className="text-sm sm:text-base md:text-lg leading-relaxed">
-              {t("withStudents.applicantstime")}
+                {t("withStudents.applicantstime")}
               </p>
             </div>
 
@@ -26,16 +28,14 @@ const Students = () => {
                 title={
                   <div className="text-center mb-4">
                     <h2 className="text-xl font-semibold text-black">
-                    {t("withStudents.applicantsdoc")}
+                      {t("withStudents.applicantsdoc")}
                     </h2>
                   </div>
                 }
                 titledescription={
                   <ul className="list-decimal list-inside space-y-2 text-black text-base leading-relaxed">
                     <li>{t("withStudents.applicantsdoc1")}</li>
-                    <li>
-                    {t("withStudents.applicantsdoc2")}
-                    </li>
+                    <li>{t("withStudents.applicantsdoc2")}</li>
                     <li>{t("withStudents.applicantsdoc3")}</li>
                     <li>{t("withStudents.applicantsdoc4")}</li>
                     <li>{t("withStudents.applicantsdoc5")}</li>
@@ -82,22 +82,80 @@ const Students = () => {
           <div className="md:w-[70%] text-gray-800 text-base leading-relaxed">
             <ul className="list-disc list-inside space-y-2">
               <li>
-                <strong>{t("withStudents.applicantstopic1")}</strong> {t("withStudents.applicantsinfo1")}
+                <strong>{t("withStudents.applicantstopic1")}</strong>{" "}
+                {t("withStudents.applicantsinfo1")}
               </li>
               <li>
-                <strong>{t("withStudents.applicantstopic2")}</strong> {t("withStudents.applicantsinfo2")}
+                <strong>{t("withStudents.applicantstopic2")}</strong>{" "}
+                {t("withStudents.applicantsinfo2")}
               </li>
               <li>
-                <strong>{t("withStudents.applicantstopic3")}</strong> {t("withStudents.applicantsinfo3")}
+                <strong>{t("withStudents.applicantstopic3")}</strong>{" "}
+                {t("withStudents.applicantsinfo3")}
               </li>
               <li>
-                <strong>{t("withStudents.applicantstopic4")}</strong> {t("withStudents.applicantsinfo4")}
+                <strong>{t("withStudents.applicantstopic4")}</strong>{" "}
+                {t("withStudents.applicantsinfo4")}
               </li>
               <li>
-                <strong>{t("withStudents.applicantstopic5")}</strong> {t("withStudents.applicantsinfo5")}
+                <strong>{t("withStudents.applicantstopic5")}</strong>{" "}
+                {t("withStudents.applicantsinfo5")}
               </li>
             </ul>
           </div>
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto mt-16 px-4 sm:px-6 mb-12">
+        <h2 className="text-3xl font-bold text-bordo mb-8 text-center">
+          {t("faq.title")}
+        </h2>
+        <div className="space-y-4">
+          {t("faq.questions", { returnObjects: true }).map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 10 }} 
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }} 
+              className="bg-white rounded-2xl shadow-[0_0_15px_rgba(128,0,32,0.2)] overflow-hidden"
+            >
+              <button
+                onClick={() =>
+                  setOpenQuestion(openQuestion === index ? null : index)
+                }
+                className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50"
+              >
+                <span className="text-lg font-medium text-gray-800 pr-8">
+                  {item.question}
+                </span>
+                <motion.span
+                  animate={{ rotate: openQuestion === index ? 45 : 0 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }} 
+                  className="text-2xl font-bold text-white bg-bordo rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+                >
+                  +
+                </motion.span>
+              </button>
+              <AnimatePresence>
+                {openQuestion === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{
+                      duration: 0.2, 
+                      ease: "easeOut", 
+                      opacity: { duration: 0.15 },
+                    }}
+                    className="px-4 pb-4"
+                  >
+                    <p className="text-gray-600 whitespace-pre-line">
+                      {item.answer}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
         </div>
       </div>
     </>
