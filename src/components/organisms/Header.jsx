@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import BurgerMenu from "../../BurgerMenu";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 
-
 const Header = () => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
