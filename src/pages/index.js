@@ -11,7 +11,16 @@ export { Information } from "./directions/Information.async";
 export { Exploitation } from "./directions/Exploitation.async";
 export { AutoMechanic } from "./directions/AutoMechanic.async";
 export { LDocs } from "./HeaderPages/LDocs.async";
-export { About } from "./about/About.async"
-export { Teacherinfo } from "./HeaderPages/Teacherinfo.async"
-export { Students} from "./HeaderPages/Students.async"
-export { NPA } from "./HeaderPages/NPA.async"
+export { About } from "./about/About.async";
+export { Teacherinfo } from "./HeaderPages/Teacherinfo.async";
+export { Students } from "./HeaderPages/Students.async";
+export { NPA } from "./HeaderPages/NPA.async";
+export { AdminPanel } from "./admin/AdminPanel.async";
+export { KyrgyzstanTours } from "./admin/tours/KyrgyzstanTours.async";
+export { AddTour } from "./admin/addTours/AddTour.async";
+export { AdminAbout } from "./admin/about/AdminAbout.async";
+export { CentralAsiaTours } from "./admin/tours/CentralAsiaTours.async";
+export { TourDetail } from "./admin/tour_details/TourDetails.async";
+export { StaffDetails } from "./admin/staff_details/StaffDetails.async";
+export { Pictures } from "../pages/aboutadmin/Pictures.async";
+export { Video } from "../pages/admin/video/Video.async";

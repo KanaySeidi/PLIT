@@ -100,7 +100,6 @@ function AboutPage() {
           </div>
         </motion.section>
       </main>
-
       {/* Statistics Section */}
       <motion.section
         className="bg-bordo text-white py-20"
@@ -202,7 +201,6 @@ function AboutPage() {
           </div>
         </div>
       </motion.section>
-
       {/* Campus Section with YouTube video */}
       <motion.section
         className="py-20 text-center"
@@ -277,7 +275,6 @@ function AboutPage() {
           </AnimatePresence>
         </div>
       </motion.section>
-
       {/* Student Testimonial */}
       <motion.section
         className="py-20"
