@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react"; // Добавляем useState
+import { motion, AnimatePresence } from "framer-motion";
 import Modal from "../../components/Surfacing/Modal";
 import { useTranslation } from "react-i18next";
 
 const Students = () => {
   const { t } = useTranslation();
+  const [openQuestion, setOpenQuestion] = useState(null);
 
   return (
     <>
@@ -101,6 +103,59 @@ const Students = () => {
               </li>
             </ul>
           </div>
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto mt-16 px-4 sm:px-6 mb-12">
+        <h2 className="text-3xl font-bold text-bordo mb-8 text-center">
+          {t("faq.title")}
+        </h2>
+        <div className="space-y-4">
+          {t("faq.questions", { returnObjects: true }).map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 10 }} 
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }} 
+              className="bg-white rounded-2xl shadow-[0_0_15px_rgba(128,0,32,0.2)] overflow-hidden"
+            >
+              <button
+                onClick={() =>
+                  setOpenQuestion(openQuestion === index ? null : index)
+                }
+                className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50"
+              >
+                <span className="text-lg font-medium text-gray-800 pr-8">
+                  {item.question}
+                </span>
+                <motion.span
+                  animate={{ rotate: openQuestion === index ? 45 : 0 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }} 
+                  className="text-2xl font-bold text-white bg-bordo rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0"
+                >
+                  +
+                </motion.span>
+              </button>
+              <AnimatePresence>
+                {openQuestion === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{
+                      duration: 0.2, 
+                      ease: "easeOut", 
+                      opacity: { duration: 0.15 },
+                    }}
+                    className="px-4 pb-4"
+                  >
+                    <p className="text-gray-600 whitespace-pre-line">
+                      {item.answer}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
         </div>
       </div>
     </>

@@ -18,15 +18,7 @@ import {
   NPA,
   NewsCards,
   News,
-  AdminPanel,
-  KyrgyzstanTours,
-  AddTour,
-  AdminAbout,
-  CentralAsiaTours,
-  TourDetail,
-  Pictures,
-  Video,
-  StaffDetails,
+  TeacherSl,
 } from "../pages";
 
 const routes = [
@@ -43,21 +35,13 @@ const routes = [
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
   { path: "/info/applicant", element: <Students /> },
-  { path: "/info/npa", element: <NPA /> },
   { path: "/info/docs", element: <LDocs /> },
+  { path: "/info/npa", element: <NPA /> },
+  { path: "/plit/teachers", element: <TeacherSl /> },
   { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   { path: "/news", element: <NewsCards /> },
   { path: "/news/:id", element: <News /> },
   { path: "/plit/about", element: <About /> },
-  { path: "/admin/sign", element: <AdminPanel /> },
-  { path: "/admin/tours/kyrgyzstan", element: <KyrgyzstanTours /> },
-  { path: "/admin/tours/addKGTours", element: <AddTour /> },
-  { path: "/admin/tours/addCentralAsiaTours", element: <AddTour /> },
-  { path: "/admin/tours/centralAsia", element: <CentralAsiaTours /> },
-  { path: "/admin/staff", element: <AdminAbout /> },
-  { path: "/admin/pictures", element: <Pictures /> },
-  { path: "/admin/video", element: <Video /> },
-  { path: "/admin/tour_detail/:id", element: <TourDetail /> },
-  { path: "/admin/staff_details/:id", element: <StaffDetails /> },
 ];
+
 export default routes;

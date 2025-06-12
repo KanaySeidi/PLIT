@@ -33,7 +33,6 @@ const Teacherinfo = () => {
   });
 
   console.log(teachers);
-  
 
   useEffect(() => {
     if (inView) {
