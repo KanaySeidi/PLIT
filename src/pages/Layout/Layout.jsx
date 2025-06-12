@@ -3,7 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Header from "../../components/organisms/Header";
 import Footer from "../../footer/Footer";
 import LocationPage from "../location/LocationPage";
-import AdminSidebar from "../../admin/AdminSidebar";
+import AdminSidebar from "../adminpages/adminSidebar/AdminSidebar";
 
 const Layout = () => {
   const { pathname } = useLocation();
