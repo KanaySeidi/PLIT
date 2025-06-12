@@ -18,6 +18,14 @@ import {
   NPA,
   NewsCards,
   News,
+  LoginPage,
+  AdminPage,
+  MainAdmin,
+  CoursesAdmin,
+  InfoAdmin,
+  NewsAdmin,
+  PlitAdmin,
+  InternalPagesAdmin,
   TeacherSl,
 } from "../pages";
 
@@ -42,6 +50,35 @@ const routes = [
   { path: "/news", element: <NewsCards /> },
   { path: "/news/:id", element: <News /> },
   { path: "/plit/about", element: <About /> },
+  {
+    path: "/admin",
+    element: <AdminPage />,
+    children: [
+      { path: "main", element: <MainAdmin /> },
+      { path: "courses", element: <CoursesAdmin /> },
+      { path: "information", element: <InfoAdmin /> },
+      { path: "news", element: <NewsAdmin /> },
+      { path: "plit", element: <PlitAdmin /> },
+      { path: "internal-pages", element: <InternalPagesAdmin /> },
+      {
+        path: "/admin",
+        children: [
+          { path: "sign", element: <LoginPage /> }, // Страница входа
+          {
+            path: "main",
+            element: <AdminPage />, // Страница админки после входа
+            children: [
+              { path: "courses", element: <CoursesAdmin /> },
+              { path: "information", element: <InfoAdmin /> },
+              { path: "news", element: <NewsAdmin /> },
+              { path: "plit", element: <PlitAdmin /> },
+              { path: "internal-pages", element: <InternalPagesAdmin /> },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export default routes;
