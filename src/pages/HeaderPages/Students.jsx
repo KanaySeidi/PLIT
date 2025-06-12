@@ -17,7 +17,7 @@ const Students = () => {
           <div className="w-full md:w-[55%] space-y-8">
             <div className="bg-white text-gray-800 rounded-3xl shadow-[6px_6px_12px_rgba(128,0,32,0.15)] p-4 sm:p-6 border border-gray-100">
               <p className="text-sm sm:text-base md:text-lg leading-relaxed">
-              {t("withStudents.applicantstime")}
+                {t("withStudents.applicantstime")}
               </p>
             </div>
 
@@ -26,16 +26,14 @@ const Students = () => {
                 title={
                   <div className="text-center mb-4">
                     <h2 className="text-xl font-semibold text-black">
-                    {t("withStudents.applicantsdoc")}
+                      {t("withStudents.applicantsdoc")}
                     </h2>
                   </div>
                 }
                 titledescription={
                   <ul className="list-decimal list-inside space-y-2 text-black text-base leading-relaxed">
                     <li>{t("withStudents.applicantsdoc1")}</li>
-                    <li>
-                    {t("withStudents.applicantsdoc2")}
-                    </li>
+                    <li>{t("withStudents.applicantsdoc2")}</li>
                     <li>{t("withStudents.applicantsdoc3")}</li>
                     <li>{t("withStudents.applicantsdoc4")}</li>
                     <li>{t("withStudents.applicantsdoc5")}</li>
@@ -82,19 +80,24 @@ const Students = () => {
           <div className="md:w-[70%] text-gray-800 text-base leading-relaxed">
             <ul className="list-disc list-inside space-y-2">
               <li>
-                <strong>{t("withStudents.applicantstopic1")}</strong> {t("withStudents.applicantsinfo1")}
+                <strong>{t("withStudents.applicantstopic1")}</strong>{" "}
+                {t("withStudents.applicantsinfo1")}
               </li>
               <li>
-                <strong>{t("withStudents.applicantstopic2")}</strong> {t("withStudents.applicantsinfo2")}
+                <strong>{t("withStudents.applicantstopic2")}</strong>{" "}
+                {t("withStudents.applicantsinfo2")}
               </li>
               <li>
-                <strong>{t("withStudents.applicantstopic3")}</strong> {t("withStudents.applicantsinfo3")}
+                <strong>{t("withStudents.applicantstopic3")}</strong>{" "}
+                {t("withStudents.applicantsinfo3")}
               </li>
               <li>
-                <strong>{t("withStudents.applicantstopic4")}</strong> {t("withStudents.applicantsinfo4")}
+                <strong>{t("withStudents.applicantstopic4")}</strong>{" "}
+                {t("withStudents.applicantsinfo4")}
               </li>
               <li>
-                <strong>{t("withStudents.applicantstopic5")}</strong> {t("withStudents.applicantsinfo5")}
+                <strong>{t("withStudents.applicantstopic5")}</strong>{" "}
+                {t("withStudents.applicantsinfo5")}
               </li>
             </ul>
           </div>

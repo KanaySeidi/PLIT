@@ -66,12 +66,12 @@ const MainCards = () => {
           key={item.id}
           aria-label={`Navigate to ${item.title} page`}
         >
-          <div className="w-80 h-60 rounded-xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl relative group">
+          <div className="w-80 h-60 rounded-xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl relative group will-change-transform">
             {/* Image Section */}
             <img
               src={item.img}
               alt={item.title}
-              className="w-full h-full object-cover brightness-75 group-hover:brightness-100 transition duration-300"
+              className="w-full h-full object-cover brightness-75 group-hover:brightness-100 transition duration-300 "
             />
             {/* Gradient Overlay */}
             <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/70 to-transparent"></div>
