@@ -369,7 +369,7 @@ const Header = () => {
             <LanguageSwitcher />
             {/* Иконка для перехода на админку */}
             {location.pathname === "/" && (
-              <Link to="/admin">
+              <Link to="/admin/sign">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="34"
