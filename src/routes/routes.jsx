@@ -28,6 +28,7 @@ import {
   TeacherSl,
   HomeAdmin,
 } from "../pages";
+import { TeacherSlAdmin } from "../pages/adminpages/TeacherSlAdmin";
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -61,6 +62,7 @@ const routes = [
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
       { path: "internal-pages", element: <InternalPagesAdmin /> },
+      { path: "teachersad", element: <TeacherSlAdmin /> },
     ],
   },
 ];
