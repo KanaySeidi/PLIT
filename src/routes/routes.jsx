@@ -55,6 +55,7 @@ const routes = [
     children: [
       { path: "sign", element: <LoginPage /> }, // Страница входа
       { path: "main", element: <AdminPage /> }, // Страница админки
+      { path: "home", element: <MainAdmin /> },
       { path: "courses", element: <CoursesAdmin /> },
       { path: "information", element: <InfoAdmin /> },
       { path: "news", element: <NewsAdmin /> },
