@@ -14,6 +14,7 @@ const Backend = () => {
       <DirectionPage
         image={img}
         image1={img2}
+        name={t("backend.name")}
         title={t("backend.title")}
         text={t("backend.text")}
         icon={time}
