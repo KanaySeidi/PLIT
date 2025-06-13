@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import BurgerMenu from "../../BurgerMenu";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 
-
 const Header = () => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
@@ -147,21 +146,15 @@ const Header = () => {
                       >
                         <div className="p-2 flex flex-col">
                           <Link
-                            onClick={() => close()}
-                            to="/info/applicant"
-                            className="block px-3 py-2 hover:bg-gray-400 rounded"
-                          >
-                            {t("news.holidays")}
-                          </Link>
-                          <Link
-                            onClick={() => close()}
-                            to="/info/docs"
+                            to="/news"
                             className="block px-3 py-2 hover:bg-gray-400 hover:text-white rounded"
                           >
-                            {t("news.saturdays")}
+                            {t("news.news")}
                           </Link>
+                        </div>
+                        <div className="p-2 flex flex-col">
                           <Link
-                            to="/info/docs"
+                            to="/news"
                             className="block px-3 py-2 hover:bg-gray-400 hover:text-white rounded"
                           >
                             {t("news.lifeLyceum")}
