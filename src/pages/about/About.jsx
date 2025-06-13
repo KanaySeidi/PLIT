@@ -154,6 +154,12 @@ function AboutPage() {
               <p className="text-lg text-gray-700 leading-relaxed">
                 {t("about.history.text")}
               </p>
+              <button
+                onClick={handleExploreHistoryClick}
+                className="text-lg font-medium text-indigo-600 hover:text-indigo-700 transition-colors border-b-2 border-indigo-600 pb-1"
+              >
+                {t("about.history.button")}
+              </button>
             </div>
           </div>
         </div>
@@ -175,6 +181,12 @@ function AboutPage() {
               <p className="text-lg text-white leading-relaxed mb-8">
                 {t("about.mission.text")}
               </p>
+              <button
+                onClick={handleLearnMoreClick}
+                className="text-lg font-medium text-indigo-600 hover:text-indigo-700 transition-colors"
+              >
+                {t("about.mission.button")}
+              </button>
             </div>
             <div>
               <img
@@ -297,7 +309,8 @@ function AboutPage() {
           </div>
         </div>
       </motion.section>
-      {/* Call to Action Section
+      S-, [13.06.2025 15:51]
+      {/* Call to Action Section */}
       <motion.section
         className="bg-blue-200 py-20"
         initial="hidden"
@@ -332,7 +345,7 @@ function AboutPage() {
             </Button>
           </div>
         </div>
-      </motion.section> */}
+      </motion.section>
     </div>
   );
 }

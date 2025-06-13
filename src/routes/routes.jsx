@@ -50,20 +50,14 @@ const routes = [
   {
     path: "/admin",
     children: [
-<<<<<<< HEAD
-      { path: "sign", element: <LoginPage /> },
-      { path: "main", element: <AdminPage /> },
-      { path: "home", element: <MainAdmin /> },
-=======
       { path: "sign", element: <LoginPage /> }, // Страница входа
       { path: "main", element: <AdminPage /> }, // Страница админки
       { path: "home", element: <HomeAdmin /> },
->>>>>>> 05b3d9ed2a5c1fc2268392d1d0263a134dfeaa34
       { path: "courses", element: <CoursesAdmin /> },
       { path: "information", element: <InfoAdmin /> },
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
-      {path: "about" , element: <AdminAbout />},
+      { path: "about", element: <AdminAbout /> },
       { path: "internal-pages", element: <InternalPagesAdmin /> },
     ],
   },

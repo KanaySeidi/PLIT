@@ -1,5 +1,4 @@
-export { CoursesPage } from "./HeaderPages/CouresPage.async";
-import AdminAbout from './adminpages/AdminAbout';
+export { CoursesPage } from "./HeaderPages/CoursesPage.async"; // Исправлено название файла
 export { InfoPage } from "./HeaderPages/InfoPage.async";
 export { Main } from "./Main/Main.async";
 export { Frontend } from "./directions/Frontend.async";
@@ -17,12 +16,12 @@ export { Teacherinfo } from "./HeaderPages/Teacherinfo.async";
 export { TeacherSl } from "../components/teachersSlider/TeacherSl.async";
 export { Students } from "./HeaderPages/Students.async";
 export { NPA } from "./HeaderPages/NPA.async";
-export { default as AdminPage } from "../pages/adminpages/AdminPage";
+export { default as AdminPage } from "./adminpages/AdminPage"; // Исправлен путь
 export { default as HomeAdmin } from "./adminpages/HomeAdmin";
-export { default as CoursesAdmin } from "../pages/adminpages/CoursesAdmin";
-export { default as InfoAdmin } from "../pages/adminpages/InfoAdmin";
-export { default as NewsAdmin } from "../pages/adminpages/NewsAdmin";
-export { default as PlitAdmin } from "../pages/adminpages/PlitAdmin";
-export {default as AdminAbout} from "../pages/adminpages/AdminAbout"
-export { default as InternalPagesAdmin } from "../pages/adminpages/InternalPagesAdmin";
+export { default as CoursesAdmin } from "./adminpages/CoursesAdmin"; // Исправлен путь
+export { default as InfoAdmin } from "./adminpages/InfoAdmin";
+export { default as NewsAdmin } from "./adminpages/NewsAdmin";
+export { default as PlitAdmin } from "./adminpages/PlitAdmin";
+export { default as AdminAbout } from "./adminpages/AdminAbout"; // Исправлен путь
+export { default as InternalPagesAdmin } from "./adminpages/InternalPagesAdmin";
 export { default as LoginPage } from "./adminpages/LoginPage";
