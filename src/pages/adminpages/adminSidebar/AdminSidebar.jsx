@@ -76,26 +76,14 @@ export default function AdminSidebar() {
           </PopoverPanel>
         </Popover>
 
-        <Popover>
-          <PopoverButton>
-            <div className="hover:bg-gray-400 w-[416px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
-              <RiNewspaperLine /> Новости
-            </div>
-          </PopoverButton>
-          <PopoverPanel>
-            <div className="flex flex-col justify-between h-[120px] mt-4 items-center">
-              <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center py-2">
-                Абитуриентам
-              </Link>
-              <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
-                Документация
-              </Link>
-              <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
-                НПА КР
-              </Link>
-            </div>
-          </PopoverPanel>
-        </Popover>
+        <Link
+          to="/admin/news"
+          className="hover:bg-gray-400 w-[416px] w-86 h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center"
+          onClick={closePanel}
+        >
+          Новости
+        </Link>
+
         <Popover>
           <PopoverButton>
             <div className="hover:bg-gray-400 w-[416px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
