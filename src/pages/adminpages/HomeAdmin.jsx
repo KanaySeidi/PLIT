@@ -1,19 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-const MainAdmin = () => {
+const HomeAdmin = () => {
   const [content, setContent] = useState({
     title: "",
     description: "",
     image: null,
   });
-
-  useEffect(() => {
-    // Загрузка данных с главной страницы
-    fetch("/api/main-data")
-      .then((response) => response.json())
-      .then((data) => setContent(data))
-      .catch((error) => console.error("Ошибка загрузки данных:", error));
-  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -82,4 +74,4 @@ const MainAdmin = () => {
   );
 };
 
-export default MainAdmin;
+export default HomeAdmin;
