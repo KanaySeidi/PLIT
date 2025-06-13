@@ -32,6 +32,7 @@ import {
   HomeAdmin,
 >>>>>>> 05b3d9ed2a5c1fc2268392d1d0263a134dfeaa34
 } from "../pages";
+import { TeacherSlAdmin } from "../pages/adminpages/TeacherSlAdmin";
 
 
 const routes = [
@@ -67,6 +68,7 @@ const routes = [
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
       { path: "internal-pages", element: <InternalPagesAdmin /> },
+      { path: "teachersad", element: <TeacherSlAdmin /> },
     ],
   },
 ];
