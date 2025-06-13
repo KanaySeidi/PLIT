@@ -66,7 +66,7 @@ const DirectionPage = ({
   ];
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center pb-8">
+    <div className="relative w-full min-h-screen bg-gray-400 flex flex-col items-center pb-8">
       {/* Верхний блок с изображением */}
       <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px]">
         <img
@@ -74,8 +74,9 @@ const DirectionPage = ({
           alt="cover"
           className="w-full h-full object-cover brightness-90"
         />
+        <div className="absolute inset-0 bg-black/50 rounded-2xl"></div>
         <Link to={"/"}>
-          <div className="z-20 absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm hover:bg-white/90 text-black rounded-lg shadow-lg transition-all duration-300">
+          <div className="z-20 absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 bg-[#63001F] backdrop-blur-sm hover:bg-white/90 text-white hover:text-black rounded-lg shadow-lg transition-all duration-300">
             <span className="text-xl">←</span>
             <span className="text-sm">Назад</span>
           </div>
@@ -119,7 +120,7 @@ const DirectionPage = ({
 
         {/* Серая секция */}
         <motion.div
-          className="bg-gray-400/95 backdrop-blur-sm w-full rounded-xl p-4 sm:p-6 md:p-8 space-y-6"
+          className="bg-white/10 backdrop-blur-sm w-full rounded-xl p-4 sm:p-6 md:p-8 space-y-6"
           variants={containerVariants}
         >
           {/* Верхняя часть с иконками */}
@@ -143,26 +144,26 @@ const DirectionPage = ({
 
           {/* Нижняя часть */}
           <motion.div
-            className="flex flex-col lg:flex-row gap-6 lg:gap-8"
+            className="flex flex-col lg:flex-row gap-6 lg:gap-8 "
             variants={containerVariants}
           >
             {/* Левая колонка */}
             <motion.div
-              className="lg:w-1/2 space-y-4 ml-[120px]"
+              className="lg:w-1/2 space-y-4 ml-[150px]"
               variants={itemVariants}
             >
               <Example
                 question={
-                  <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
+                  <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-[#63001F]">
                     {master}
                   </h2>
                 }
                 answer={
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     {[lvl1, lvl2, lvl3].map((level, index) => (
                       <p
                         key={index}
-                        className="text-white text-sm sm:text-base bg-white/10 backdrop-blur-sm p-3 rounded-lg"
+                        className="text-white text-sm sm:text-base bg-[#63001F] backdrop-blur-sm p-3 rounded-lg"
                       >
                         {level}
                       </p>
@@ -195,7 +196,7 @@ const DirectionPage = ({
                           alt=""
                           className="w-4 h-4 sm:w-5 sm:h-5"
                         />
-                        <p className="text-white text-sm sm:text-base">
+                        <p className="text-[#63001F] text-sm sm:text-base">
                           {level.text}
                         </p>
                       </div>

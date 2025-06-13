@@ -39,7 +39,7 @@ export const Documents = () => {
 
   return (
     <>
-      <div className="flex flex-col lg:flex-row w-full">
+      <div className="flex flex-col lg:flex-row w-full bg-gray-400">
         <div className="w-full lg:w-1/2 relative">
           <img
             src={documentImg}
