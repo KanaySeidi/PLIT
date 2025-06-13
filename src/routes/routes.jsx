@@ -21,6 +21,7 @@ import {
   MainAdmin,
   CoursesAdmin,
   InfoAdmin,
+  AdminApplicant,
   NewsAdmin,
   PlitAdmin,
   InternalPagesAdmin,
@@ -28,6 +29,7 @@ import {
   NewsCards,
   News
 } from "../pages";
+
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -55,8 +57,10 @@ const routes = [
     children: [
       { path: "sign", element: <LoginPage /> }, // Страница входа
       { path: "main", element: <AdminPage /> }, // Страница админки
+      { path: "home", element: <MainAdmin /> },
       { path: "courses", element: <CoursesAdmin /> },
       { path: "information", element: <InfoAdmin /> },
+      {path: "applicant", element: <AdminApplicant />},
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
       { path: "internal-pages", element: <InternalPagesAdmin /> },

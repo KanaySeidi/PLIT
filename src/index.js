@@ -15,3 +15,4 @@ export { About } from "./pages/about/About.async";
 export { Teacherinfo } from "./pages/HeaderPages/Teacherinfo.async";
 export { Students } from "./pages/HeaderPages/Students.async";
 export { NPA } from "./pages/HeaderPages/NPA.async";
+

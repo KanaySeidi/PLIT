@@ -24,5 +24,6 @@ export { default as CoursesAdmin } from "../pages/adminpages/CoursesAdmin";
 export { default as InfoAdmin } from "../pages/adminpages/InfoAdmin";
 export { default as NewsAdmin } from "../pages/adminpages/NewsAdmin";
 export { default as PlitAdmin } from "../pages/adminpages/PlitAdmin";
+export { default as AdminApplicant } from "../pages/adminpages/AdminApplicant";
 export { default as InternalPagesAdmin } from "../pages/adminpages/InternalPagesAdmin";
 export { default as LoginPage } from "./adminpages/LoginPage";

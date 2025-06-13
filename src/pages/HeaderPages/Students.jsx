@@ -106,6 +106,7 @@ const Students = () => {
             </div>
           </div>
         </div>
+        {/* вопросы */}
         <div className="max-w-7xl mx-auto mt-16 px-4 sm:px-6 mb-12">
           <h2 className="text-3xl font-bold text-bordo mb-8 text-center">
             {t("faq.title")}

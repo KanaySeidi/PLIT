@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { useState } from "react";
-=======
 import React, { useState, useEffect } from "react";
->>>>>>> 6589de2b90a9475c682b9925c69c69dc7f2c83bb
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaBook,
