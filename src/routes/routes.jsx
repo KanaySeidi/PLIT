@@ -18,7 +18,6 @@ import {
   NPA,
   LoginPage,
   AdminPage,
-  MainAdmin,
   CoursesAdmin,
   InfoAdmin,
   NewsAdmin,

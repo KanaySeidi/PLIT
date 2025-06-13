@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const MainAdmin = () => {
   const [content, setContent] = useState({
-    title: "Добро пожаловать!",
-    description: "Описание главной страницы",
+    title: "",
+    description: "",
     image: null,
   });
+
+  useEffect(() => {
+    // Загрузка данных с главной страницы
+    fetch("/api/main-data")
+      .then((response) => response.json())
+      .then((data) => setContent(data))
+      .catch((error) => console.error("Ошибка загрузки данных:", error));
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,12 +25,12 @@ const MainAdmin = () => {
   };
 
   const handleSave = () => {
-    // Здесь можно отправить данные на сервер через API
     console.log("Сохранено:", content);
+    // Здесь можно отправить данные на сервер через API
   };
 
   const handleDelete = () => {
-    // Логика удаления контента
+    setContent({ title: "", description: "", image: null });
     console.log("Контент удален");
   };
 
@@ -37,7 +45,7 @@ const MainAdmin = () => {
             name="title"
             value={content.title}
             onChange={handleChange}
-            className="w-full border p-2"
+            className="w-full border p-2 rounded"
           />
         </div>
         <div>
@@ -46,7 +54,7 @@ const MainAdmin = () => {
             name="description"
             value={content.description}
             onChange={handleChange}
-            className="w-full border p-2"
+            className="w-full border p-2 rounded"
           />
         </div>
         <div>
@@ -54,7 +62,7 @@ const MainAdmin = () => {
           <input
             type="file"
             onChange={handleImageChange}
-            className="w-full border p-2"
+            className="w-full border p-2 rounded"
           />
         </div>
         <button
