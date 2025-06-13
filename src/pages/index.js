@@ -11,6 +11,8 @@ export { MobileDevelopment } from "./directions/MobileDevelopment.async";
 export { Information } from "./directions/Information.async";
 export { Exploitation } from "./directions/Exploitation.async";
 export { AutoMechanic } from "./directions/AutoMechanic.async";
+export { News } from "./news/News.async";
+export { NewsCards } from "./news/NewsCards.async";
 export { LDocs } from "./HeaderPages/LDocs.async";
 export { About } from "./about/About.async";
 export { Teacherinfo } from "./HeaderPages/Teacherinfo.async";
@@ -23,6 +25,7 @@ export { default as CoursesAdmin } from "../pages/adminpages/CoursesAdmin";
 export { default as InfoAdmin } from "../pages/adminpages/InfoAdmin";
 export { default as NewsAdmin } from "../pages/adminpages/NewsAdmin";
 export { default as PlitAdmin } from "../pages/adminpages/PlitAdmin";
+export { default as AdminApplicant } from "../pages/adminpages/AdminApplicant";
 export {default as AdminAbout} from "../pages/adminpages/AdminAbout"
 export { default as InternalPagesAdmin } from "../pages/adminpages/InternalPagesAdmin";
 export { default as LoginPage } from "./adminpages/LoginPage";
