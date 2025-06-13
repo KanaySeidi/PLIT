@@ -13,6 +13,7 @@ const AutoMechanic = () => {
       <DirectionPage
         image={Cimg}
         image1={Cimg2}
+        name={t("AutoMechanic.name")}
         title={t("AutoMechanic.title")}
         text={t("AutoMechanic.text")}
         icon={time}

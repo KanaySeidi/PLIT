@@ -15,6 +15,7 @@ const TD = () => {
       <DirectionPage
         image={img}
         image1={img2}
+        name={t("TD.name")}
         title={t("TD.title")}
         text={t("TD.text")}
         icon={time}

@@ -16,14 +16,15 @@ import {
   Teacherinfo,
   Students,
   NPA,
+  LoginPage,
   AdminPage,
-  MainAdmin,
   CoursesAdmin,
   InfoAdmin,
   NewsAdmin,
   PlitAdmin,
   InternalPagesAdmin,
   TeacherSl,
+  HomeAdmin,
 } from "../pages";
 
 const routes = [
@@ -47,9 +48,10 @@ const routes = [
   { path: "/plit/about", element: <About /> },
   {
     path: "/admin",
-    element: <AdminPage />,
     children: [
-      { path: "main", element: <MainAdmin /> },
+      { path: "sign", element: <LoginPage /> }, // Страница входа
+      { path: "main", element: <AdminPage /> }, // Страница админки
+      { path: "home", element: <HomeAdmin /> },
       { path: "courses", element: <CoursesAdmin /> },
       { path: "information", element: <InfoAdmin /> },
       { path: "news", element: <NewsAdmin /> },
