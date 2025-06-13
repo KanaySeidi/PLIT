@@ -15,6 +15,7 @@ const SisAdm = () => {
       <DirectionPage
         image={img}
         image1={img2}
+        name={t("SisAdm.name")}
         title={t("SisAdm.title")}
         text={t("SisAdm.text")}
         icon={time}
