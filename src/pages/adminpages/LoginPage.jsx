@@ -9,7 +9,7 @@ const LoginPage = () => {
 
   const handleLogin = () => {
     // Проверка логина и пароля
-    if (username === "admin" && password === "12345") {
+    if (username === "" && password === "") {
       navigate("/admin/main"); // Перенаправление на страницу админки
     } else {
       setError("Неверный логин или пароль");
