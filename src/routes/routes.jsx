@@ -18,7 +18,6 @@ import {
   NPA,
   LoginPage,
   AdminPage,
-  MainAdmin,
   CoursesAdmin,
   InfoAdmin,
   NewsAdmin,
@@ -26,6 +25,7 @@ import {
   AdminAbout,
   InternalPagesAdmin,
   TeacherSl,
+  HomeAdmin,
 } from "../pages";
 
 const routes = [
@@ -50,9 +50,15 @@ const routes = [
   {
     path: "/admin",
     children: [
+<<<<<<< HEAD
       { path: "sign", element: <LoginPage /> },
       { path: "main", element: <AdminPage /> },
       { path: "home", element: <MainAdmin /> },
+=======
+      { path: "sign", element: <LoginPage /> }, // Страница входа
+      { path: "main", element: <AdminPage /> }, // Страница админки
+      { path: "home", element: <HomeAdmin /> },
+>>>>>>> 05b3d9ed2a5c1fc2268392d1d0263a134dfeaa34
       { path: "courses", element: <CoursesAdmin /> },
       { path: "information", element: <InfoAdmin /> },
       { path: "news", element: <NewsAdmin /> },

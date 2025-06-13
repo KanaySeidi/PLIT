@@ -18,7 +18,7 @@ export { TeacherSl } from "../components/teachersSlider/TeacherSl.async";
 export { Students } from "./HeaderPages/Students.async";
 export { NPA } from "./HeaderPages/NPA.async";
 export { default as AdminPage } from "../pages/adminpages/AdminPage";
-export { default as MainAdmin } from "../pages/adminpages/MainAdmin";
+export { default as HomeAdmin } from "./adminpages/HomeAdmin";
 export { default as CoursesAdmin } from "../pages/adminpages/CoursesAdmin";
 export { default as InfoAdmin } from "../pages/adminpages/InfoAdmin";
 export { default as NewsAdmin } from "../pages/adminpages/NewsAdmin";
