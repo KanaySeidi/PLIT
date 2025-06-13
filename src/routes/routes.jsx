@@ -16,7 +16,13 @@ import {
   Teacherinfo,
   Students,
   NPA,
-  // Masters,
+  AdminPage,
+  MainAdmin,
+  CoursesAdmin,
+  InfoAdmin,
+  NewsAdmin,
+  PlitAdmin,
+  InternalPagesAdmin,
   TeacherSl,
 } from "../pages";
 
@@ -39,7 +45,18 @@ const routes = [
   { path: "/plit/teachers", element: <TeacherSl /> },
   { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   { path: "/plit/about", element: <About /> },
-  // { path: "/plit/masters", element: <Masters /> },
+  {
+    path: "/admin",
+    element: <AdminPage />,
+    children: [
+      { path: "main", element: <MainAdmin /> },
+      { path: "courses", element: <CoursesAdmin /> },
+      { path: "information", element: <InfoAdmin /> },
+      { path: "news", element: <NewsAdmin /> },
+      { path: "plit", element: <PlitAdmin /> },
+      { path: "internal-pages", element: <InternalPagesAdmin /> },
+    ],
+  },
 ];
 
 export default routes;

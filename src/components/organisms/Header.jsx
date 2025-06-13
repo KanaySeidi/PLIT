@@ -367,6 +367,25 @@ const Header = () => {
               )}
             </Popover>
             <LanguageSwitcher />
+            {/* Иконка для перехода на админку */}
+            {location.pathname === "/" && (
+              <Link to="/admin">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="34"
+                  height="34"
+                  viewBox="0 0 34 34"
+                  className="cursor-pointer"
+                >
+                  <image
+                    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVVLah2rDoXWZ_b0yH1_HE4vhh_7_Ne96NfXWy37TquS0OKX9OE99nK9MT7Pa1v3pDak&usqp=CAU"
+                    width="34"
+                    height="34"
+                    preserveAspectRatio="xMidYMid slice"
+                  />
+                </svg>
+              </Link>
+            )}
           </div>
         </div>
       </div>
