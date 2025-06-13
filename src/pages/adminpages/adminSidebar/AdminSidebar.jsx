@@ -96,8 +96,12 @@ export default function AdminSidebar() {
           </PopoverButton>
           <PopoverPanel>
             <div className="flex flex-col justify-between h-[120px] mt-4 items-center">
-              <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center py-2">
-                Абитуриентам
+              <Link
+                to="/admin/about"
+                className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center py-2"
+                onClick={closePanel}
+              >
+                О лицее
               </Link>
               <Link
                 to={"/admin/teachersad"}
