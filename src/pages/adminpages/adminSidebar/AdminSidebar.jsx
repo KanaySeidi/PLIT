@@ -90,8 +90,12 @@ export default function AdminSidebar() {
               <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center py-2">
                 Абитуриентам
               </Link>
-              <Link className="hoverbg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
-                Документация
+              <Link
+                to={"/admin/teachersad"}
+                onClick={closePanel}
+                className="hoverbg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center"
+              >
+                Педагоги
               </Link>
               <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
                 НПА КР
