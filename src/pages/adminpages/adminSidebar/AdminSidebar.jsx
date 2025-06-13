@@ -64,43 +64,38 @@ export default function AdminSidebar() {
         </div>
       </div>
 
-      <div className="flex-1 bg-gray-400 p-4">Контент</div>
-    </div>
-
-    // {/* <button
+      {/* <button
     //   className="absolute -right-4 top-1/2 transform -translate-y-1/2 bg-[#5a0a2d] text-white rounded-full p-2 shadow-md hover:bg-[#6c183b] transition"
     // >
     //   {isOpen ? <FiArrowLeftCircle /> : <FiArrowRightCircle />}
     // </button> */}
-
-    // <div
+      {/* // <div
     //   className={`fixed top-0 left-0 h-full bg-[#63001F] shadow-lg z-50 text-xl transition-all duration-300
     //     ${isOpen ? "w-1/3 max-w-md" : "w-0 overflow-hidden"}`}
-    // >
-    //   <button
+    // > */}
+      {/* //   <button
     //     onClick={closePanel}
     //     className="absolute flex items-center justify-center top-1/2 p-2 right-4 text-white w-20 bg-[#63001F] rounded"
     //   >
     //     <FiArrowLeftCircle className="w-8 h-8" />
-    //   </button>
-    //   <div className="space-y-4 p-4 mt-20 text-white">
+    //   </button> */}
+      {/* //   <div className="space-y-4 p-4 mt-20 text-white">
     //     <Link
     //       to="/admin/home"
     //       className="hover:bg-gray-400 w-86 h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center"
     //       onClick={closePanel}
-    //     >
-    //       <AiOutlineHome className="text-2xl" />
+    //     > */}
+      {/* //       <AiOutlineHome className="text-2xl" />
     //       {isOpen && <span className="whitespace-nowrap">Главная</span>}
-    //     </Link>
-    //     <Link
+    //     </Link> */}
+      {/* //     <Link
     //       to="/admin/courses"
     //       className="hover:bg-gray-400 w-86 h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center"
     //       onClick={closePanel}
     //     >
     //       <MdOutlineMenuBook /> Курсы
-    //     </Link>
-
-    //     <Popover>
+    //     </Link> */}
+      {/* //     <Popover>
     //       <PopoverButton>
     //         <div className="hover:bg-gray-400 w-[416px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
     //           <AiOutlineInfoCircle /> Информация
@@ -161,8 +156,7 @@ export default function AdminSidebar() {
     //         </div>
     //       </PopoverPanel>
     //     </Popover>
-    //   </div>
-    //   <div className=""></div>
-    // </div>
+    //   </div> */}
+    </div>
   );
 }

@@ -1,10 +1,13 @@
+import { Documents } from "../information/Documents";
+import { InformationLyceum } from "../information/InformationLyceum";
+
 const InfoPage = () => {
-  return;
-  <>
+  return (
     <div>
-      <h1>Hello World</h1>
+      <InformationLyceum />
+      <Documents />
     </div>
-  </>;
+  );
 };
 
 export default InfoPage;
