@@ -18,7 +18,6 @@ import {
   NPA,
   LoginPage,
   AdminPage,
-  MainAdmin,
   CoursesAdmin,
   InfoAdmin,
   AdminApplicant,
@@ -26,8 +25,12 @@ import {
   PlitAdmin,
   InternalPagesAdmin,
   TeacherSl,
+<<<<<<< HEAD
   NewsCards,
   News
+=======
+  HomeAdmin,
+>>>>>>> 05b3d9ed2a5c1fc2268392d1d0263a134dfeaa34
 } from "../pages";
 
 
@@ -57,7 +60,7 @@ const routes = [
     children: [
       { path: "sign", element: <LoginPage /> }, // Страница входа
       { path: "main", element: <AdminPage /> }, // Страница админки
-      { path: "home", element: <MainAdmin /> },
+      { path: "home", element: <HomeAdmin /> },
       { path: "courses", element: <CoursesAdmin /> },
       { path: "information", element: <InfoAdmin /> },
       {path: "applicant", element: <AdminApplicant />},
