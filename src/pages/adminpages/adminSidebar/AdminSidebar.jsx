@@ -2,6 +2,13 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useAdminStore } from "./useAdminStore";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
+import { AiOutlineHome } from "react-icons/ai";
+import { MdOutlineMenuBook } from "react-icons/md";
+import { AiOutlineInfoCircle } from "react-icons/ai";
+import { HiOutlineUserAdd } from "react-icons/hi";
+import { HiOutlineDocumentText } from "react-icons/hi";
+import { RiNewspaperLine } from "react-icons/ri";
+import { FiArrowLeftCircle } from "react-icons/fi";
 
 export default function AdminSidebar() {
   const { isOpen, closePanel } = useAdminStore();
@@ -18,9 +25,9 @@ export default function AdminSidebar() {
     >
       <button
         onClick={closePanel}
-        className="absolute top-1/2 p-2 right-[-90px] text-white w-20 bg-[#63001F] rounded"
+        className="absolute flex items-center justify-center top-1/2 p-2 right-[-90px] text-white w-20 bg-[#63001F] rounded"
       >
-        ⇦
+        <FiArrowLeftCircle className="w-8 h-8" />
       </button>
       <div className="space-y-4 p-4 mt-20 text-white">
         <Link
@@ -28,7 +35,7 @@ export default function AdminSidebar() {
           className="hover:bg-gray-400 w-86 h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center"
           onClick={closePanel}
         >
-          Главная
+          <AiOutlineHome /> Главная
         </Link>
         <Link
           to="/admin/courses"
@@ -100,6 +107,7 @@ export default function AdminSidebar() {
           </PopoverPanel>
         </Popover>
       </div>
+      <div className=""></div>
     </div>
   );
 }
