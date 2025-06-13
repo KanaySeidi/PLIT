@@ -9,6 +9,8 @@ import { HiOutlineUserAdd } from "react-icons/hi";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { RiNewspaperLine } from "react-icons/ri";
 import { FiArrowLeftCircle } from "react-icons/fi";
+import { GiScales } from "react-icons/gi";
+import { FaRegGraduationCap } from "react-icons/fa";
 
 export default function AdminSidebar() {
   const { isOpen, closePanel } = useAdminStore();
@@ -25,7 +27,7 @@ export default function AdminSidebar() {
     >
       <button
         onClick={closePanel}
-        className="absolute flex items-center justify-center top-1/2 p-2 right-[-90px] text-white w-20 bg-[#63001F] rounded"
+        className="absolute flex items-center justify-center top-1/2 p-2 right-4 text-white w-20 bg-[#63001F] rounded"
       >
         <FiArrowLeftCircle className="w-8 h-8" />
       </button>
@@ -42,25 +44,25 @@ export default function AdminSidebar() {
           className="hover:bg-gray-400 w-86 h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center"
           onClick={closePanel}
         >
-          Курсы
+          <MdOutlineMenuBook /> Курсы
         </Link>
 
         <Popover>
           <PopoverButton>
             <div className="hover:bg-gray-400 w-[416px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
-              Информация
+              <AiOutlineInfoCircle /> Информация
             </div>
           </PopoverButton>
           <PopoverPanel>
             <div className="flex flex-col justify-between h-[120px] mt-4 items-center">
               <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center py-2">
-                Абитуриентам
+                <HiOutlineUserAdd /> Абитуриентам
               </Link>
               <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
-                Документация
+                <HiOutlineDocumentText /> Документация
               </Link>
               <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
-                НПА КР
+                <GiScales /> НПА КР
               </Link>
             </div>
           </PopoverPanel>
@@ -69,7 +71,7 @@ export default function AdminSidebar() {
         <Popover>
           <PopoverButton>
             <div className="hover:bg-gray-400 w-[416px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
-              Новости
+              <RiNewspaperLine /> Новости
             </div>
           </PopoverButton>
           <PopoverPanel>
@@ -89,7 +91,7 @@ export default function AdminSidebar() {
         <Popover>
           <PopoverButton>
             <div className="hover:bg-gray-400 w-[416px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
-              ПЛИТ
+              <FaRegGraduationCap /> ПЛИТ
             </div>
           </PopoverButton>
           <PopoverPanel>
