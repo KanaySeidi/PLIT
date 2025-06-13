@@ -16,9 +16,23 @@ import {
   Teacherinfo,
   Students,
   NPA,
+  LoginPage,
+  AdminPage,
+  CoursesAdmin,
+  InfoAdmin,
+  AdminApplicant,
+  NewsAdmin,
+  PlitAdmin,
+  InternalPagesAdmin,
+  TeacherSl,
+<<<<<<< HEAD
   NewsCards,
-  News,
+  News
+=======
+  HomeAdmin,
+>>>>>>> 05b3d9ed2a5c1fc2268392d1d0263a134dfeaa34
 } from "../pages";
+
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -34,11 +48,27 @@ const routes = [
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
   { path: "/info/applicant", element: <Students /> },
-  { path: "/info/npa", element: <NPA /> },
   { path: "/info/docs", element: <LDocs /> },
+  { path: "/info/npa", element: <NPA /> },
+  { path: "/plit/teachers", element: <TeacherSl /> },
   { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   { path: "/news", element: <NewsCards /> },
   { path: "/news/:id", element: <News /> },
   { path: "/plit/about", element: <About /> },
+  {
+    path: "/admin",
+    children: [
+      { path: "sign", element: <LoginPage /> }, // Страница входа
+      { path: "main", element: <AdminPage /> }, // Страница админки
+      { path: "home", element: <HomeAdmin /> },
+      { path: "courses", element: <CoursesAdmin /> },
+      { path: "information", element: <InfoAdmin /> },
+      {path: "applicant", element: <AdminApplicant />},
+      { path: "news", element: <NewsAdmin /> },
+      { path: "plit", element: <PlitAdmin /> },
+      { path: "internal-pages", element: <InternalPagesAdmin /> },
+    ],
+  },
 ];
+
 export default routes;

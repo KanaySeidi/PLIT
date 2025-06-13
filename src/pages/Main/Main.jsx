@@ -157,14 +157,16 @@ const Main = () => {
 
         <motion.div
           ref={directionRef}
-          className="w-full h-[1200px] bg-bordo flex items-center shadow-2xl"
+          className="w-full min-h-screen md:h-[1200px] bg-bordo flex items-center shadow-2xl py-4 md:py-0"
           variants={fadeInUp}
           initial="hidden"
           animate={isDirectionInView ? "visible" : "hidden"}
         >
-          <div className="w-full h-[1180px] bg-gray-200  mx-2 shadow-2xl ">
-            <p className="text-bordo text-4xl p-10">{t("ourDirection")}</p>
-            <div className="w-full h-full mt-14">
+          <div className="w-full h-auto md:h-[1180px] bg-gray-200 mx-2 shadow-2xl">
+            <p className="text-bordo text-2xl md:text-4xl p-4 md:p-10">
+              {t("ourDirection")}
+            </p>
+            <div className="w-full h-full mt-4 md:mt-14">
               <MainCards />
             </div>
           </div>
