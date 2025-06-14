@@ -18,21 +18,20 @@ import {
   NPA,
   LoginPage,
   AdminPage,
+  HomeAdmin,
   CoursesAdmin,
   InfoAdmin,
   AdminApplicant,
+  DocsAdmin,
+  NpaAdmin,
   NewsAdmin,
   PlitAdmin,
-  InternalPagesAdmin,
+  AboutAdmin,
+  TeacherSlAdmin,
   TeacherSl,
-<<<<<<< HEAD
   NewsCards,
-  News
-=======
-  HomeAdmin,
->>>>>>> 05b3d9ed2a5c1fc2268392d1d0263a134dfeaa34
+  News,
 } from "../pages";
-
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -63,10 +62,13 @@ const routes = [
       { path: "home", element: <HomeAdmin /> },
       { path: "courses", element: <CoursesAdmin /> },
       { path: "information", element: <InfoAdmin /> },
-      {path: "applicant", element: <AdminApplicant />},
+      { path: "applicant", element: <AdminApplicant /> },
+      { path: "docs", element: <DocsAdmin /> },
+      { path: "npa", element: <NpaAdmin /> },
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
-      { path: "internal-pages", element: <InternalPagesAdmin /> },
+      { path: "about", element: <AboutAdmin /> },
+      { path: "teachersad", element: <TeacherSlAdmin /> },
     ],
   },
 ];

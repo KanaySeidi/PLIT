@@ -4,7 +4,6 @@ import Header from "../../components/organisms/Header";
 import Footer from "../../footer/Footer";
 import LocationPage from "../location/LocationPage";
 import AdminSidebar from "../adminpages/adminSidebar/AdminSidebar";
-import MainAdmin from "../adminpages/HomeAdmin";
 
 const Layout = () => {
   const { pathname } = useLocation();

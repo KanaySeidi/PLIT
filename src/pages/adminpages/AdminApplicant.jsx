@@ -14,6 +14,11 @@ const AdminApplicant = () => {
       : [t("withStudents.applicantstime")]
   );
 
+  const handleSave = () => {
+    console.log();
+    // Логика сохранения данных (например, отправка на сервер)
+  };
+
   const [rightMedia, setRightMedia] = useState([
     {
       type: "video",
@@ -409,6 +414,13 @@ const AdminApplicant = () => {
             className="mt-4 text-sm text-white bg-bordo px-4 py-2 rounded-full block mx-auto"
           >
             Добавить вопрос
+          </button>
+                    {/* Кнопка "Сохранить" */}
+                    <button
+            onClick={handleSave} // Добавьте обработчик для сохранения
+            className="mt-4 text-sm text-white bg-green-600 px-4 py-2 rounded-full block mx-auto"
+          >
+            Сохранить
           </button>
         </div>
       </div>
