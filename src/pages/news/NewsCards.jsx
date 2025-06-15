@@ -10,7 +10,6 @@ export const NewsCards = () => {
     {
       id: 1,
       title: t("newsPage.id1.title"),
-      category: t("newsPage.id1.category"),
       date: t("newsPage.id1.date"),
       image: img1,
       highlight: true,
@@ -18,28 +17,24 @@ export const NewsCards = () => {
     {
       id: 2,
       title: t("newsPage.id2.title"),
-      category: t("newsPage.id2.category"),
       date: t("newsPage.id2.date"),
       image: img1,
     },
     {
       id: 3,
       title: t("newsPage.id3.title"),
-      category: t("newsPage.id3.category"),
       date: t("newsPage.id3.date"),
       image: img1,
     },
     {
       id: 4,
       title: t("newsPage.id4.title"),
-      category: t("newsPage.id4.category"),
       date: t("newsPage.id4.date"),
       image: img1,
     },
     {
       id: 5,
       title: t("newsPage.id5.title"),
-      category: t("newsPage.id5.category"),
       date: t("newsPage.id5.date"),
       image: img1,
     },
@@ -73,9 +68,6 @@ export const NewsCards = () => {
                 loading="lazy"
               />
               <div className="p-4 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent text-white">
-                <p className="text-sm font-medium uppercase tracking-wide">
-                  {card.category}
-                </p>
                 <h2 className="text-lg font-bold mt-1 line-clamp-2">
                   {card.title}
                 </h2>
