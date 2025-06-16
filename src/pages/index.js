@@ -23,7 +23,7 @@ export { default as AdminPage } from "../pages/adminpages/AdminPage";
 export { default as HomeAdmin } from "./adminpages/HomeAdmin";
 export { default as CoursesAdmin } from "../pages/adminpages/CoursesAdmin";
 export { default as InfoAdmin } from "../pages/adminpages/InfoAdmin";
-export { default as NewsAdmin } from "../pages/adminpages/NewsAdmin";
+export { NewsAdmin } from "../pages/adminpages/NewsAdmin";
 export { default as PlitAdmin } from "../pages/adminpages/PlitAdmin";
 export { default as AdminApplicant } from "../pages/adminpages/AdminApplicant";
 export { default as AdminAbout } from "../pages/adminpages/AdminAbout";

@@ -1,108 +1,107 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 
 export const NewsAdmin = () => {
-  const navigate = useNavigate();
-  const [articles, setArticles] = useState(
-    JSON.parse(localStorage.getItem("articles")) || [
-      {
-        id: 1,
-        title: "Пример заголовка",
-        date: "01.01.2025",
-        image: "https://via.placeholder.com/400",
-        content: "Полный текст новости...",
-        highlight: true,
-      },
-    ]
-  );
+  const [articles, setArticles] = useState([
+    {
+      id: 1,
+      title: "Заголовок 1",
+      date: "2024-06-16",
+      image: "/src/assets/img/1.jpg",
+      content: "Текст новости 1",
+    },
+    {
+      id: 2,
+      title: "Заголовок 2",
+      date: "2024-06-15",
+      image: "/src/assets/img/1.jpg",
+      content: "Текст новости 2",
+    },
+    {
+      id: 3,
+      title: "Заголовок 3",
+      date: "2024-06-14",
+      image: "/src/assets/img/1.jpg",
+      content: "Текст новости 3",
+    },
+    {
+      id: 4,
+      title: "Заголовок 4",
+      date: "2024-06-13",
+      image: "/src/assets/img/1.jpg",
+      content: "Текст новости 4",
+    },
+    {
+      id: 5,
+      title: "Заголовок 5",
+      date: "2024-06-12",
+      image: "/src/assets/img/1.jpg",
+      content: "Текст новости 5",
+    },
+  ]);
 
-  const handleChange = (id, key, value) => {
-    const updated = articles.map((a) =>
-      a.id === id ? { ...a, [key]: value } : a
-    );
+  const handleChange = (index, field, value) => {
+    const updated = [...articles];
+    updated[index][field] = value;
     setArticles(updated);
-    localStorage.setItem("articles", JSON.stringify(updated));
   };
 
-  const handleAdd = () => {
-    const newArticle = {
-      id: Date.now(),
-      title: "Новая новость",
-      date: new Date().toLocaleDateString(),
-      image: "https://via.placeholder.com/400",
-      content: "Текст новой новости...",
-    };
-    const updated = [...articles, newArticle];
-    setArticles(updated);
-    localStorage.setItem("articles", JSON.stringify(updated));
-  };
-
-  const handleDelete = (id) => {
-    const updated = articles.filter((a) => a.id !== id);
-    setArticles(updated);
-    localStorage.setItem("articles", JSON.stringify(updated));
+  const handleImageChange = (index, e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      handleChange(index, "image", imageUrl);
+    }
   };
 
   return (
-    <div className="p-8 max-w-5xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6">Админка новостей</h1>
-      <button
-        onClick={handleAdd}
-        className="mb-6 px-4 py-2 bg-green-600 text-white rounded shadow hover:bg-green-700"
-      >
-        ➕ Добавить новость
-      </button>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {articles.map((article) => (
-          <motion.div
-            key={article.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="bg-white shadow rounded p-4 space-y-3"
-          >
-            <input
-              value={article.title}
-              onChange={(e) => handleChange(article.id, "title", e.target.value)}
-              className="w-full border rounded px-3 py-2"
-              placeholder="Заголовок"
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+      {articles.map((article, index) => (
+        <div
+          key={article.id}
+          className="rounded-xl shadow-lg overflow-hidden bg-white"
+        >
+          <div className="relative h-64">
+            <img
+              src={article.image}
+              alt="preview"
+              className="w-full h-full object-cover"
             />
-            <input
-              value={article.date}
-              onChange={(e) => handleChange(article.id, "date", e.target.value)}
-              className="w-full border rounded px-3 py-2"
-              placeholder="Дата"
-            />
-            <input
-              value={article.image}
-              onChange={(e) => handleChange(article.id, "image", e.target.value)}
-              className="w-full border rounded px-3 py-2"
-              placeholder="URL изображения"
-            />
+            <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 text-white p-4">
+              <input
+                type="text"
+                value={article.title}
+                onChange={(e) => handleChange(index, "title", e.target.value)}
+                className="bg-transparent w-full text-lg font-bold outline-none"
+              />
+              <input
+                type="date"
+                value={article.date}
+                onChange={(e) => handleChange(index, "date", e.target.value)}
+                className="bg-transparent text-sm outline-none"
+              />
+            </div>
+            <div className="absolute top-2 right-2">
+              <label className="text-white bg-black/50 px-3 py-1 text-sm rounded cursor-pointer">
+                Сменить фото
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => handleImageChange(index, e)}
+                  className="hidden"
+                />
+              </label>
+            </div>
+          </div>
+          <div className="p-4">
             <textarea
               value={article.content}
-              onChange={(e) => handleChange(article.id, "content", e.target.value)}
-              className="w-full border rounded px-3 py-2 h-32"
-              placeholder="Полный текст новости"
+              onChange={(e) => handleChange(index, "content", e.target.value)}
+              className="w-full h-32 resize-none outline-none border border-gray-300 rounded p-2"
+              placeholder="Текст статьи"
             />
-            <div className="flex justify-between items-center">
-              <button
-                onClick={() => navigate(`/news/${article.id}`)}
-                className="text-blue-600 hover:underline"
-              >
-                🔍 Просмотр
-              </button>
-              <button
-                onClick={() => handleDelete(article.id)}
-                className="text-red-600 hover:underline"
-              >
-                🗑️ Удалить
-              </button>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

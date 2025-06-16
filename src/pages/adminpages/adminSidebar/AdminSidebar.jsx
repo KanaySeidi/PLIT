@@ -1,39 +1,49 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useAdminStore } from "./useAdminStore";
-import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { AiOutlineHome } from "react-icons/ai";
 import { MdOutlineMenuBook } from "react-icons/md";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { HiOutlineUserAdd } from "react-icons/hi";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { RiNewspaperLine } from "react-icons/ri";
-import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import { GiScales } from "react-icons/gi";
 import { FaGraduationCap } from "react-icons/fa";
 import { useState } from "react";
 
 export default function AdminSidebar() {
-  // const { isOpen, closePanel } = useAdminStore();
-  // const location = useLocation();
+  const { closePanel } = useAdminStore();
+  const location = useLocation();
 
-  // useEffect(() => {
-  //   closePanel();
-  // }, [location.pathname]);
+  useEffect(() => {
+    closePanel();
+  }, [location.pathname]);
 
   const [isOpen, setIsOpen] = useState(false);
 
   // const toggleSidebar = () => setIsOpen(!isOpen);
 
   const menuItems = [
-    { icon: <AiOutlineHome />, text: "Главная" },
-    { icon: <MdOutlineMenuBook />, text: "Курсы" },
-    { icon: <AiOutlineHome />, text: "Информация" },
-    { icon: <HiOutlineUserAdd />, text: "Абитуриентам" },
-    { icon: <HiOutlineDocumentText />, text: "Документация" },
-    { icon: <GiScales />, text: "НПА КР" },
-    { icon: <RiNewspaperLine />, text: "Новости" },
-    { icon: <FaGraduationCap />, text: "ПЛИТ" }, // Используем Emoji как заглушку
+    { icon: <AiOutlineHome />, text: "Главная", path: "/admin/home" },
+    { icon: <MdOutlineMenuBook />, text: "Курсы", path: "/admin/courses" },
+    {
+      icon: <AiOutlineInfoCircle />,
+      text: "Информация",
+      path: "/admin/information",
+    },
+    {
+      icon: <HiOutlineUserAdd />,
+      text: "Абитуриентам",
+      path: "/admin/applicant",
+    },
+    {
+      icon: <HiOutlineDocumentText />,
+      text: "Документация",
+      path: "/admin/news",
+    },
+    { icon: <GiScales />, text: "НПА КР", path: "/admin" },
+    { icon: <RiNewspaperLine />, text: "Новости", path: "/admin/news" },
+    { icon: <FaGraduationCap />, text: "ПЛИТ", path: "/admin/plit" }, // Используем Emoji как заглушку
   ];
 
   return (
@@ -43,11 +53,12 @@ export default function AdminSidebar() {
         onMouseLeave={() => setIsOpen(false)}
         className={`h-screen bg-[#5a0a2d] transition-all duration-300 ease-in-out
           ${isOpen ? "w-56" : "w-16"}
-          flex flex-col justify-between relative`}
+          flex flex-col justify-between fixed`}
       >
         <div className="pt-4 space-y-6">
           {menuItems.map((item, index) => (
-            <div
+            <Link
+              to={item.path}
               key={index}
               className="flex items-center text-white px-4 py-2 hover:bg-[#6c183b] transition-colors"
             >
@@ -59,7 +70,7 @@ export default function AdminSidebar() {
               >
                 {item.text}
               </span>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -69,6 +80,7 @@ export default function AdminSidebar() {
     // >
     //   {isOpen ? <FiArrowLeftCircle /> : <FiArrowRightCircle />}
     // </button> */}
+
       {/* // <div
     //   className={`fixed top-0 left-0 h-full bg-[#63001F] shadow-lg z-50 text-xl transition-all duration-300
     //     ${isOpen ? "w-1/3 max-w-md" : "w-0 overflow-hidden"}`}
