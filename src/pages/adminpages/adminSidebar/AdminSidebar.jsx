@@ -26,7 +26,7 @@ export default function AdminSidebar() {
   // const toggleSidebar = () => setIsOpen(!isOpen);
 
   const menuItems = [
-    { icon: <AiOutlineHome />, text: "Главная" },
+    { icon: <AiOutlineHome />, text: "Главная", path: "admin/" },
     { icon: <MdOutlineMenuBook />, text: "Курсы" },
     { icon: <AiOutlineHome />, text: "Информация" },
     { icon: <HiOutlineUserAdd />, text: "Абитуриентам" },
