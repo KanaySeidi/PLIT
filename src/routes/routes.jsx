@@ -20,13 +20,18 @@ import {
   AdminPage,
   CoursesAdmin,
   InfoAdmin,
+  AdminApplicant,
   NewsAdmin,
   PlitAdmin,
   AdminAbout,
   InternalPagesAdmin,
   TeacherSl,
+  NewsCards,
+  News,
   HomeAdmin,
 } from "../pages";
+import { TeacherSlAdmin } from "../pages/adminpages/TeacherSlAdmin";
+
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -46,6 +51,8 @@ const routes = [
   { path: "/info/npa", element: <NPA /> },
   { path: "/plit/teachers", element: <TeacherSl /> },
   { path: "/plit/teachers/:id", element: <Teacherinfo /> },
+  { path: "/news", element: <NewsCards /> },
+  { path: "/news/:id", element: <News /> },
   { path: "/plit/about", element: <About /> },
   {
     path: "/admin",
@@ -55,10 +62,12 @@ const routes = [
       { path: "home", element: <HomeAdmin /> },
       { path: "courses", element: <CoursesAdmin /> },
       { path: "information", element: <InfoAdmin /> },
+      {path: "applicant", element: <AdminApplicant />},
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
       { path: "about", element: <AdminAbout /> },
       { path: "internal-pages", element: <InternalPagesAdmin /> },
+      { path: "teachersad", element: <TeacherSlAdmin /> },
     ],
   },
 ];

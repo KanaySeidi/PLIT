@@ -309,9 +309,8 @@ function AboutPage() {
           </div>
         </div>
       </motion.section>
-      S-, [13.06.2025 15:51]
       {/* Call to Action Section */}
-      <motion.section
+      {/* <motion.section
         className="bg-blue-200 py-20"
         initial="hidden"
         whileInView="visible"
@@ -345,7 +344,7 @@ function AboutPage() {
             </Button>
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
     </div>
   );
 }
