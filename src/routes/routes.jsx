@@ -27,7 +27,7 @@ import {
   NewsAdmin,
   PlitAdmin,
   AboutAdmin,
-  TeacherSlAdmin,
+  TeachersSlAdmin,
   TeacherSl,
   NewsCards,
   News,
@@ -68,7 +68,7 @@ const routes = [
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
       { path: "about", element: <AboutAdmin /> },
-      { path: "teachersad", element: <TeacherSlAdmin /> },
+      { path: "teachersad", element: <TeachersSlAdmin /> },
     ],
   },
 ];

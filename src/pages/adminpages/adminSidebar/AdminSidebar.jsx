@@ -1,79 +1,127 @@
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useAdminStore } from "./useAdminStore";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { AiOutlineHome } from "react-icons/ai";
 import { MdOutlineMenuBook } from "react-icons/md";
-import { HiOutlineUserAdd, HiOutlineDocumentText } from "react-icons/hi";
-import { RiNewspaperLine } from "react-icons/ri";
-import { GiScales } from "react-icons/gi";
-import { FaGraduationCap } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import { HiOutlineUserAdd } from "react-icons/hi";
+import { HiOutlineDocumentText } from "react-icons/hi";
+import { RiNewspaperLine } from "react-icons/ri";
+import { FiArrowLeftCircle } from "react-icons/fi";
+import { GiScales } from "react-icons/gi";
 
-export default function AdminSidebar() {
+function AdminSidebar() {
   const { isOpen, closePanel } = useAdminStore();
   const location = useLocation();
-  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     closePanel();
   }, [location.pathname]);
 
-  const menuItems = [
-    { icon: <AiOutlineHome />, text: "Главная", path: "/admin/home" },
-    { icon: <MdOutlineMenuBook />, text: "Курсы", path: "/admin/courses" },
-    {
-      icon: <AiOutlineInfoCircle />,
-      text: "Информация",
-      path: "/admin/information",
-    },
-    {
-      icon: <HiOutlineUserAdd />,
-      text: "Абитуриентам",
-      path: "/admin/applicant",
-    },
-    {
-      icon: <HiOutlineDocumentText />,
-      text: "Документация",
-      path: "/admin/docs",
-    },
-    { icon: <GiScales />, text: "НПА КР", path: "/admin/npa" },
-    { icon: <RiNewspaperLine />, text: "Новости", path: "/admin/news" },
-    { icon: <FaGraduationCap />, text: "ПЛИТ", path: "/admin/plit" },
-  ];
-
   return (
     <div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`fixed top-0 left-0 h-full bg-[#63001F] shadow-lg z-50 text-xl transition-all duration-300 ${
-        isHovered ? "w-56" : "w-16"
-      }`}
+      className={`fixed top-0 left-0 h-full bg-[#63001F] shadow-lg z-50 text-xl transition-all duration-300
+        ${isOpen ? "w-1/3 max-w-md" : "w-0 overflow-hidden"}`}
     >
       <button
         onClick={closePanel}
-        className="absolute top-1/2 p-2 right-[-90px] text-white w-20 bg-[#63001F] rounded"
+        className="absolute flex items-center justify-center top-1/2 p-2 right-4 text-white w-20 bg-[#63001F] rounded"
       >
-        ⇦
+        <FiArrowLeftCircle className="w-8 h-8" />
       </button>
       <div className="space-y-4 p-4 mt-20 text-white">
-        {menuItems.map((item, index) => (
-          <Link
-            key={index}
-            to={item.path}
-            className="flex items-center text-white px-4 py-2 hover:bg-[#6c183b] transition-colors"
-          >
-            <div className="text-xl">{item.icon}</div>
-            <span
-              className={`ml-3 whitespace-nowrap overflow-hidden transition-opacity duration-200 ${
-                isHovered ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              {item.text}
-            </span>
-          </Link>
-        ))}
+        <Link
+          to="/admin/home"
+          className="hover:bg-gray-400 w-86 h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center"
+          onClick={closePanel}
+        >
+          <AiOutlineHome /> Главная
+        </Link>
+        <Link
+          to="/admin/courses"
+          className="hover:bg-gray-400 w-86 h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center"
+          onClick={closePanel}
+        >
+          <MdOutlineMenuBook /> Курсы
+        </Link>
+
+        <Popover>
+          <PopoverButton>
+            <div className="hover:bg-gray-400 w-[416px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
+              <AiOutlineInfoCircle /> Информация
+            </div>
+          </PopoverButton>
+          <PopoverPanel>
+            <div className="flex flex-col justify-between h-[120px] mt-4 items-center">
+              <Link
+                to="/admin/applicant"
+                className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center py-2"
+                onClick={closePanel}
+              >
+                <HiOutlineUserAdd /> Абитуриентам
+              </Link>
+              <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
+                <HiOutlineDocumentText /> Документация
+              </Link>
+              <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
+                <GiScales /> НПА КР
+              </Link>
+            </div>
+          </PopoverPanel>
+        </Popover>
+
+        <Popover>
+          <PopoverButton>
+            <div className="hover:bg-gray-400 w-[416px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
+              <RiNewspaperLine /> Новости
+            </div>
+          </PopoverButton>
+          <PopoverPanel>
+            <div className="flex flex-col justify-between h-[120px] mt-4 items-center">
+              <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center py-2">
+                Абитуриентам
+              </Link>
+              <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
+                Документация
+              </Link>
+              <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
+                НПА КР
+              </Link>
+            </div>
+          </PopoverPanel>
+        </Popover>
+        <Popover>
+          <PopoverButton>
+            <div className="hover:bg-gray-400 w-[416px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
+              <FaRegGraduationCap /> ПЛИТ
+            </div>
+          </PopoverButton>
+          <PopoverPanel>
+            <div className="flex flex-col justify-between h-[120px] mt-4 items-center">
+              <Link
+                to="/admin/about"
+                className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center py-2"
+                onClick={closePanel}
+              >
+                О лицее
+              </Link>
+              <Link
+                to={"/admin/teachersad"}
+                onClick={closePanel}
+                className="hoverbg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center"
+              >
+                Педагоги
+              </Link>
+              <Link className="hover:bg-gray-400 w-[380px] h-8 bg-[#63001F] rounded-[50px] flex items-center justify-center">
+                НПА КР
+              </Link>
+            </div>
+          </PopoverPanel>
+        </Popover>
       </div>
+      <div className=""></div>
     </div>
   );
 }
+export default AdminSidebar;
