@@ -20,18 +20,15 @@ import {
   AdminPage,
   HomeAdmin,
   CoursesAdmin,
-  InfoAdmin,
-  AdminApplicant,
+  NpaAdmin,
   NewsAdmin,
   PlitAdmin,
   AboutAdmin,
-  TeachersSlAdmin,
   TeacherSl,
   NewsCards,
   News,
 } from "../pages";
 import Layout from "../pages/adminpages/adminSidebar/layout";
-
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -62,12 +59,10 @@ const routes = [
       { path: "main", element: <AdminPage /> }, // Страница админки
       { path: "home", element: <HomeAdmin /> },
       { path: "courses", element: <CoursesAdmin /> },
-      { path: "information", element: <InfoAdmin /> },
-      { path: "applicant", element: <AdminApplicant /> },
+      { path: "npa", element: <NpaAdmin /> },
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
       { path: "about", element: <AboutAdmin /> },
-      { path: "teachersad", element: <TeachersSlAdmin /> },
     ],
   },
 ];

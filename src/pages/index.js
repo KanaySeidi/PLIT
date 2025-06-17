@@ -1,5 +1,4 @@
 export { CoursesPage } from "./HeaderPages/CouresPage.async";
-import AdminAbout from './adminpages/AboutAdmin';
 export { InfoPage } from "./HeaderPages/InfoPage.async";
 export { Main } from "./Main/Main.async";
 export { Frontend } from "./directions/Frontend.async";
@@ -23,9 +22,7 @@ export { default as LoginPage } from "./adminpages/LoginPage";
 export { default as AdminPage } from "../pages/adminpages/AdminPage";
 export { default as HomeAdmin } from "./adminpages/HomeAdmin";
 export { default as CoursesAdmin } from "../pages/adminpages/CoursesAdmin";
-export { default as InfoAdmin } from "../pages/adminpages/InfoAdmin";
+export { default as NpaAdmin } from "../pages/adminpages/NpaAdmin";
 export { default as NewsAdmin } from "../pages/adminpages/NewsAdmin";
 export { default as PlitAdmin } from "../pages/adminpages/PlitAdmin";
-export { default as AdminApplicant } from "../pages/adminpages/AdminApplicant";
-export {default as AboutAdmin} from "../pages/adminpages/AboutAdmin";
-export { default as TeachersSlAdmin } from "../pages/adminpages/TeachersSlAdmin";
+export { default as AboutAdmin } from "../pages/adminpages/AboutAdmin";
