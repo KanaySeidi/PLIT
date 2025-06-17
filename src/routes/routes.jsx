@@ -30,6 +30,8 @@ import {
   NewsCards,
   News,
 } from "../pages";
+import Layout from "../pages/adminpages/adminSidebar/layout";
+
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -54,6 +56,7 @@ const routes = [
   { path: "/plit/about", element: <About /> },
   {
     path: "/admin",
+    element: <Layout />,
     children: [
       { path: "sign", element: <LoginPage /> }, // Страница входа
       { path: "main", element: <AdminPage /> }, // Страница админки
