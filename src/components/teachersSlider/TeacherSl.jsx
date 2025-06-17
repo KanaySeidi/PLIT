@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -18,90 +18,106 @@ import teacher8 from "../../assets/img/teacher8.jpg";
 import teacher9 from "../../assets/img/teacher9.jpg";
 import teacher10 from "../../assets/img/teacher10.jpg";
 
-const TeacherSl = () => {
+// Предполагаем, что данные будут передаваться через props или контекст
+const TeacherSl = ({ teachers: initialTeachers = [] }) => {
   const navigate = useNavigate();
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+
+  // Локальный state для учителей с загрузкой из localStorage
+  const [teachers, setTeachers] = React.useState(() => {
+    const savedTeachers = localStorage.getItem("teachers");
+    return initialTeachers.length
+      ? initialTeachers
+      : savedTeachers
+      ? JSON.parse(savedTeachers)
+      : [
+          {
+            id: 1,
+            name: "Преподаватель 1",
+            role: "Профессор",
+            img: teacher1,
+            hasDetails: true,
+          },
+          {
+            id: 2,
+            name: "Преподаватель 2",
+            role: "Доцент",
+            img: teacher2,
+            hasDetails: true,
+          },
+          {
+            id: 3,
+            name: "Преподаватель 3",
+            role: "Старший преподаватель",
+            img: teacher3,
+            hasDetails: false,
+          },
+          {
+            id: 4,
+            name: "Преподаватель 4",
+            role: "Профессор",
+            img: teacher4,
+            hasDetails: true,
+          },
+          {
+            id: 5,
+            name: "Преподаватель 5",
+            role: "Доцент",
+            img: teacher5,
+            hasDetails: false,
+          },
+          {
+            id: 6,
+            name: "Преподаватель 6",
+            role: "Преподаватель",
+            img: teacher6,
+            hasDetails: true,
+          },
+          {
+            id: 7,
+            name: "Преподаватель 7",
+            role: "Профессор",
+            img: teacher7,
+            hasDetails: false,
+          },
+          {
+            id: 8,
+            name: "Преподаватель 8",
+            role: "Доцент",
+            img: teacher8,
+            hasDetails: true,
+          },
+          {
+            id: 9,
+            name: "Преподаватель 9",
+            role: "Старший преподаватель",
+            img: teacher9,
+            hasDetails: false,
+          },
+          {
+            id: 10,
+            name: "Преподаватель 10",
+            role: "Преподаватель",
+            img: teacher10,
+            hasDetails: true,
+          },
+        ];
+  });
+
+  useEffect(() => {
+    if (initialTeachers.length) setTeachers(initialTeachers);
+    else {
+      const savedTeachers = localStorage.getItem("teachers");
+      if (savedTeachers) setTeachers(JSON.parse(savedTeachers));
+    }
+  }, [initialTeachers]);
 
   const handleTeacherClick = (teacher) => {
     if (teacher.hasDetails) {
       navigate(`/plit/teachers/${teacher.id - 1}`);
     }
   };
-
-  // Массив преподавателей с импортированными изображениями
-  const teachers = [
-    {
-      id: 1,
-      name: "Преподаватель 1",
-      role: "Профессор",
-      img: teacher1,
-      hasDetails: true,
-    },
-    {
-      id: 2,
-      name: "Преподаватель 2",
-      role: "Доцент",
-      img: teacher2,
-      hasDetails: true,
-    },
-    {
-      id: 3,
-      name: "Преподаватель 3",
-      role: "Старший преподаватель",
-      img: teacher3,
-      hasDetails: false,
-    },
-    {
-      id: 4,
-      name: "Преподаватель 4",
-      role: "Профессор",
-      img: teacher4,
-      hasDetails: true,
-    },
-    {
-      id: 5,
-      name: "Преподаватель 5",
-      role: "Доцент",
-      img: teacher5,
-      hasDetails: false,
-    },
-    {
-      id: 6,
-      name: "Преподаватель 6",
-      role: "Преподаватель",
-      img: teacher6,
-      hasDetails: true,
-    },
-    {
-      id: 7,
-      name: "Преподаватель 7",
-      role: "Профессор",
-      img: teacher7,
-      hasDetails: false,
-    },
-    {
-      id: 8,
-      name: "Преподаватель 8",
-      role: "Доцент",
-      img: teacher8,
-      hasDetails: true,
-    },
-    {
-      id: 9,
-      name: "Преподаватель 9",
-      role: "Старший преподаватель",
-      img: teacher9,
-      hasDetails: false,
-    },
-    {
-      id: 10,
-      name: "Преподаватель 10",
-      role: "Преподаватель",
-      img: teacher10,
-      hasDetails: true,
-    },
-  ];
 
   return (
     <div className="relative w-full py-4 bg-gray-200">
