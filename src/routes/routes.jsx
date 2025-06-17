@@ -50,7 +50,7 @@ const routes = [
   { path: "/info/npa", element: <NPA /> },
   {
     path: "/plit/teachers",
-    element: <TeacherSl />,
+    element: <TeacherSl />
   },
   { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   { path: "/news", element: <NewsCards /> },
