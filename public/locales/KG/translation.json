@@ -156,6 +156,23 @@
     "senior": "Кесипкөйлөр 1100дөн 1500 АКШ долларына чейин таба алышат"
   },
 
+    "informations": {
+    "title": "Лицейдин тарыхы жөнүндө кыскача маалымат",
+    "text": "Биз 1971-жылдан бери келечектеги адистерди окутуп келебиз",
+    "information": "Лицей заманбап программалар менен теорияны жана практиканы айкалыштырып, сапаттуу билим берет. Биз окуучулардын ийгиликтүү өнүгүүсүнө жана жогорку окуу жайларына тапшырууга шарт түзөбүз. Лицей заманбап программалар менен теорияны жана практиканы айкалыштырып, сапаттуу билим берет. Биз окуучулардын ийгиликтүү өнүгүүсүнө жана жогорку окуу жайларына тапшырууга шарт түзөбүз.",
+    "advantages": {
+      "feedback": "Окуучулар менен байланыш",
+      "teachers": "Кесипкөй мугалимдер",
+      "potential": "Өнүгүүгө жогорку мүмкүнчүлүк"
+    }
+  },
+  "documents": {
+    "title": "Кандай документтер керек",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
+    "titleDocument": "Эң мыкты салык кеңешчиси",
+    "textDocument": "Lorem ipsum dolor sit amet, consecte adipiscing elit, sed do eiusmod tempor incididunt"
+  },
+
   "docsprograms": {
     "webDeveloper": "Веб-иштеп чыгуучу боюнча билим берүү программасы:",
     "frontendDeveloper": "Frontend-иштеп чыгуучу боюнча билим берүү программасы:",
@@ -452,5 +469,9 @@
         "answer": "Байланыш маалыматы:\n• Instagram, TikTok, YouTube\n• Телефондор: +996 709 317 420, +996 702 446 013, +996 555 853 110\n• Дареги: Бишкек ш., Горький көч., 18"
       }
     ]
+  },
+  "notFound": {
+    "message": "Баракча табылган жок",
+    "returnHome": "Башкы бетке кайтуу"
   }
 }
