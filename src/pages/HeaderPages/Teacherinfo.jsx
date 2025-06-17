@@ -43,7 +43,7 @@ const Teacherinfo = () => {
   }, [controls, inView]);
 
   const handleBack = () => {
-    navigate("/", { state: { scrollToTeachers: true } });
+    navigate("/plit/teachers");
   };
 
   if (!teacher) {

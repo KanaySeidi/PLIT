@@ -35,9 +35,9 @@ export default function AdminSidebar() {
     {
       icon: <GiTeacher />,
       text: "Педагоги",
-      path: "/admin/news",
+      path: "/admin/teachersad",
     },
-    { icon: <GiMechanicGarage />, text: "Мастера", path: "/admin/news" },
+    { icon: <GiMechanicGarage />, text: "Мастера", path: "/admin/teachersad" },
   ];
 
   return (
