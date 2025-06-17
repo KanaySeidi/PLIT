@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const InternalPagesAdmin = () => {
+const DocsAdmin = () => {
   const [content, setContent] = useState({
     title: "Добро пожаловать!",
     description: "Описание главной страницы",
@@ -74,4 +74,4 @@ const InternalPagesAdmin = () => {
   );
 };
 
-export default InternalPagesAdmin;
+export default DocsAdmin;

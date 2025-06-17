@@ -18,20 +18,18 @@ import {
   NPA,
   LoginPage,
   AdminPage,
+  HomeAdmin,
   CoursesAdmin,
-  InfoAdmin,
-  AdminApplicant,
+  DocsAdmin,
+  NpaAdmin,
   NewsAdmin,
   PlitAdmin,
-  AdminAbout,
-  InternalPagesAdmin,
+  AboutAdmin,
   TeacherSl,
   NewsCards,
   News,
-  HomeAdmin,
 } from "../pages";
 import Layout from "../pages/adminpages/adminSidebar/layout";
-import { TeacherSlAdmin } from "../pages/adminpages/TeacherSlAdmin";
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -62,13 +60,11 @@ const routes = [
       { path: "main", element: <AdminPage /> }, // Страница админки
       { path: "home", element: <HomeAdmin /> },
       { path: "courses", element: <CoursesAdmin /> },
-      { path: "information", element: <InfoAdmin /> },
-      { path: "applicant", element: <AdminApplicant /> },
+      { path: "docs", element: <DocsAdmin /> },
+      { path: "npa", element: <NpaAdmin /> },
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
-      { path: "about", element: <AdminAbout /> },
-      { path: "internal-pages", element: <InternalPagesAdmin /> },
-      { path: "teachersad", element: <TeacherSlAdmin /> },
+      { path: "about", element: <AboutAdmin /> },
     ],
   },
 ];
