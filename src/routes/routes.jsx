@@ -32,6 +32,7 @@ import {
   NewsCards,
   News,
 } from "../pages";
+import Layout from "../pages/adminpages/adminSidebar/layout";
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -56,6 +57,7 @@ const routes = [
   { path: "/plit/about", element: <About /> },
   {
     path: "/admin",
+    element: <Layout />,
     children: [
       { path: "sign", element: <LoginPage /> }, // Страница входа
       { path: "main", element: <AdminPage /> }, // Страница админки
@@ -63,8 +65,8 @@ const routes = [
       { path: "courses", element: <CoursesAdmin /> },
       { path: "information", element: <InfoAdmin /> },
       { path: "applicant", element: <AdminApplicant /> },
-      { path: "docs", element: <DocsAdmin /> },
-      { path: "npa", element: <NpaAdmin /> },
+      {path : "docs", element: <DocsAdmin />},
+      {path: "npa", element: <NpaAdmin />},
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
       { path: "about", element: <AboutAdmin /> },

@@ -151,7 +151,7 @@ const AdminApplicant = () => {
 
         <div className="flex flex-wrap justify-between gap-8">
           {/* Левая колонка */}
-          <div className="w-full md:w-[55%] space-y-4">
+          <div className="w-full  md:w-[55%] space-y-4">
             {leftBlocks.map((text, idx) => (
               <div
                 key={idx}
@@ -160,7 +160,7 @@ const AdminApplicant = () => {
                 <textarea
                   value={text}
                   onChange={(e) => handleLeftBlockChange(idx, e.target.value)}
-                  className="w-full resize-none border p-2 rounded"
+                  className="w-full h-[200px] resize-none border p-2 rounded"
                 />
                 <button
                   className="absolute top-2 right-2"
@@ -302,7 +302,7 @@ const AdminApplicant = () => {
                 <textarea
                   value={text}
                   onChange={(e) => handleBottomLeftChange(idx, e.target.value)}
-                  className="w-full resize-none border p-2 rounded"
+                  className="w-full h-[200px] resize-none border p-2 rounded"
                 />
                 <button
                   className="absolute top-0 right-0"
@@ -329,7 +329,7 @@ const AdminApplicant = () => {
                   onChange={(e) =>
                     handleBottomRightChange(idx, "topic", e.target.value)
                   }
-                  className="w-full border p-2 rounded mb-1"
+                  className="w-full h-[50px] border p-2 rounded mb-1"
                   placeholder="Тема"
                 />
                 <textarea
@@ -337,7 +337,7 @@ const AdminApplicant = () => {
                   onChange={(e) =>
                     handleBottomRightChange(idx, "text", e.target.value)
                   }
-                  className="w-full resize-none border p-2 rounded"
+                  className="w-full h-[200px] resize-none border p-2 rounded"
                   placeholder="Описание"
                 />
                 <button
@@ -396,7 +396,7 @@ const AdminApplicant = () => {
                       onChange={(e) =>
                         handleFaqChange(index, "answer", e.target.value)
                       }
-                      className="w-full resize-none border p-2 rounded"
+                      className="w-full h-[100px] resize-none border p-2 rounded"
                     />
                     <button
                       className="mt-2 text-red-600 font-bold"
