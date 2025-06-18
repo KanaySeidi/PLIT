@@ -41,7 +41,7 @@ const SelfReport = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.4 }}
-                    className="mt-4 p-4 border border-bordo rounded-lg bg-gray-50"
+                    className="mt-4 p-4 border border-gray-300 rounded-lg bg-gray-50"
                   >
                     <p className="text-xl font-bold text-bordo text-center mb-4">
                       {t("docsdescriptions.initvetprogramselfassessment")}

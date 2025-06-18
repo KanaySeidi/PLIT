@@ -13,6 +13,7 @@ export { AutoMechanic } from "./directions/AutoMechanic.async";
 export { News } from "./news/News.async";
 export { NewsCards } from "./news/NewsCards.async";
 export { LDocs } from "./HeaderPages/LDocs.async";
+export { SelfReport } from "./HeaderPages/SelfReport.async.js";
 export { About } from "./about/About.async";
 export { Teacherinfo } from "./HeaderPages/Teacherinfo.async";
 export { TeacherSl } from "../components/teachersSlider/TeacherSl.async";
@@ -28,6 +29,5 @@ export { default as NpaAdmin } from "../pages/adminpages/NpaAdmin";
 export { default as NewsAdmin } from "../pages/adminpages/NewsAdmin";
 export { default as PlitAdmin } from "../pages/adminpages/PlitAdmin";
 export { default as AdminApplicant } from "../pages/adminpages/AdminApplicant";
-export {default as AboutAdmin} from "../pages/adminpages/AboutAdmin"
-export {default as TeachersSlAdmin} from "../pages/adminpages/TeachersSlAdmin.jsx"
-
+export { default as AboutAdmin } from "../pages/adminpages/AboutAdmin";
+export { default as TeachersSlAdmin } from "../pages/adminpages/TeachersSlAdmin.jsx";
