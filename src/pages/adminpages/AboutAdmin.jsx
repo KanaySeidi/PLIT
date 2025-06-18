@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaSave, FaPlus, FaEllipsisV } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const AdminAbout = () => {
+const AboutAdmin = () => {
   const [aboutInfo, setAboutInfo] = useState(() => {
     const savedInfo = localStorage.getItem("aboutInfo");
     return savedInfo ? JSON.parse(savedInfo) : [];
@@ -216,4 +216,4 @@ const AdminAbout = () => {
   );
 };
 
-export default AdminAbout;
+export default AboutAdmin;
