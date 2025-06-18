@@ -45,7 +45,7 @@ const Students = () => {
                     </ul>
                   }
                   triggerLabel={
-                    <span className="inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold text-black shadow-inner shadow-white/10 transition duration-300 hover:bg-gray-600 hover:shadow-[0_0_10px_rgba(128,0,32,0.6)]">
+                    <span className="inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold text-black shadow-inner">
                       {t("withStudents.applicantsdoc")}
                     </span>
                   }
