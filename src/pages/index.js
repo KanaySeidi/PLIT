@@ -14,7 +14,6 @@ export { News } from "./news/News.async";
 export { NewsCards } from "./news/NewsCards.async";
 export { LDocs } from "./HeaderPages/LDocs.async";
 export { About } from "./about/About.async";
-export { Teacherinfo } from "./HeaderPages/Teacherinfo.async";
 export { TeacherSl } from "../components/teachersSlider/TeacherSl.async";
 export { Students } from "./HeaderPages/Students.async";
 export { NPA } from "./HeaderPages/NPA.async";
