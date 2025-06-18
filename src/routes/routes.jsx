@@ -29,6 +29,7 @@ import {
   LDocs,
 } from "../pages";
 import Layout from "../pages/adminpages/adminSidebar/layout";
+import GeneralSecEducation from "../pages/HeaderPages/GeneralSecEducation";
 import Npa99 from "../pages/HeaderPages/Npa99";
 import NpaKr from "../pages/HeaderPages/NpaKr";
 import NPAPosition from "../pages/HeaderPages/NPAPosition";
@@ -55,6 +56,7 @@ const routes = [
   { path: "/info/op", element: <OP /> },
   { path: "/info/position", element: <NPAPosition /> },
   { path: "/info/selfreport", element: <SelfReport /> },
+  { path: "/info/generalseceducation", element: <GeneralSecEducation /> },
   { path: "/info/rpobraz", element: <RpObraz /> },
   { path: "/info/rpprof", element: <RPProf /> },
   { path: "/info/npakr", element: <NpaKr /> },
