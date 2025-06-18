@@ -29,8 +29,8 @@ import {
   NewsCards,
   News,
 } from "../pages";
+import TeachersSlAdmin from "../pages/adminpages/TeachersSlAdmin";
 import Layout from "../pages/Layout/Layout";
-
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -69,6 +69,7 @@ const routes = [
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
       { path: "about", element: <AboutAdmin /> },
+      { path: "teachersad", element: <TeachersSlAdmin /> },
     ],
   },
 ];

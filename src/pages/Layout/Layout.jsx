@@ -34,7 +34,6 @@ const Layout = () => {
       </main>
       {isAdminPath ? null : <LocationPage />}
       {isAdminPath ? null : <Footer />}
-      <RpObraz />
     </div>
   );
 };
