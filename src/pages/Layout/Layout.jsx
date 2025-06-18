@@ -5,9 +5,11 @@ import Footer from "../../footer/Footer";
 import LocationPage from "../location/LocationPage";
 import AdminSidebar from "../adminpages/adminSidebar/AdminSidebar";
 import { useNavigate } from "react-router-dom";
+import RpObraz from "../HeaderPages/Rpobraz";
 
 const Layout = () => {
   const { pathname } = useLocation();
+
   const isAdminPath = pathname.includes("admin");
 
   const Navigate = useNavigate();
@@ -32,6 +34,7 @@ const Layout = () => {
       </main>
       {isAdminPath ? null : <LocationPage />}
       {isAdminPath ? null : <Footer />}
+      <RpObraz />
     </div>
   );
 };

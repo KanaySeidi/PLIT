@@ -25,12 +25,12 @@ import {
   NewsAdmin,
   PlitAdmin,
   AboutAdmin,
+  TeachersSlAdmin,
   TeacherSl,
   NewsCards,
   News,
 } from "../pages";
 import Layout from "../pages/adminpages/adminSidebar/layout";
-import TeachersSlAdmin from "../pages/adminpages/TeachersSlAdmin";
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -69,10 +69,7 @@ const routes = [
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
       { path: "about", element: <AboutAdmin /> },
-      {
-        path: "/plit/teachers",
-        element: <TeachersSlAdmin />,
-      },
+      { path: "teachersad", element: <TeachersSlAdmin /> },
     ],
   },
 ];

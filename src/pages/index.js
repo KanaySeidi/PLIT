@@ -27,3 +27,4 @@ export { default as NpaAdmin } from "../pages/adminpages/NpaAdmin";
 export { default as NewsAdmin } from "../pages/adminpages/NewsAdmin";
 export { default as PlitAdmin } from "../pages/adminpages/PlitAdmin";
 export { default as AboutAdmin } from "../pages/adminpages/AboutAdmin";
+export { default as TeachersSlAdmin } from "../pages/adminpages/TeachersSlAdmin";
