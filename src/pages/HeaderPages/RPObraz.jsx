@@ -3,6 +3,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import RPProf from "./RPProf";
 
 const RpObraz = () => {
   const { t } = useTranslation();
@@ -291,6 +292,7 @@ const RpObraz = () => {
           </Disclosure>
         </motion.div>
       )}
+      <RPProf />
     </div>
   );
 };
