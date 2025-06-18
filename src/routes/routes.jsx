@@ -28,6 +28,7 @@ import {
   TeacherSl,
   NewsCards,
   News,
+  Npa99,
 } from "../pages";
 import Layout from "../pages/adminpages/adminSidebar/layout";
 
@@ -52,6 +53,7 @@ const routes = [
   { path: "/news", element: <NewsCards /> },
   { path: "/news/:id", element: <News /> },
   { path: "/plit/about", element: <About /> },
+  { path: "/npa99", element: <Npa99 /> },
   {
     path: "/admin",
     element: <Layout />,

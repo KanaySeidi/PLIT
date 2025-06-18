@@ -105,6 +105,13 @@ const Header = () => {
                         >
                           {t("info.npa")}
                         </Link>
+                        <Link
+                          onClick={() => close()}
+                          to="/npa99"
+                          className="block px-3 py-2 hover:bg-gray-400 rounded"
+                        >
+                          {t("info.npa")}
+                        </Link>
                       </div>
                     </PopoverPanel>
                   </>

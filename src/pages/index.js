@@ -1,3 +1,5 @@
+import Npa99 from "./HeaderPages/Npa99";
+
 export { CoursesPage } from "./HeaderPages/CouresPage.async";
 export { InfoPage } from "./HeaderPages/InfoPage.async";
 export { Main } from "./Main/Main.async";
@@ -18,6 +20,7 @@ export { Teacherinfo } from "./HeaderPages/Teacherinfo.async";
 export { TeacherSl } from "../components/teachersSlider/TeacherSl.async";
 export { Students } from "./HeaderPages/Students.async";
 export { NPA } from "./HeaderPages/NPA.async";
+export { Npa99 } from "./HeaderPages/Npa99.async";
 export { default as LoginPage } from "./adminpages/LoginPage";
 export { default as AdminPage } from "../pages/adminpages/AdminPage";
 export { default as HomeAdmin } from "./adminpages/HomeAdmin";
