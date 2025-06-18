@@ -4,11 +4,9 @@ import Header from "../../components/organisms/Header";
 import Footer from "../../footer/Footer";
 import LocationPage from "../location/LocationPage";
 import AdminSidebar from "../adminpages/adminSidebar/AdminSidebar";
-import { useNavigate } from "react-router-dom";
 
 const Layout = () => {
   const { pathname } = useLocation();
-
   const isAdminPath = pathname.includes("admin");
 
   const Navigate = useNavigate();
@@ -20,13 +18,7 @@ const Layout = () => {
   return (
     <div>
       {isAdminPath ? <AdminSidebar /> : <Header />}
-      <button
-        className="fixed right-6 top-4 text-6xl text-white"
-        onClick={goHome}
-      >
-        ×
-      </button>
-      <main>
+      <main className="pt-14">
         <Suspense fallback={null}>
           <Outlet />
         </Suspense>
