@@ -46,7 +46,6 @@ function AboutPage() {
         backgroundImage="../../../src/assets/img/About/img_section.png"
         overlayColor="bg-bordo"
       />
-
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* University Description */}
@@ -131,7 +130,6 @@ function AboutPage() {
           </div>
         </div>
       </motion.section>
-
       {/* History Section */}
       <motion.section
         className="bg-gray-50 py-20"
@@ -156,17 +154,10 @@ function AboutPage() {
               <p className="text-lg text-gray-700 leading-relaxed">
                 {t("about.history.text")}
               </p>
-              <button
-                onClick={handleExploreHistoryClick}
-                className="text-lg font-medium text-indigo-600 hover:text-indigo-700 transition-colors border-b-2 border-indigo-600 pb-1"
-              >
-                {t("about.history.button")}
-              </button>
             </div>
           </div>
         </div>
       </motion.section>
-
       {/* Mission & Values Section */}
       <motion.section
         className="py-20"
@@ -184,12 +175,6 @@ function AboutPage() {
               <p className="text-lg text-white leading-relaxed mb-8">
                 {t("about.mission.text")}
               </p>
-              <button
-                onClick={handleLearnMoreClick}
-                className="text-lg font-medium text-indigo-600 hover:text-indigo-700 transition-colors"
-              >
-                {t("about.mission.button")}
-              </button>
             </div>
             <div>
               <img
@@ -312,8 +297,7 @@ function AboutPage() {
           </div>
         </div>
       </motion.section>
-
-      {/* Call to Action Section */}
+      {/* Call to Action Section
       <motion.section
         className="bg-blue-200 py-20"
         initial="hidden"
@@ -348,7 +332,7 @@ function AboutPage() {
             </Button>
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
     </div>
   );
 }

@@ -287,19 +287,16 @@ const Header = () => {
                     >
                       <div className="p-2 flex flex-col">
                         <Link
-                          to="/info/applicant"
+                          to="news"
                           className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                         >
-                          {t("news.holidays")}
+                          {t("news.news")}
                         </Link>
+                      </div>
+                      <div className="p-2 flex flex-col">
                         <Link
-                          to="/info/docs"
-                          className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
-                        >
-                          {t("news.saturdays")}
-                        </Link>
-                        <Link
-                          to="/info/docs"
+                          onClick={() => close()}
+                          to="/news"
                           className="block px-3 py-2 hover:bg-[#63001F] hover:text-white rounded"
                         >
                           {t("news.lifeLyceum")}
