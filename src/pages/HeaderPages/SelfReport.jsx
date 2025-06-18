@@ -49,20 +49,24 @@ const SelfReport = () => {
                     <div className="flex flex-col gap-2 text-center">
                       {[
                         {
-                          href: "https://drive.google.com/file/d/1t0rvtTxkUX5VlAAqzuCDH1DHyv5YltbC/view?usp=sharing",
+                          href: "https://docs.google.com/document/d/1jcFyQonlRUM0BEMRH9weV6kZovdSodtS/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
                           text: t("links.itVETprogramSelfAssessment"),
                         },
                         {
-                          href: "https://drive.google.com/file/d/1g80ZicYKzRmpyrhA0cK6-BqRIF9qCbd2/view?usp=sharing",
-                          text: t("links.geneduselfassessment"),
+                          href: "https://docs.google.com/document/d/1dEWn59aCN6LFBA2zAISWsSaW3lEWnS_b/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
+                          text: t("links.institutionalselfassessment"),
                         },
                         {
-                          href: "https://drive.google.com/file/d/1TSW524uX0_xU-2FyYakB4IXWGsCKbpLW/view?usp=sharing",
+                          href: "https://docs.google.com/document/d/157u5hZ-H4hKEvqTlFZDH4skaH7m66Xl9/edit?usp=sharing&ouid=101506021742149629101&rtpof=true&sd=true",
+                          text: t("links.itVETprogramSelfAssessmentOld"),
+                        },
+                        {
+                          href: "https://docs.google.com/document/d/1AE2QoZollbF6GTctBYmjFgUvlhk6NQGz/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
                           text: t("links.mechvetselfassessment"),
                         },
                         {
-                          href: "https://drive.google.com/file/d/1cqI20c77Q029yb19qTstJbTlO8GsxwkT/view?usp=sharing",
-                          text: t("links.institutionalselfassessment"),
+                          href: "https://docs.google.com/document/d/1IH6-HX0265TmclD_g16Gk3swTwOid6c0/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
+                          text: t("links.geneduselfassessment"),
                         },
                       ].map(({ href, text }) => (
                         <motion.a
