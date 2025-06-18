@@ -93,7 +93,7 @@ export const News = () => {
   }, [swiperInstance, prevRef, nextRef]);
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="min-h-screen">
       <div className="max-w-5xl mx-auto px-4 py-12">
         <Link
           to="/news"
@@ -209,10 +209,12 @@ export const News = () => {
                         className="w-full h-64 object-cover"
                       />
                       <div className="p-4 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 text-white">
-                        <p className="text-sm font-semibold">{item.category}</p>
                         <h2 className="text-lg font-bold mt-1 line-clamp-2">
                           {item.title}
                         </h2>
+                        <p className="text-sm font-semibold mt-1">
+                          {item.date}
+                        </p>
                       </div>
                     </motion.div>
                   </Link>

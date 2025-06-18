@@ -68,7 +68,7 @@ export const NewsCards = () => {
                 loading="lazy"
               />
               <div className="p-4 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent text-white">
-                <h2 className="text-lg font-bold mt-1 line-clamp-2">
+                <h2 className="text-lg font-bold line-clamp-2">
                   {card.title}
                 </h2>
                 <p className="text-sm font-medium uppercase tracking-widest mt-1">

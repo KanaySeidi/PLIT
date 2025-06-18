@@ -39,19 +39,19 @@ export default function AdminSidebar() {
     {
       icon: <HiOutlineDocumentText />,
       text: "Документация",
-      path: "/admin/news",
+      path: "/admin",
     },
     { icon: <GiScales />, text: "НПА КР", path: "/admin" },
-    { icon: <RiNewspaperLine />, text: "Новости", path: "/admin/news" },
+    { icon: <RiNewspaperLine />, text: "Новости", path: "/admin/newsCards" },
     { icon: <FaGraduationCap />, text: "ПЛИТ", path: "/admin/plit" }, // Используем Emoji как заглушку
   ];
 
   return (
-    <div className={`flex`}>
+    <div className={`flex z-10`}>
       <div
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
-        className={`h-screen bg-[#5a0a2d] transition-all duration-300 ease-in-out
+        className={`h-screen bg-[#5a0a2d] absolute z-10 transition-all duration-300 ease-in-out
           ${isOpen ? "w-56" : "w-16"}
           flex flex-col justify-between fixed`}
       >
