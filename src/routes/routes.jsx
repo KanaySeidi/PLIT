@@ -30,8 +30,8 @@ import {
   News,
   HomeAdmin,
 } from "../pages";
+import Layout from "../pages/Layout/Layout";
 import { TeacherSlAdmin } from "../pages/adminpages/TeacherSlAdmin";
-
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -56,13 +56,14 @@ const routes = [
   { path: "/plit/about", element: <About /> },
   {
     path: "/admin",
+    element: <Layout />,
     children: [
       { path: "sign", element: <LoginPage /> }, // Страница входа
       { path: "main", element: <AdminPage /> }, // Страница админки
       { path: "home", element: <HomeAdmin /> },
       { path: "courses", element: <CoursesAdmin /> },
       { path: "information", element: <InfoAdmin /> },
-      {path: "applicant", element: <AdminApplicant />},
+      { path: "applicant", element: <AdminApplicant /> },
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
       { path: "about", element: <AdminAbout /> },
