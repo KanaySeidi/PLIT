@@ -11,11 +11,8 @@ import {
   MobileDevelopment,
   SisAdm,
   TD,
-  LDocs,
   About,
-  Teacherinfo,
   Students,
-  NPA,
   LoginPage,
   AdminPage,
   HomeAdmin,
@@ -28,9 +25,17 @@ import {
   TeacherSl,
   NewsCards,
   News,
+  LDocs,
 } from "../pages";
+import Layout from "../pages/adminpages/adminSidebar/layout";
+import Npa99 from "../pages/HeaderPages/Npa99";
+import NpaKr from "../pages/HeaderPages/NpaKr";
+import NPAPosition from "../pages/HeaderPages/NPAPosition";
+import OP from "../pages/HeaderPages/OP";
+import RpObraz from "../pages/HeaderPages/RpObraz";
+import RPProf from "../pages/HeaderPages/RPProf";
+import SelfReport from "../pages/HeaderPages/SelfReport";
 import TeachersSlAdmin from "../pages/adminpages/TeachersSlAdmin";
-import Layout from "../pages/Layout/Layout";
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -47,12 +52,18 @@ const routes = [
   { path: "/ex", element: <Exploitation /> },
   { path: "/info/applicant", element: <Students /> },
   { path: "/info/docs", element: <LDocs /> },
-  { path: "/info/npa", element: <NPA /> },
+  { path: "/info/op", element: <OP /> },
+  { path: "/info/position", element: <NPAPosition /> },
+  { path: "/info/selfreport", element: <SelfReport /> },
+  { path: "/info/rpobraz", element: <RpObraz /> },
+  { path: "/info/rpprof", element: <RPProf /> },
+  { path: "/info/npakr", element: <NpaKr /> },
+  { path: "/info/npa99", element: <Npa99 /> },
   {
     path: "/plit/teachers",
     element: <TeacherSl />,
   },
-  { path: "/plit/teachers/:id", element: <Teacherinfo /> },
+  // { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   { path: "/news", element: <NewsCards /> },
   { path: "/news/:id", element: <News /> },
   { path: "/plit/about", element: <About /> },

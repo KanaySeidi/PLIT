@@ -14,10 +14,8 @@ export { News } from "./news/News.async";
 export { NewsCards } from "./news/NewsCards.async";
 export { LDocs } from "./HeaderPages/LDocs.async";
 export { About } from "./about/About.async";
-export { Teacherinfo } from "./HeaderPages/Teacherinfo.async";
 export { TeacherSl } from "../components/teachersSlider/TeacherSl.async";
 export { Students } from "./HeaderPages/Students.async";
-export { NPA } from "./HeaderPages/NPA.async";
 export { default as LoginPage } from "./adminpages/LoginPage";
 export { default as AdminPage } from "../pages/adminpages/AdminPage";
 export { default as HomeAdmin } from "./adminpages/HomeAdmin";
@@ -28,5 +26,6 @@ export { default as NewsAdmin } from "../pages/adminpages/NewsAdmin";
 export { default as PlitAdmin } from "../pages/adminpages/PlitAdmin";
 export { default as AdminApplicant } from "../pages/adminpages/AdminApplicant";
 export { default as AboutAdmin } from "../pages/adminpages/AboutAdmin";
+export { default as InfoAdmin } from "../pages/adminpages/TeachersSlAdmin";
 
 
