@@ -3,7 +3,6 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
-import RPProf from "./RPProf";
 
 const RpObraz = () => {
   const { t } = useTranslation();
@@ -85,7 +84,7 @@ const RpObraz = () => {
     {
       href: "https://docs.google.com/document/d/1zTaihQ3fq3Qi-TEHQFId6lbzPxt2DoQ3/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
 
-textKey: "algebra_umk_kg",
+      textKey: "algebra_umk_kg",
     },
     {
       href: "https://docs.google.com/document/d/1jMtKOFdvP0AS4N9iWMQwxa6h5ztZErqd/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
@@ -165,7 +164,7 @@ textKey: "algebra_umk_kg",
           <ChevronDownIcon className="h-8 w-8 text-white" />
         </motion.div>
       </motion.button>
-{isContentVisible && (
+      {isContentVisible && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -230,7 +229,7 @@ textKey: "algebra_umk_kg",
               </div>
             )}
           </Disclosure>
-{/* РП общеобразовательный (кыргызская группа) */}
+          {/* РП общеобразовательный (кыргызская группа) */}
           <Disclosure>
             {({ open }) => (
               <div className="p-6">
@@ -290,7 +289,6 @@ textKey: "algebra_umk_kg",
           </Disclosure>
         </motion.div>
       )}
-      <RPProf />
     </div>
   );
 };

@@ -16,7 +16,6 @@ export { LDocs } from "./HeaderPages/LDocs.async";
 export { About } from "./about/About.async";
 export { TeacherSl } from "../components/teachersSlider/TeacherSl.async";
 export { Students } from "./HeaderPages/Students.async";
-export { NPA } from "./HeaderPages/NPA.async";
 export { default as LoginPage } from "./adminpages/LoginPage";
 export { default as AdminPage } from "../pages/adminpages/AdminPage";
 export { default as HomeAdmin } from "./adminpages/HomeAdmin";
