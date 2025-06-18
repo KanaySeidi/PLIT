@@ -20,7 +20,7 @@ const CourseCard = ({ title, description, price, imagePreview }) => (
     )}
     <h3 className="text-xl font-semibold text-[#222]">{title}</h3>
     <p className="text-sm text-[#333] mt-1">{description}</p>
-    <p className="text-sm text-[#333] mt-1">Цена: {price} руб.</p>
+    <p className="text-sm text-[#333] mt-1">Цена: {price} сом.</p>
   </div>
 );
 
@@ -60,32 +60,38 @@ const Section = ({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="bg-white/80 rounded-2xl shadow-md mt-3 p-4 overflow-hidden"
           >
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 border border-[#8B0000] rounded-xl p-2"
-              initial={{ y: 20, opacity: 0, boxShadow: "0 0 0px #8B0000" }}
-              animate={{
-                y: 0,
-                opacity: 1,
-                boxShadow: "0 0 20px rgba(139, 0, 0, 0.5)",
-              }}
-              transition={{ duration: 0.5 }}
-            >
-              {courses.map((course) => (
-                <motion.div
-                  key={course.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <CourseCard
-                    title={course.title}
-                    description={course.description}
-                    price={course.price}
-                    imagePreview={course.imagePreview}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
+            {courses && courses.length > 0 ? (
+              <motion.div
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 border border-[#8B0000] rounded-xl p-2"
+                initial={{ y: 20, opacity: 0, boxShadow: "0 0 0px #8B0000" }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  boxShadow: "0 0 20px rgba(139, 0, 0, 0.5)",
+                }}
+                transition={{ duration: 0.5 }}
+              >
+                {courses.map((course, index) => (
+                  <motion.div
+                    key={course.id || index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <CourseCard
+                      title={course.title}
+                      description={course.description}
+                      price={course.price}
+                      imagePreview={course.imagePreview}
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
+            ) : (
+              <p className="text-center text-gray-700 py-4">
+                Курсы отсутствуют.
+              </p>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -96,17 +102,35 @@ const Section = ({
 const CoursesPage = () => {
   const [courses, setCourses] = useState(() => {
     const savedCourses = localStorage.getItem("courses");
-    return savedCourses
-      ? JSON.parse(savedCourses)
-      : { sports: [], language: [], professional: [] };
+    try {
+      const parsed = savedCourses ? JSON.parse(savedCourses) : null;
+      return parsed && typeof parsed === "object"
+        ? {
+            sports: parsed.sports || [],
+            language: parsed.language || [],
+            professional: parsed.professional || [],
+          }
+        : { sports: [], language: [], professional: [] };
+    } catch {
+      return { sports: [], language: [], professional: [] };
+    }
   });
 
-  const [openSection, setOpenSection] = useState(null); // ТОЛЬКО одна секция
+  const [openSection, setOpenSection] = useState(null);
 
   useEffect(() => {
     const handleStorageChange = () => {
       const savedCourses = localStorage.getItem("courses");
-      if (savedCourses) setCourses(JSON.parse(savedCourses));
+      try {
+        const parsed = savedCourses ? JSON.parse(savedCourses) : null;
+        if (parsed && typeof parsed === "object") {
+          setCourses({
+            sports: parsed.sports || [],
+            language: parsed.language || [],
+            professional: parsed.professional || [],
+          });
+        }
+      } catch {}
     };
     window.addEventListener("storage", handleStorageChange);
     return () => window.removeEventListener("storage", handleStorageChange);
