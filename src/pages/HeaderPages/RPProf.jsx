@@ -20,7 +20,7 @@ const RPProf = () => {
           {({ open }) => (
             <div className="p-6 mb-4">
               <Disclosure.Button
-                onClick={() => handleToggle("webDeveloper")}
+                onClick={() => handleToggle("Profession")}
                 className="group flex w-full items-center justify-between border-b border-gray-300 pb-4"
               >
                 <span className="text-lg font-semibold bg-bordo text-white px-2 py-1 rounded transition-colors">
@@ -28,14 +28,14 @@ const RPProf = () => {
                 </span>
                 <motion.div
                   animate={{
-                    rotate: openSection === "webDeveloper" ? -180 : 0,
+                    rotate: openSection === "Profession" ? -180 : 0,
                   }}
                   transition={{ duration: 0.3 }}
                 >
                   <ChevronDownIcon className="h-8 w-8 text-gray-500 group-hover:text-blue-400" />
                 </motion.div>
               </Disclosure.Button>
-              {openSection === "webDeveloper" && (
+              {openSection === "Profession" && (
                 <Disclosure.Panel static>
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}

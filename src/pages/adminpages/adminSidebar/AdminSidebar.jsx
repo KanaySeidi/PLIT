@@ -45,7 +45,6 @@ export default function AdminSidebar() {
     { icon: <GiScales />, text: "НПА КР", path: "/admin" },
     { icon: <RiNewspaperLine />, text: "Новости", path: "/admin/news" },
     { icon: <FaGraduationCap />, text: "ПЛИТ", path: "/admin/plit" }, // Используем Emoji как заглушку
-    { icon: <FaGraduationCap />, text: "О нас", path: "/admin/about" }, // Используем Emoji как заглушку
   ];
 
   return (
