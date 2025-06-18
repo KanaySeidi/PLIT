@@ -5,6 +5,7 @@ import Footer from "../../footer/Footer";
 import LocationPage from "../location/LocationPage";
 import AdminSidebar from "../adminpages/adminSidebar/AdminSidebar";
 import { useNavigate } from "react-router-dom";
+import NPAPosition from "../HeaderPages/NPAPosition";
 
 const Layout = () => {
   const { pathname } = useLocation();
@@ -33,6 +34,7 @@ const Layout = () => {
       </main>
       {isAdminPath ? null : <LocationPage />}
       {isAdminPath ? null : <Footer />}
+      <NPAPosition />
     </div>
   );
 };
