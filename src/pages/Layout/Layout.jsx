@@ -5,7 +5,6 @@ import Footer from "../../footer/Footer";
 import LocationPage from "../location/LocationPage";
 import AdminSidebar from "../adminpages/adminSidebar/AdminSidebar";
 import { useNavigate } from "react-router-dom";
-import SelfReport from "../HeaderPages/SelfReport";
 
 const Layout = () => {
   const { pathname } = useLocation();
@@ -32,7 +31,6 @@ const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <SelfReport/>
       {isAdminPath ? null : <LocationPage />}
       {isAdminPath ? null : <Footer />}
     </div>
