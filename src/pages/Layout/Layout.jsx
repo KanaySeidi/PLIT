@@ -32,7 +32,6 @@ const Layout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <NpaKr />
       {isAdminPath ? null : <LocationPage />}
       {isAdminPath ? null : <Footer />}
     </div>

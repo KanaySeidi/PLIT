@@ -1,4 +1,4 @@
-import { NewsAdmin } from "./NewsAdmin";
+import { Link } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export const NewsCardsAdmin = () => {
@@ -137,10 +137,17 @@ export const NewsCardsAdmin = () => {
                 rows={1}
               />
             </div>
+            <div className="mt-4 text-right">
+              <Link
+                to={`news/${card.id}`}
+                className="inline-block bg-bordo text-white px-4 py-2 rounded hover:bg-red-800 transition"
+              >
+                Перейти к новости
+              </Link>
+            </div>
           </div>
         ))}
       </div>
-      <NewsAdmin />
     </div>
   );
 };
