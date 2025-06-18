@@ -20,15 +20,27 @@ import {
   AdminPage,
   HomeAdmin,
   CoursesAdmin,
+<<<<<<< HEAD
+=======
+  InfoAdmin,
+  AdminApplicant,
+>>>>>>> 418495c652824e12b89688565be65b6aaa949fae
   DocsAdmin,
   NpaAdmin,
   NewsAdmin,
   PlitAdmin,
   AboutAdmin,
+<<<<<<< HEAD
   TeacherSl,
   NewsCards,
   News,
   Npa99,
+=======
+  TeachersSlAdmin,
+  TeacherSl,
+  NewsCards,
+  News,
+>>>>>>> 418495c652824e12b89688565be65b6aaa949fae
 } from "../pages";
 import Layout from "../pages/adminpages/adminSidebar/layout";
 
@@ -62,11 +74,22 @@ const routes = [
       { path: "main", element: <AdminPage /> }, // Страница админки
       { path: "home", element: <HomeAdmin /> },
       { path: "courses", element: <CoursesAdmin /> },
+<<<<<<< HEAD
       { path: "docs", element: <DocsAdmin /> },
       { path: "npa", element: <NpaAdmin /> },
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
       { path: "about", element: <AboutAdmin /> },
+=======
+      { path: "information", element: <InfoAdmin /> },
+      { path: "applicant", element: <AdminApplicant /> },
+      {path : "docs", element: <DocsAdmin />},
+      {path: "npa", element: <NpaAdmin />},
+      { path: "news", element: <NewsAdmin /> },
+      { path: "plit", element: <PlitAdmin /> },
+      { path: "about", element: <AboutAdmin /> },
+      { path: "teachersad", element: <TeachersSlAdmin /> },
+>>>>>>> 418495c652824e12b89688565be65b6aaa949fae
     ],
   },
 ];

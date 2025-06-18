@@ -15,18 +15,33 @@ export { AutoMechanic } from "./directions/AutoMechanic.async";
 export { News } from "./news/News.async";
 export { NewsCards } from "./news/NewsCards.async";
 export { LDocs } from "./HeaderPages/LDocs.async";
+export { SelfReport } from "./HeaderPages/SelfReport.async.js";
 export { About } from "./about/About.async";
 export { Teacherinfo } from "./HeaderPages/Teacherinfo.async";
 export { TeacherSl } from "../components/teachersSlider/TeacherSl.async";
 export { Students } from "./HeaderPages/Students.async";
 export { NPA } from "./HeaderPages/NPA.async";
+<<<<<<< HEAD
 export { Npa99 } from "./HeaderPages/Npa99.async";
 export { default as LoginPage } from "./adminpages/LoginPage";
 export { default as AdminPage } from "../pages/adminpages/AdminPage";
 export { default as HomeAdmin } from "./adminpages/HomeAdmin";
 export { default as CoursesAdmin } from "../pages/adminpages/CoursesAdmin";
+=======
+export { default as LoginPage } from "../pages/adminpages/LoginPage";
+export { default as AdminPage } from "../pages/adminpages/AdminPage";
+export { default as HomeAdmin } from "./adminpages/HomeAdmin";
+export { default as CoursesAdmin } from "../pages/adminpages/CoursesAdmin";
+export { default as InfoAdmin } from "../pages/adminpages/InfoAdmin";
+>>>>>>> 418495c652824e12b89688565be65b6aaa949fae
 export { default as DocsAdmin } from "../pages/adminpages/DocsAdmin";
 export { default as NpaAdmin } from "../pages/adminpages/NpaAdmin";
 export { default as NewsAdmin } from "../pages/adminpages/NewsAdmin";
 export { default as PlitAdmin } from "../pages/adminpages/PlitAdmin";
+<<<<<<< HEAD
 export { default as AboutAdmin } from "../pages/adminpages/AboutAdmin";
+=======
+export { default as AdminApplicant } from "../pages/adminpages/AdminApplicant";
+export { default as AboutAdmin } from "../pages/adminpages/AboutAdmin";
+export { default as TeachersSlAdmin } from "../pages/adminpages/TeachersSlAdmin.jsx";
+>>>>>>> 418495c652824e12b89688565be65b6aaa949fae

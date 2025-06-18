@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 
+<<<<<<< HEAD
+<<<<<<<< HEAD:src/pages/adminpages/DocsAdmin.jsx
 const DocsAdmin = () => {
+========
+const AboutAdmin = () => {
+>>>>>>>> 418495c652824e12b89688565be65b6aaa949fae:src/pages/adminpages/AboutAdmin.jsx
+=======
+const DocsAdmin = () => {
+>>>>>>> 418495c652824e12b89688565be65b6aaa949fae
   const [content, setContent] = useState({
-    title: "Добро пожаловать!",
-    description: "Описание главной страницы",
+    title: "",
+    description: "",
     image: null,
   });
 
@@ -17,12 +25,12 @@ const DocsAdmin = () => {
   };
 
   const handleSave = () => {
-    // Здесь можно отправить данные на сервер через API
     console.log("Сохранено:", content);
+    // Здесь можно отправить данные на сервер через API
   };
 
   const handleDelete = () => {
-    // Логика удаления контента
+    setContent({ title: "", description: "", image: null });
     console.log("Контент удален");
   };
 
@@ -37,7 +45,7 @@ const DocsAdmin = () => {
             name="title"
             value={content.title}
             onChange={handleChange}
-            className="w-full border p-2"
+            className="w-full border p-2 rounded"
           />
         </div>
         <div>
@@ -46,7 +54,7 @@ const DocsAdmin = () => {
             name="description"
             value={content.description}
             onChange={handleChange}
-            className="w-full border p-2"
+            className="w-full border p-2 rounded"
           />
         </div>
         <div>
@@ -54,7 +62,7 @@ const DocsAdmin = () => {
           <input
             type="file"
             onChange={handleImageChange}
-            className="w-full border p-2"
+            className="w-full border p-2 rounded"
           />
         </div>
         <button
@@ -74,4 +82,12 @@ const DocsAdmin = () => {
   );
 };
 
+<<<<<<< HEAD
+<<<<<<<< HEAD:src/pages/adminpages/DocsAdmin.jsx
 export default DocsAdmin;
+========
+export default AboutAdmin;
+>>>>>>>> 418495c652824e12b89688565be65b6aaa949fae:src/pages/adminpages/AboutAdmin.jsx
+=======
+export default DocsAdmin;
+>>>>>>> 418495c652824e12b89688565be65b6aaa949fae

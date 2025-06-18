@@ -10,14 +10,24 @@ import { MdAdminPanelSettings } from "react-icons/md";
 import { GiTeacher } from "react-icons/gi";
 import { GiMechanicGarage } from "react-icons/gi";
 
+<<<<<<< HEAD
 export default function AdminSidebar() {
   const { closePanel, isOpen, openPanel } = useAdminStore();
+=======
+function AdminSidebar() {
+  const { closePanel } = useAdminStore();
+>>>>>>> 418495c652824e12b89688565be65b6aaa949fae
   const location = useLocation();
 
   useEffect(() => {
     closePanel();
   }, [location.pathname]);
 
+<<<<<<< HEAD
+=======
+  const [isOpen, setIsOpen] = useState(false);
+
+>>>>>>> 418495c652824e12b89688565be65b6aaa949fae
   const menuItems = [
     { icon: <MdOutlineMenuBook />, text: "Курсы", path: "/admin/courses" },
     {
@@ -71,3 +81,4 @@ export default function AdminSidebar() {
     </div>
   );
 }
+export default AdminSidebar;
