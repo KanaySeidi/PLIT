@@ -22,17 +22,14 @@ import {
   CoursesAdmin,
   InfoAdmin,
   AdminApplicant,
-  DocsAdmin,
-  NpaAdmin,
+  TeacherSl,
   NewsAdmin,
   PlitAdmin,
-  AdminAbout,
-  InternalPagesAdmin,
   NewsCards,
   News,
+  AboutAdmin,
 } from "../pages";
-import TeacherSl from "../components/teachersSlider/TeacherSl";
-import { TeacherSlAdmin } from "../pages/adminpages/TeacherSlAdmin";
+import Layout from "../pages/adminpages/adminSidebar/Layout"
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -50,10 +47,7 @@ const routes = [
   { path: "/info/applicant", element: <Students /> },
   { path: "/info/docs", element: <LDocs /> },
   { path: "/info/npa", element: <NPA /> },
-  {
-    path: "/plit/teachers",
-    element: <TeacherSl />
-  },
+  { path: "/plit/teachers", element: <TeacherSl />},
   { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   { path: "/news", element: <NewsCards /> },
   { path: "/news/:id", element: <News /> },
@@ -70,9 +64,7 @@ const routes = [
       { path: "applicant", element: <AdminApplicant /> },
       { path: "news", element: <NewsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
-      { path: "about", element: <AdminAbout /> },
-      { path: "internal-pages", element: <InternalPagesAdmin /> },
-      { path: "teachersad", element: <TeacherSlAdmin /> },
+      { path: "about", element: <AboutAdmin /> },
     ],
   },
 ];

@@ -9,7 +9,7 @@ const Layout = () => {
   const { pathname } = useLocation();
   const isAdminPath = pathname.includes("admin");
 
-  const Navigate = useNavigate();
+
 
   const goHome = () => {
     Navigate("/");
