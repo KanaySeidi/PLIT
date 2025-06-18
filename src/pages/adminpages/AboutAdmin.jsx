@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { FaSave, FaPlus, FaTrash, FaEdit, FaTimes } from "react-icons/fa";
@@ -43,6 +43,7 @@ const AboutAdmin = () => {
         text: t("about.imageGallery.alt1") || "",
         translation: getTranslation("about.imageGallery.alt1"),
       },
+      hasError: false, // Флаг для отслеживания ошибок
     },
     {
       src: "/assets/img/About/img_mikakorhonenmki1rfsqwvyunsplashjpg.png",
@@ -50,6 +51,7 @@ const AboutAdmin = () => {
         text: t("about.imageGallery.alt2") || "",
         translation: getTranslation("about.imageGallery.alt2"),
       },
+      hasError: false,
     },
     {
       src: "/assets/img/About/img_aliyahyaifpeapwegt4unsplashjpg.png",
@@ -57,6 +59,7 @@ const AboutAdmin = () => {
         text: t("about.imageGallery.alt3") || "",
         translation: getTranslation("about.imageGallery.alt3"),
       },
+      hasError: false,
     },
   ]);
 
@@ -149,7 +152,6 @@ const AboutAdmin = () => {
       text: t("about.form.subtitle") || "",
       translation: getTranslation("about.form.subtitle"),
     },
-
     application: {
       text: t("about.form.application") || "",
       translation: getTranslation("about.form.application"),
@@ -169,6 +171,9 @@ const AboutAdmin = () => {
     src: "",
     alt: { text: "", translation: "" },
   });
+
+  // Ref для отслеживания выполненных проверок
+  const checkedImagesRef = useRef(new Set());
 
   // Обработчики изменений
   const handleHeroChange = (key, field, value) =>
@@ -218,8 +223,9 @@ const AboutAdmin = () => {
     setImageGallery((prev) => [
       ...prev,
       {
-        src: "https://via.placeholder.com/300",
+        src: "https://placehold.co/300x300",
         alt: { text: "", translation: "" },
+        hasError: false,
       },
     ]);
   const handleAddStatistics = () =>
@@ -285,21 +291,28 @@ const AboutAdmin = () => {
 
   // Проверка существования изображения
   const checkImage = (src) => {
-    const img = new Image();
-    img.src = src;
     return new Promise((resolve) => {
+      const img = new Image();
       img.onload = () => resolve(true);
       img.onerror = () => resolve(false);
+      img.src = src;
     });
   };
 
   useEffect(() => {
     imageGallery.forEach((item, idx) => {
-      checkImage(item.src).then((exists) => {
-        if (!exists) {
-          console.warn(`Image at ${item.src} not found for index ${idx}`);
-        }
-      });
+      if (!checkedImagesRef.current.has(idx) && !item.hasError) {
+        checkImage(item.src).then((exists) => {
+          if (!exists) {
+            console.warn(
+              `Изображение по адресу ${item.src} не найдено для индекса ${idx}`
+            );
+            handleImageGalleryChange(idx, "src", "/assets/img/fallback.png");
+            handleImageGalleryChange(idx, "hasError", true);
+          }
+          checkedImagesRef.current.add(idx);
+        });
+      }
     });
   }, [imageGallery]);
 
@@ -431,12 +444,15 @@ const AboutAdmin = () => {
                 className="relative bg-gray-50 p-4 rounded-lg shadow"
               >
                 <img
-                  src={item.src}
+                  src={item.hasError ? "/assets/img/fallback.png" : item.src}
                   alt={item.alt.text}
                   className="w-full h-32 object-cover rounded mb-4"
-                  onError={(e) =>
-                    (e.target.src = "https://via.placeholder.com/300")
-                  }
+                  onError={(e) => {
+                    if (!item.hasError) {
+                      e.target.src = "/assets/img/fallback.png";
+                      handleImageGalleryChange(idx, "hasError", true);
+                    }
+                  }}
                 />
                 <input
                   type="file"
@@ -444,12 +460,15 @@ const AboutAdmin = () => {
                   className="mb-2"
                   onChange={async (e) => {
                     const file = e.target.files[0];
-                    if (file) {
+                    if (file && file.size < 5 * 1024 * 1024) {
                       const reader = new FileReader();
                       reader.onload = (ev) => {
                         handleImageGalleryChange(idx, "src", ev.target.result);
+                        handleImageGalleryChange(idx, "hasError", false);
                       };
                       reader.readAsDataURL(file);
+                    } else {
+                      alert("Файл слишком большой или недопустимый.");
                     }
                   }}
                 />
@@ -504,6 +523,7 @@ const AboutAdmin = () => {
             <FaPlus className="mr-2" /> Добавить изображение
           </motion.button>
         </motion.section>
+
         {/* Statistics */}
         <motion.section
           initial={{ y: 20, opacity: 0 }}

@@ -38,6 +38,7 @@ export default function AdminSidebar() {
       path: "/admin/teachersad",
     },
     { icon: <GiMechanicGarage />, text: "Мастера", path: "" },
+    { icon: <AiOutlineInfoCircle />, text: "О нас", path: "/admin/about" },
   ];
 
   return (
