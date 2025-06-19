@@ -1,4 +1,4 @@
-import AdminSidebar from "./adminSidebar/AdminSidebar.jsx";
+import AdminSidebar from "../adminSidebar/AdminSidebar";
 
 export default function AdminPage() {
   return (

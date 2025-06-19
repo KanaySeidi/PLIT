@@ -11,8 +11,11 @@ import {
   MobileDevelopment,
   SisAdm,
   TD,
+  Applicants,
+  NewsCards,
+  News,
   About,
-  Students,
+  Masters,
   LoginPage,
   AdminPage,
   HomeAdmin,
@@ -24,19 +27,17 @@ import {
   AboutAdmin,
   TeachersSlAdmin,
   TeacherSl,
-  NewsCards,
-  News,
   LDocs,
 } from "../pages";
-import Layout from "../pages/adminpages/adminSidebar/layout";
-import GeneralSecEducation from "../pages/HeaderPages/GeneralSecEducation";
-import Npa99 from "../pages/HeaderPages/Npa99";
-import NpaKr from "../pages/HeaderPages/NpaKr";
-import NPAPosition from "../pages/HeaderPages/NPAPosition";
-import OP from "../pages/HeaderPages/OP";
-import RpObraz from "../pages/HeaderPages/RpObraz";
-import RPProf from "../pages/HeaderPages/RPProf";
-import SelfReport from "../pages/HeaderPages/SelfReport";
+import Layout from "../pages/admin/adminSidebar/layout";
+import GeneralSecEducation from "../pages/HeaderPages/documents/GeneralSecEducation";
+import Npa99 from "../pages/HeaderPages/documents/Npa99";
+import NpaKr from "../pages/HeaderPages/documents/NpaKr";
+import NPAPosition from "../pages/HeaderPages/documents/NPAPosition";
+import OP from "../pages/HeaderPages/documents/OP";
+import RpObraz from "../pages/HeaderPages/documents/RpObraz";
+import RPProf from "../pages/HeaderPages/documents/RPProf";
+import SelfReport from "../pages/HeaderPages/documents/SelfReport";
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -51,7 +52,7 @@ const routes = [
   { path: "/am", element: <AutoMechanic /> },
   { path: "/in", element: <Information /> },
   { path: "/ex", element: <Exploitation /> },
-  { path: "/info/applicant", element: <Students /> },
+  { path: "/info/applicant", element: <Applicants /> },
   { path: "/info/docs", element: <LDocs /> },
   { path: "/info/op", element: <OP /> },
   { path: "/info/position", element: <NPAPosition /> },
@@ -61,14 +62,12 @@ const routes = [
   { path: "/info/rpprof", element: <RPProf /> },
   { path: "/info/npakr", element: <NpaKr /> },
   { path: "/info/npa99", element: <Npa99 /> },
-  {
-    path: "/plit/teachers",
-    element: <TeacherSl />,
-  },
-  // { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   { path: "/news", element: <NewsCards /> },
   { path: "/news/:id", element: <News /> },
   { path: "/plit/about", element: <About /> },
+  { path: "/plit/teachers", element: <TeacherSl /> },
+  { path: "/plit/masters", element: <Masters /> },
+  // { path: "/plit/teachers/:id", element: <Teacherinfo /> },
   {
     path: "/admin",
     element: <Layout />,
