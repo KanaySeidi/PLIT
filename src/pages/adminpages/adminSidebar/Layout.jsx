@@ -8,7 +8,7 @@ export default function Layout() {
   return (
     <div className="flex h-screen">
       <div>
-        <AdminSidebar />
+        <AdminSidebar className="" />
       </div>
       <div
         className={`flex-1 transition-all duration-300 ease-in-out ${

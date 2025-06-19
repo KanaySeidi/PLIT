@@ -9,25 +9,16 @@ import { HiOutlineDocumentText } from "react-icons/hi";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { GiTeacher } from "react-icons/gi";
 import { GiMechanicGarage } from "react-icons/gi";
+import { FaGraduationCap } from "react-icons/fa";
 
-<<<<<<< HEAD
 export default function AdminSidebar() {
-  const { closePanel, isOpen, openPanel } = useAdminStore();
-=======
-function AdminSidebar() {
-  const { closePanel } = useAdminStore();
->>>>>>> 418495c652824e12b89688565be65b6aaa949fae
+  const { closePanel, openPanel, isOpen } = useAdminStore();
   const location = useLocation();
 
   useEffect(() => {
     closePanel();
   }, [location.pathname]);
 
-<<<<<<< HEAD
-=======
-  const [isOpen, setIsOpen] = useState(false);
-
->>>>>>> 418495c652824e12b89688565be65b6aaa949fae
   const menuItems = [
     { icon: <MdOutlineMenuBook />, text: "Курсы", path: "/admin/courses" },
     {
@@ -46,16 +37,22 @@ function AdminSidebar() {
       icon: <GiTeacher />,
       text: "Педагоги",
       path: "/admin/news",
+      icon: <HiOutlineDocumentText />,
+      text: "Документация",
+      path: "/admin",
     },
     { icon: <GiMechanicGarage />, text: "Мастера", path: "/admin/news" },
+    { icon: <GiScales />, text: "НПА КР", path: "/admin" },
+    { icon: <RiNewspaperLine />, text: "Новости", path: "/admin/newsCards" },
+    { icon: <FaGraduationCap />, text: "ПЛИТ", path: "/admin/plit" }, // Используем Emoji как заглушку
   ];
 
   return (
-    <div className={`flex `}>
+    <div className={`flex z-10`}>
       <div
         onMouseEnter={openPanel}
         onMouseLeave={closePanel}
-        className={`h-screen bg-[#5a0a2d] transition-all duration-300 ease-in-out
+        className={`h-screen bg-[#5a0a2d] absolute z-10 transition-all duration-300 ease-in-out
           ${isOpen ? "w-56" : "w-16"}
           flex flex-col justify-between fixed`}
       >
@@ -81,4 +78,3 @@ function AdminSidebar() {
     </div>
   );
 }
-export default AdminSidebar;

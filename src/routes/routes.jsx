@@ -18,31 +18,21 @@ import {
   NPA,
   LoginPage,
   AdminPage,
-  HomeAdmin,
   CoursesAdmin,
-<<<<<<< HEAD
-=======
   InfoAdmin,
   AdminApplicant,
->>>>>>> 418495c652824e12b89688565be65b6aaa949fae
-  DocsAdmin,
-  NpaAdmin,
   NewsAdmin,
+  NewsCardsAdmin,
   PlitAdmin,
-  AboutAdmin,
-<<<<<<< HEAD
+  AdminAbout,
   TeacherSl,
   NewsCards,
   News,
+  HomeAdmin,
+  TeacherSlAdmin,
   Npa99,
-=======
-  TeachersSlAdmin,
-  TeacherSl,
-  NewsCards,
-  News,
->>>>>>> 418495c652824e12b89688565be65b6aaa949fae
 } from "../pages";
-import Layout from "../pages/adminpages/adminSidebar/layout";
+import Layout from "../pages/adminpages/adminSidebar/Layout";
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -74,22 +64,14 @@ const routes = [
       { path: "main", element: <AdminPage /> }, // Страница админки
       { path: "home", element: <HomeAdmin /> },
       { path: "courses", element: <CoursesAdmin /> },
-<<<<<<< HEAD
-      { path: "docs", element: <DocsAdmin /> },
-      { path: "npa", element: <NpaAdmin /> },
-      { path: "news", element: <NewsAdmin /> },
-      { path: "plit", element: <PlitAdmin /> },
-      { path: "about", element: <AboutAdmin /> },
-=======
       { path: "information", element: <InfoAdmin /> },
       { path: "applicant", element: <AdminApplicant /> },
-      {path : "docs", element: <DocsAdmin />},
-      {path: "npa", element: <NpaAdmin />},
-      { path: "news", element: <NewsAdmin /> },
+      { path: "news/:id", element: <NewsAdmin /> },
+      { path: "newsCards", element: <NewsCardsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
-      { path: "about", element: <AboutAdmin /> },
-      { path: "teachersad", element: <TeachersSlAdmin /> },
->>>>>>> 418495c652824e12b89688565be65b6aaa949fae
+      { path: "about", element: <AdminAbout /> },
+      // { path: "internal-pages", element: <InternalPagesAdmin /> },
+      { path: "teachersad", element: <TeacherSlAdmin />},
     ],
   },
 ];

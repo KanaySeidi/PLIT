@@ -1,216 +1,226 @@
-import { useState, useEffect } from "react";
-import { FaSave, FaPlus, FaEllipsisV } from "react-icons/fa";
+import { useParams, Link } from "react-router-dom";
+import img1 from "../../assets/img/1.jpg";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ArrowLeft } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 import { motion } from "framer-motion";
+import "swiper/css";
+import "swiper/css/navigation";
 
-const NewsAdmin = () => {
-  const [newsList, setNewsList] = useState(() => {
-    const saved = localStorage.getItem("news");
-    return saved ? JSON.parse(saved) : [];
-  });
+export const NewsAdmin = () => {
+  const { id } = useParams();
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+  const [swiperInstance, setSwiperInstance] = useState(null);
 
-  const [newNews, setNewNews] = useState({
+  const mainArticle = {
+    id: 1,
     title: "",
-    content: "",
     date: "",
-    image: null,
-  });
+    image: img1,
+    content: "",
+  };
 
-  const [editNews, setEditNews] = useState(null);
-  const [showMenu, setShowMenu] = useState(null);
+  const articles = [
+    {
+      id: 2,
+      title: "",
+      date: "",
+      image: img1,
+      content: "",
+    },
+    {
+      id: 3,
+      title: "",
+      date: "",
+      image: img1,
+      content: "",
+    },
+    {
+      id: 4,
+      title: "",
+      date: "",
+      image: img1,
+      content: "",
+    },
+    {
+      id: 5,
+      title: "",
+      date: "",
+      image: img1,
+      content: "",
+    },
+  ];
+
+  const article = useMemo(
+    () =>
+      parseInt(id) === 1
+        ? mainArticle
+        : articles.find((a) => a.id === parseInt(id)),
+    [id, mainArticle, articles]
+  );
+
+  if (!article) {
+    return (
+      <div className="text-center p-10 text-red-600 text-lg">
+        Статья не найдена 😢
+      </div>
+    );
+  }
 
   useEffect(() => {
-    localStorage.setItem("news", JSON.stringify(newsList));
-  }, [newsList]);
+    window.scrollTo(0, 0);
+  }, []);
 
-  const handleAddNews = () => {
-    if (!newNews.title || !newNews.content || !newNews.date) return;
-    const id = Date.now();
-    const newsWithId = {
-      ...newNews,
-      id,
-      imagePreview: newNews.image ? URL.createObjectURL(newNews.image) : null,
-    };
-    setNewsList((prev) => [...prev, newsWithId]);
-    setNewNews({ title: "", content: "", date: "", image: null });
-  };
-
-  const handleDeleteNews = (news) => {
-    setNewsList((prev) => prev.filter((n) => n.id !== news.id));
-    setShowMenu(null);
-  };
-
-  const handleEditNews = (news) => {
-    setEditNews(news);
-    setShowMenu(null);
-  };
-
-  const handleSaveEdit = () => {
-    if (!editNews.title || !editNews.content || !editNews.date) return;
-    setNewsList((prev) =>
-      prev.map((n) => (n.id === editNews.id ? editNews : n))
-    );
-    setEditNews(null);
-  };
-
-  const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    const updater = (prev) => ({
-      ...prev,
-      [name]: files ? files[0] : value,
-      ...(files && {
-        imagePreview: URL.createObjectURL(files[0]),
-      }),
-    });
-
-    editNews ? setEditNews(updater) : setNewNews(updater);
-  };
+  useEffect(() => {
+    if (
+      swiperInstance &&
+      swiperInstance.params &&
+      swiperInstance.params.navigation &&
+      prevRef.current &&
+      nextRef.current &&
+      swiperInstance.params.navigation
+    ) {
+      swiperInstance.params.navigation.prevEl = prevRef.current;
+      swiperInstance.params.navigation.nextEl = nextRef.current;
+      swiperInstance.navigation.destroy();
+      swiperInstance.navigation.init();
+      swiperInstance.navigation.update();
+    }
+  }, [swiperInstance, prevRef, nextRef]);
 
   return (
-    <div className="min-h-screen bg-[#F9F9F9] p-6">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-[#222]">Управление новостями</h1>
-        <button
-          onClick={handleAddNews}
-          className="bg-[#8B0000] text-white px-4 py-2 rounded-2xl hover:bg-[#600000] transition flex items-center"
+    <div className="min-h-screen">
+      <div className="max-w-5xl mx-auto px-4 py-12">
+        <Link
+          to="/news"
+          className="inline-flex items-center text-white hover:bg-red-900 transform transition duration-300 mb-8 bg-bordo rounded p-2"
         >
-          <FaPlus className="mr-2" /> Добавить новость
-        </button>
-      </div>
+          <ArrowLeft className="w-5 h-5 mr-2" />
+          Назад к новостям
+        </Link>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-        {newsList.map((news) => (
-          <div
-            key={news.id}
-            className="bg-white rounded-2xl shadow-md p-4 relative"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-6"
+        >
+          <p className="text-sm text-gray-500 uppercase font-medium tracking-widest">
+            {article.date}
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mt-2">
+            {article.title}
+          </h1>
+        </motion.div>
+
+        <motion.img
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          src={article.image}
+          alt={article.title}
+          loading="lazy"
+          className="w-full h-[400px] object-cover rounded shadow-xl mb-10"
+        />
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="prose prose-lg prose-gray max-w-none"
+        >
+          {article.content.split("\n").map((p, idx) => (
+            <p key={idx}>{p.trim()}</p>
+          ))}
+        </motion.div>
+
+        <div className="relative w-full max-w-6xl mx-auto py-10">
+          <button
+            aria-label="Previous slide"
+            ref={prevRef}
+            className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md rounded-full p-3 hover:bg-gray-200 transition-all"
           >
-            {news.imagePreview && (
-              <img
-                src={news.imagePreview}
-                alt={news.title}
-                className="w-full h-32 object-cover rounded-xl mb-3"
+            <svg
+              className="w-6 h-6 text-bordo"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15 19l-7-7 7-7"
               />
-            )}
-            <h3 className="text-xl font-semibold">{news.title}</h3>
-            <p className="text-sm text-gray-700 mt-1">{news.content}</p>
-            <p className="text-xs text-gray-500">{news.date}</p>
+            </svg>
+          </button>
 
-            <div className="absolute top-2 right-2">
-              <button
-                onClick={() =>
-                  setShowMenu(news.id === showMenu ? null : news.id)
-                }
-                className="text-gray-600 hover:text-[#8B0000]"
-              >
-                <FaEllipsisV />
-              </button>
-              {showMenu === news.id && (
-                <div className="absolute right-0 mt-2 w-44 bg-white border rounded-2xl shadow z-10">
-                  <button
-                    onClick={() => handleEditNews(news)}
-                    className="w-full text-left px-4 py-2 hover:bg-gray-100"
-                  >
-                    Редактировать
-                  </button>
-                  <button
-                    onClick={() => handleDeleteNews(news)}
-                    className="w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100"
-                  >
-                    Удалить
-                  </button>
-                </div>
-              )}
-            </div>
+          <button
+            aria-label="Next slide"
+            ref={nextRef}
+            className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md rounded-full p-3 hover:bg-gray-200 transition-all"
+          >
+            <svg
+              className="w-6 h-6 text-bordo"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
 
-            {editNews && editNews.id === news.id && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="mt-4 space-y-4"
-              >
-                <input
-                  type="text"
-                  name="title"
-                  value={editNews.title}
-                  onChange={handleChange}
-                  placeholder="Заголовок"
-                  className="w-full p-3 border rounded-2xl shadow"
-                />
-                <textarea
-                  name="content"
-                  value={editNews.content}
-                  onChange={handleChange}
-                  placeholder="Содержание"
-                  className="w-full p-3 border rounded-2xl shadow"
-                />
-                <input
-                  type="date"
-                  name="date"
-                  value={editNews.date}
-                  onChange={handleChange}
-                  className="w-full p-3 border rounded-2xl shadow"
-                />
-                <input
-                  type="file"
-                  name="image"
-                  onChange={handleChange}
-                  className="w-full p-3 border rounded-2xl shadow"
-                />
-                <button
-                  onClick={handleSaveEdit}
-                  className="bg-[#8B0000] text-white px-4 py-2 rounded-2xl hover:bg-[#600000] flex items-center"
-                >
-                  <FaSave className="mr-2" /> Сохранить
-                </button>
-              </motion.div>
-            )}
-          </div>
-        ))}
+          <Swiper
+            watchOverflow={true}
+            onSwiper={setSwiperInstance}
+            modules={[Navigation]}
+            spaceBetween={20}
+            slidesPerView={1}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+          >
+            {[mainArticle, ...articles]
+              .filter((a) => a.id !== parseInt(id))
+              .map((item) => (
+                <SwiperSlide key={item.id}>
+                  <Link to={`/news/${item.id}`}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                      className="relative shadow-lg rounded overflow-hidden"
+                    >
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-64 object-cover"
+                      />
+                      <div className="p-4 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 text-white">
+                        <h2 className="text-lg font-bold mt-1 line-clamp-2">
+                          {item.title}
+                        </h2>
+                        <p className="text-sm font-semibold mt-1">
+                          {item.date}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </Link>
+                </SwiperSlide>
+              ))}
+          </Swiper>
+        </div>
       </div>
-
-      {/* Форма добавления новости */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="bg-white rounded-2xl shadow-md p-6"
-      >
-        <input
-          type="text"
-          name="title"
-          value={newNews.title}
-          onChange={handleChange}
-          placeholder="Заголовок"
-          className="w-full p-3 border rounded-2xl shadow mb-4"
-        />
-
-        <textarea
-          name="content"
-          value={newNews.content}
-          onChange={handleChange}
-          placeholder="Содержание"
-          className="w-full p-3 border rounded-2xl shadow mb-4"
-        />
-        <input
-          type="date"
-          name="date"
-          value={newNews.date}
-          onChange={handleChange}
-          className="w-full p-3 border rounded-2xl shadow mb-4"
-        />
-        <input
-          type="file"
-          name="image"
-          onChange={handleChange}
-          className="w-full p-3 border rounded-2xl shadow mb-4"
-        />
-        <button
-          onClick={handleAddNews}
-          className="bg-[#8B0000] text-white px-4 py-2 rounded-2xl hover:bg-[#600000] flex items-center"
-        >
-          <FaSave className="mr-2" /> Сохранить
-        </button>
-      </motion.div>
     </div>
   );
 };
-
-export default NewsAdmin;

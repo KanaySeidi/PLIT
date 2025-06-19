@@ -19,7 +19,6 @@ export const News = () => {
   const mainArticle = {
     id: 1,
     title: t("newsPage.id1.title"),
-    category: t("newsPage.id1.category"),
     date: t("newsPage.id1.date"),
     image: img1,
     content: t("newsPage.id1.content"),
@@ -29,7 +28,6 @@ export const News = () => {
     {
       id: 2,
       title: t("newsPage.id2.title"),
-      category: t("newsPage.id2.category"),
       date: t("newsPage.id2.date"),
       image: img1,
       content: t("newsPage.id2.content"),
@@ -37,7 +35,6 @@ export const News = () => {
     {
       id: 3,
       title: t("newsPage.id3.title"),
-      category: t("newsPage.id3.category"),
       date: t("newsPage.id3.date"),
       image: img1,
       content: t("newsPage.id3.content"),
@@ -45,7 +42,6 @@ export const News = () => {
     {
       id: 4,
       title: t("newsPage.id4.title"),
-      category: t("newsPage.id4.category"),
       date: t("newsPage.id4.date"),
       image: img1,
       content: t("newsPage.id4.content"),
@@ -53,7 +49,6 @@ export const News = () => {
     {
       id: 5,
       title: t("newsPage.id5.title"),
-      category: t("newsPage.id5.category"),
       date: t("newsPage.id5.date"),
       image: img1,
       content: t("newsPage.id5.content"),
@@ -98,7 +93,7 @@ export const News = () => {
   }, [swiperInstance, prevRef, nextRef]);
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="min-h-screen">
       <div className="max-w-5xl mx-auto px-4 py-12">
         <Link
           to="/news"
@@ -115,7 +110,7 @@ export const News = () => {
           className="mb-6"
         >
           <p className="text-sm text-gray-500 uppercase font-medium tracking-widest">
-            {article.category} • {article.date}
+            {article.date}
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mt-2">
             {article.title}
@@ -214,10 +209,12 @@ export const News = () => {
                         className="w-full h-64 object-cover"
                       />
                       <div className="p-4 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 text-white">
-                        <p className="text-sm font-semibold">{item.category}</p>
                         <h2 className="text-lg font-bold mt-1 line-clamp-2">
                           {item.title}
                         </h2>
+                        <p className="text-sm font-semibold mt-1">
+                          {item.date}
+                        </p>
                       </div>
                     </motion.div>
                   </Link>

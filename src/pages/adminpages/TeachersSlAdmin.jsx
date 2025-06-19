@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const TeachersSlAdmin = () => {
-  return (
-    <div>TeachersSlAdmin</div>
-  )
-}
-
-export default TeachersSlAdmin
-=======
-import React, { useState } from "react";
-
-const TeachersSlAdmin = () => {
+export const TeachersSlAdmin = () => {
   const [content, setContent] = useState({
     title: "",
     description: "",
@@ -86,4 +73,3 @@ const TeachersSlAdmin = () => {
 };
 
 export default TeachersSlAdmin;
->>>>>>> 418495c652824e12b89688565be65b6aaa949fae

@@ -1,5 +1,3 @@
-import Npa99 from "./HeaderPages/Npa99";
-
 export { CoursesPage } from "./HeaderPages/CouresPage.async";
 export { InfoPage } from "./HeaderPages/InfoPage.async";
 export { Main } from "./Main/Main.async";
@@ -21,27 +19,16 @@ export { Teacherinfo } from "./HeaderPages/Teacherinfo.async";
 export { TeacherSl } from "../components/teachersSlider/TeacherSl.async";
 export { Students } from "./HeaderPages/Students.async";
 export { NPA } from "./HeaderPages/NPA.async";
-<<<<<<< HEAD
-export { Npa99 } from "./HeaderPages/Npa99.async";
-export { default as LoginPage } from "./adminpages/LoginPage";
-export { default as AdminPage } from "../pages/adminpages/AdminPage";
-export { default as HomeAdmin } from "./adminpages/HomeAdmin";
-export { default as CoursesAdmin } from "../pages/adminpages/CoursesAdmin";
-=======
-export { default as LoginPage } from "../pages/adminpages/LoginPage";
+export { Npa99 } from "./HeaderPages/Npa99.async.js";
 export { default as AdminPage } from "../pages/adminpages/AdminPage";
 export { default as HomeAdmin } from "./adminpages/HomeAdmin";
 export { default as CoursesAdmin } from "../pages/adminpages/CoursesAdmin";
 export { default as InfoAdmin } from "../pages/adminpages/InfoAdmin";
->>>>>>> 418495c652824e12b89688565be65b6aaa949fae
-export { default as DocsAdmin } from "../pages/adminpages/DocsAdmin";
-export { default as NpaAdmin } from "../pages/adminpages/NpaAdmin";
-export { default as NewsAdmin } from "../pages/adminpages/NewsAdmin";
+export { NewsAdmin } from "../pages/adminpages/NewsAdmin";
+export { NewsCardsAdmin } from "../pages/adminpages/NewsCardsAdmin";
 export { default as PlitAdmin } from "../pages/adminpages/PlitAdmin";
-<<<<<<< HEAD
-export { default as AboutAdmin } from "../pages/adminpages/AboutAdmin";
-=======
 export { default as AdminApplicant } from "../pages/adminpages/AdminApplicant";
-export { default as AboutAdmin } from "../pages/adminpages/AboutAdmin";
-export { default as TeachersSlAdmin } from "../pages/adminpages/TeachersSlAdmin.jsx";
->>>>>>> 418495c652824e12b89688565be65b6aaa949fae
+export { default as AdminAbout } from "./adminpages/AboutAdmin.jsx";
+// export { default as InternalPagesAdmin } from "../pages/adminpages/InternalPagesAdmin";
+export { default as LoginPage } from "./adminpages/LoginPage";
+export { default as TeacherSlAdmin } from "./adminpages/TeachersSlAdmin.jsx";

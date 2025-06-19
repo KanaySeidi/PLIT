@@ -2,13 +2,10 @@ import React, { useState } from "react";
 
 const NpaAdmin = () => {
   const [content, setContent] = useState({
-<<<<<<< HEAD
     title: "Добро пожаловать!",
     description: "Описание главной страницы",
-=======
     title: "",
     description: "",
->>>>>>> 418495c652824e12b89688565be65b6aaa949fae
     image: null,
   });
 
@@ -22,21 +19,13 @@ const NpaAdmin = () => {
   };
 
   const handleSave = () => {
-<<<<<<< HEAD
     // Здесь можно отправить данные на сервер через API
     console.log("Сохранено:", content);
   };
-
-  const handleDelete = () => {
-    // Логика удаления контента
-=======
-    console.log("Сохранено:", content);
-    // Здесь можно отправить данные на сервер через API
   };
 
   const handleDelete = () => {
     setContent({ title: "", description: "", image: null });
->>>>>>> 418495c652824e12b89688565be65b6aaa949fae
     console.log("Контент удален");
   };
 
@@ -51,11 +40,8 @@ const NpaAdmin = () => {
             name="title"
             value={content.title}
             onChange={handleChange}
-<<<<<<< HEAD
             className="w-full border p-2"
-=======
             className="w-full border p-2 rounded"
->>>>>>> 418495c652824e12b89688565be65b6aaa949fae
           />
         </div>
         <div>
@@ -64,11 +50,8 @@ const NpaAdmin = () => {
             name="description"
             value={content.description}
             onChange={handleChange}
-<<<<<<< HEAD
             className="w-full border p-2"
-=======
             className="w-full border p-2 rounded"
->>>>>>> 418495c652824e12b89688565be65b6aaa949fae
           />
         </div>
         <div>
@@ -76,11 +59,8 @@ const NpaAdmin = () => {
           <input
             type="file"
             onChange={handleImageChange}
-<<<<<<< HEAD
             className="w-full border p-2"
-=======
             className="w-full border p-2 rounded"
->>>>>>> 418495c652824e12b89688565be65b6aaa949fae
           />
         </div>
         <button
@@ -98,6 +78,5 @@ const NpaAdmin = () => {
       </div>
     </div>
   );
-};
 
 export default NpaAdmin;
