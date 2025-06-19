@@ -2,7 +2,7 @@ const HeroSection = ({
   title,
   subtitle,
   backgroundImage,
-  overlayColor = "bg-indigo-800",
+  overlayColor = "bg-indigo-700",
 }) => {
   return (
     <section className="relative h-96 flex items-center justify-start">

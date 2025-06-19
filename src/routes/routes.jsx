@@ -22,7 +22,6 @@ import {
   NewsAdmin,
   PlitAdmin,
   AboutAdmin,
-  TeachersSlAdmin,
   TeacherSl,
   NewsCards,
   News,
@@ -37,6 +36,7 @@ import OP from "../pages/HeaderPages/OP";
 import RpObraz from "../pages/HeaderPages/RpObraz";
 import RPProf from "../pages/HeaderPages/RPProf";
 import SelfReport from "../pages/HeaderPages/SelfReport";
+import TeachersSlAdmin from "../pages/adminpages/TeachersSlAdmin";
 
 const routes = [
   { path: "/", element: <Main /> },
