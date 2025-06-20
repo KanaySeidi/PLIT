@@ -12,9 +12,11 @@ import {
   SisAdm,
   TD,
   Applicants,
+  LDocs,
   NewsCards,
   News,
   About,
+  TeacherSl,
   Masters,
   LoginPage,
   AdminPage,
@@ -26,8 +28,6 @@ import {
   PlitAdmin,
   AboutAdmin,
   TeachersSlAdmin,
-  TeacherSl,
-  LDocs,
 } from "../pages";
 import Layout from "../pages/admin/adminSidebar/layout";
 import GeneralSecEducation from "../pages/HeaderPages/documents/GeneralSecEducation";

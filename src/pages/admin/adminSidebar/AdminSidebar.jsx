@@ -30,14 +30,15 @@ export default function AdminSidebar() {
     {
       icon: <MdAdminPanelSettings />,
       text: "Администрация",
-      path: "/admin/teachersad",
+      path: "",
     },
     {
       icon: <GiTeacher />,
       text: "Педагоги",
       path: "/admin/teachersad",
     },
-    { icon: <GiMechanicGarage />, text: "Мастера", path: "/admin/teachersad" },
+    { icon: <GiMechanicGarage />, text: "Мастера", path: "" },
+    { icon: <AiOutlineInfoCircle />, text: "О нас", path: "/admin/about" },
   ];
 
   return (

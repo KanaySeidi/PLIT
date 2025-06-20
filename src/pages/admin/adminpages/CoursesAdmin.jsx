@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaSave, FaPlus, FaEllipsisV } from "react-icons/fa";
+import { FaSave, FaPlus, FaEllipsisV, FaTrash, FaUpload } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const CoursesAdmin = () => {
@@ -8,9 +8,9 @@ const CoursesAdmin = () => {
     return savedCourses ? JSON.parse(savedCourses) : {};
   });
 
-  const [selectedCategory, setSelectedCategory] = useState("sports");
+  const [selectedCategory, setSelectedCategory] = useState("спорт");
   const [newCourse, setNewCourse] = useState({
-    category: "sports",
+    category: "спорт",
     title: "",
     description: "",
     price: "",
@@ -19,19 +19,14 @@ const CoursesAdmin = () => {
 
   const [editCourse, setEditCourse] = useState(null);
   const [showMenu, setShowMenu] = useState(null);
+  const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
     localStorage.setItem("courses", JSON.stringify(courses));
   }, [courses]);
 
   const handleAddCourse = () => {
-    if (
-      !newCourse.category ||
-      !newCourse.title ||
-      !newCourse.description ||
-      !newCourse.price
-    )
-      return;
+    if (!newCourse.title || !newCourse.description || !newCourse.price) return;
     const id = Date.now();
     const courseWithId = {
       ...newCourse,
@@ -54,19 +49,21 @@ const CoursesAdmin = () => {
   };
 
   const handleDeleteCourse = (course) => {
-    setCourses((prev) => {
-      const updatedCategory = prev[course.category].filter(
-        (c) => c.id !== course.id
-      );
-      const updatedCourses = { ...prev };
-      if (updatedCategory.length === 0) {
-        delete updatedCourses[course.category];
-      } else {
-        updatedCourses[course.category] = updatedCategory;
-      }
-      return updatedCourses;
-    });
-    setShowMenu(null);
+    if (window.confirm("Вы уверены, что хотите удалить курс?")) {
+      setCourses((prev) => {
+        const updatedCategory = prev[course.category].filter(
+          (c) => c.id !== course.id
+        );
+        const updatedCourses = { ...prev };
+        if (updatedCategory.length === 0) {
+          delete updatedCourses[course.category];
+        } else {
+          updatedCourses[course.category] = updatedCategory;
+        }
+        return updatedCourses;
+      });
+      setShowMenu(null);
+    }
   };
 
   const handleEditCourse = (course) => {
@@ -75,12 +72,7 @@ const CoursesAdmin = () => {
   };
 
   const handleSaveEdit = () => {
-    if (
-      !editCourse.category ||
-      !editCourse.title ||
-      !editCourse.description ||
-      !editCourse.price
-    )
+    if (!editCourse.title || !editCourse.description || !editCourse.price)
       return;
     setCourses((prev) => {
       const updatedCourses = { ...prev };
@@ -89,6 +81,10 @@ const CoursesAdmin = () => {
       ].map((c) => (c.id === editCourse.id ? editCourse : c));
       return updatedCourses;
     });
+    setEditCourse(null);
+  };
+
+  const handleCancelEdit = () => {
     setEditCourse(null);
   };
 
@@ -123,39 +119,57 @@ const CoursesAdmin = () => {
     setNewCourse((prev) => ({ ...prev, category }));
   };
 
-  const categories = ["sports", "language", "professional"];
+  const handleSort = () => {
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+  };
+
+  const sortedCourses = courses[selectedCategory]
+    ? [...courses[selectedCategory]].sort((a, b) =>
+        sortOrder === "asc"
+          ? parseFloat(a.price) - parseFloat(b.price)
+          : parseFloat(b.price) - parseFloat(a.price)
+      )
+    : [];
+
+  const categories = ["спорт", "языки", "профессиональные"];
 
   return (
-    <div className="min-h-screen bg-[#F9F9F9] p-6">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-[#222]">Управление курсами</h1>
-      </div>
-      <div className="mb-8">
-        <select
-          value={selectedCategory}
-          onChange={handleCategoryChange}
-          className="w-full p-3 border border-[#8B0000]/20 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#8B0000] transition mb-4"
-        >
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </option>
-          ))}
-        </select>
-      </div>
+    <div className="min-h-screen bg-[#F9F9F9] flex items-center justify-center p-6">
+      <div className="w-full max-w-4xl">
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-3xl font-bold text-[#222]">Управление курсами</h1>
+        </div>
+        <div className="mb-8">
+          <select
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+            className="w-full p-3 border border-[#8B0000]/20 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#8B0000] transition mb-4"
+          >
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </option>
+            ))}
+          </select>
+          <button
+            onClick={handleSort}
+            className="bg-[#8B0000] text-white px-4 py-2 rounded-2xl hover:bg-[#600000] transition-colors duration-200 ml-2"
+          >
+            Сортировать по цене ({sortOrder === "asc" ? "↑" : "↓"})
+          </button>
+        </div>
 
-      {selectedCategory && (
-        <>
-          <div className="space-y-8">
-            {courses[selectedCategory] &&
-              courses[selectedCategory].length > 0 && (
+        {selectedCategory && (
+          <>
+            <div className="space-y-8">
+              {sortedCourses.length > 0 && (
                 <div className="space-y-4">
                   <h2 className="text-2xl font-semibold text-[#222]">
                     {selectedCategory.charAt(0).toUpperCase() +
                       selectedCategory.slice(1)}
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {courses[selectedCategory].map((course) => (
+                    {sortedCourses.map((course) => (
                       <div
                         key={course.id}
                         className="bg-white rounded-2xl shadow-md p-4 relative"
@@ -200,7 +214,7 @@ const CoursesAdmin = () => {
                                 onClick={() => handleDeleteCourse(course)}
                                 className="w-full text-left px-4 py-2 text-[#8B0000] hover:bg-[#F9F9F9] rounded-b-2xl"
                               >
-                                Удалить
+                                <FaTrash className="mr-2" /> Удалить
                               </button>
                             </div>
                           )}
@@ -235,18 +249,35 @@ const CoursesAdmin = () => {
                               placeholder="Цена"
                               className="w-full p-3 border border-[#8B0000]/20 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#8B0000] transition"
                             />
-                            <input
-                              type="file"
-                              name="image"
-                              onChange={handleChange}
-                              className="w-full p-3 border border-[#8B0000]/20 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#8B0000] transition"
-                            />
-                            <button
-                              onClick={handleSaveEdit}
-                              className="bg-[#8B0000] text-white px-4 py-2 rounded-2xl hover:bg-[#600000] transition-colors duration-200 flex items-center"
-                            >
-                              <FaSave className="mr-2" /> Сохранить
-                            </button>
+                            <div className="relative">
+                              <input
+                                type="file"
+                                name="image"
+                                onChange={handleChange}
+                                className="hidden"
+                                id="editImageInput"
+                              />
+                              <label
+                                htmlFor="editImageInput"
+                                className="w-full flex items-center justify-center bg-[#8B0000] text-white px-4 py-3 rounded-2xl hover:bg-[#600000] transition-colors duration-200 cursor-pointer shadow-md"
+                              >
+                                <FaUpload className="mr-2" /> Выбрать файл
+                              </label>
+                            </div>
+                            <div className="flex gap-2">
+                              <button
+                                onClick={handleSaveEdit}
+                                className="bg-[#8B0000] text-white px-4 py-2 rounded-2xl hover:bg-[#600000] transition-colors duration-200 flex items-center"
+                              >
+                                <FaSave className="mr-2" /> Сохранить
+                              </button>
+                              <button
+                                onClick={handleCancelEdit}
+                                className="bg-gray-300 text-[#222] px-4 py-2 rounded-2xl hover:bg-gray-400 transition-colors duration-200"
+                              >
+                                Отмена
+                              </button>
+                            </div>
                           </motion.div>
                         )}
                       </div>
@@ -254,57 +285,67 @@ const CoursesAdmin = () => {
                   </div>
                 </div>
               )}
-          </div>
+            </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl shadow-md p-4 mt-8"
-          >
-            <h3 className="text-xl font-semibold text-[#222] mb-4">
-              Добавить курс в категорию{" "}
-              {selectedCategory.charAt(0).toUpperCase() +
-                selectedCategory.slice(1)}
-            </h3>
-            <input
-              type="text"
-              name="title"
-              value={newCourse.title}
-              onChange={handleChange}
-              placeholder="Название"
-              className="w-full p-3 border border-[#8B0000]/20 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#8B0000] transition mb-4"
-            />
-            <input
-              type="text"
-              name="description"
-              value={newCourse.description}
-              onChange={handleChange}
-              placeholder="Описание"
-              className="w-full p-3 border border-[#8B0000]/20 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#8B0000] transition mb-4"
-            />
-            <input
-              type="number"
-              name="price"
-              value={newCourse.price}
-              onChange={handleChange}
-              placeholder="Цена"
-              className="w-full p-3 border border-[#8B0000]/20 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#8B0000] transition mb-4"
-            />
-            <input
-              type="file"
-              name="image"
-              onChange={handleChange}
-              className="w-full p-3 border border-[#8B0000]/20 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#8B0000] transition mb-4"
-            />
-            <button
-              onClick={handleAddCourse}
-              className="bg-[#8B0000] text-white px-4 py-2 rounded-2xl hover:bg-[#600000] transition-colors duration-200 flex items-center"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-white rounded-2xl shadow-md p-4 mt-8"
             >
-              <FaSave className="mr-2" /> Сохранить
-            </button>
-          </motion.div>
-        </>
-      )}
+              <h3 className="text-xl font-semibold text-[#222] mb-4">
+                Добавить курс в категорию{" "}
+                {selectedCategory.charAt(0).toUpperCase() +
+                  selectedCategory.slice(1)}
+              </h3>
+              <input
+                type="text"
+                name="title"
+                value={newCourse.title}
+                onChange={handleChange}
+                placeholder="Название"
+                className="w-full p-3 border border-[#8B0000]/20 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#8B0000] transition mb-4"
+              />
+              <input
+                type="text"
+                name="description"
+                value={newCourse.description}
+                onChange={handleChange}
+                placeholder="Описание"
+                className="w-full p-3 border border-[#8B0000]/20 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#8B0000] transition mb-4"
+              />
+              <input
+                type="number"
+                name="price"
+                value={newCourse.price}
+                onChange={handleChange}
+                placeholder="Цена"
+                className="w-full p-3 border border-[#8B0000]/20 rounded-2xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#8B0000] transition mb-4"
+              />
+              <div className="relative">
+                <input
+                  type="file"
+                  name="image"
+                  onChange={handleChange}
+                  className="hidden"
+                  id="newImageInput"
+                />
+                <label
+                  htmlFor="newImageInput"
+                  className="w-full flex items-center justify-center bg-[#8B0000] text-white px-4 py-3 rounded-2xl hover:bg-[#600000] transition-colors duration-200 cursor-pointer shadow-md"
+                >
+                  <FaUpload className="mr-2" /> Выбрать файл
+                </label>
+              </div>
+              <button
+                onClick={handleAddCourse}
+                className="bg-[#8B0000] text-white px-4 py-2 rounded-2xl hover:bg-[#600000] transition-colors duration-200 flex items-center mt-4"
+              >
+                <FaSave className="mr-2" /> Сохранить
+              </button>
+            </motion.div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
