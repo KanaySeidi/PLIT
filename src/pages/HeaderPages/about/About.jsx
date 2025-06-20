@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { FaPlay, FaQuoteLeft, FaArrowRight } from "react-icons/fa";
-import HeroSection from "../../components/common/HeroSection";
+import HeroSection from "./common/HeroSection";
+
 
 function AboutPage() {
   const { t, i18n } = useTranslation();

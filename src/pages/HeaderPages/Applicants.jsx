@@ -1,9 +1,9 @@
 import React, { useState } from "react"; // Добавляем useState
 import { motion, AnimatePresence } from "framer-motion";
-import Modal from "../../components/Surfacing/Modal";
+import Modal from "./Surfacing/Modal";
 import { useTranslation } from "react-i18next";
 
-const Students = () => {
+const Applicants = () => {
   const { t } = useTranslation();
   const [openQuestion, setOpenQuestion] = useState(null);
 
@@ -165,4 +165,4 @@ const Students = () => {
   );
 };
 
-export default Students;
+export default Applicants;
