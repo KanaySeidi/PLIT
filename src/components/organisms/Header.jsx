@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import BurgerMenu from "../atoms/BurgerMenu";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
+import { MdAdminPanelSettings } from "react-icons/md";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -113,12 +114,12 @@ const Header = () => {
             </div>
 
             <div
-              className={`text-[#63001F] flex justify-around items-center gap-3 text-lg w-1/3 ${
+              className={`text-[#63001F] flex justify-between items-center ml-[515px] gap-3 text-lg w-[500px] ${
                 isScroll ? "opacity-100 visible" : "opacity-0 invisible"
               }`}
             >
               <div
-                className={`h-full flex justify-end items-center gap-12 transition-all duration-500 font-semibold ${
+                className={`h-full flex justify-around items-center transition-all duration-500 font-semibold ${
                   isScroll ? "text-white" : "text-[#63001F]"
                 }`}
               >
@@ -127,7 +128,7 @@ const Header = () => {
                   {({ open, close }) => (
                     <>
                       <PopoverButton
-                        className="focus:outline-none"
+                        className="focus:outline-none ml-[90px]"
                         onClick={() => setIsPopoverOpen(!isPopoverOpen)}
                       >
                         {t("header.plit")}
@@ -175,7 +176,6 @@ const Header = () => {
               </div>
 
               <LanguageSwitcher />
-
               {location.pathname === "/" && (
                 <Link to="/admin/sign">
                   <svg
@@ -183,14 +183,9 @@ const Header = () => {
                     width="34"
                     height="34"
                     viewBox="0 0 34 34"
-                    className="cursor-pointer absolute right-2 top-2"
+                    className="cursor-pointer absolute right-4 top-4"
                   >
-                    <image
-                      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVVLah2rDoXWZ_b0yH1_HE4vhh_7_Ne96NfXWy37TquS0OKX9OE99nK9MT7Pa1v3pDak&usqp=CAU"
-                      width="34"
-                      height="34"
-                      preserveAspectRatio="xMidYMid slice"
-                    />
+                    <MdAdminPanelSettings size={24} className="text-black" />
                   </svg>
                 </Link>
               )}
