@@ -541,15 +541,12 @@
     "pageslink": [
       { "label": "Курсы", "link": "/courses" },
       { "label": "Абитуриентам", "link": "/info/applicant" },
-      { "label": "Документация", "link": "/info/docs" },
-      { "label": "НПА КР", "link": "/info/npa" },
-      { "label": "Праздники", "link": "/teachers" },
-      { "label": "Субботники", "link": "/contacts" },
-      { "label": "Жизнь в лицее", "link": "" },
-      { "label": "О лицее", "link": "" },
-      { "label": "Администрация", "link": "" },
-      { "label": "Педагоги", "link": "" },
-      { "label": "Мастера", "link": "" }
+      { "label": "Документы", "link": "/info/docs" },
+      { "label": "Новости", "link": "news" },
+      { "label": "О лицее", "link": "/plit/about" },
+      { "label": "Администрация", "link": "/plit/teachers" },
+      { "label": "Педагоги", "link": "/plit/teachers" },
+      { "label": "Мастера", "link": "/plit/masters" }
     ],
     "rights": "Все права защищены."
   },

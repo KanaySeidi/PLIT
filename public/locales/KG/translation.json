@@ -522,13 +522,11 @@
       { "label": "Абитуриенттерге", "link": "/info/applicant" },
       { "label": "Документация", "link": "/info/docs" },
       { "label": "КР мыйзам актылары", "link": "/info/npa" },
-      { "label": "Майрамдар", "link": "/teachers" },
-      { "label": "Ишембиликтер", "link": "/contacts" },
-      { "label": "Лицейдеги жашоо", "link": "" },
-      { "label": "Лицей жөнүндө", "link": "" },
-      { "label": "Администрация", "link": "" },
-      { "label": "Мугалимдер", "link": "" },
-      { "label": "Усталар", "link": "" }
+      { "label": "Жанылыктар", "link": "news" },
+      { "label": "Лицей жөнүндө", "link": "/plit/about" },
+      { "label": "Администрация", "link": "/plit/teachers" },
+      { "label": "Мугалимдер", "link": "/plit/teachers" },
+      { "label": "Мастерлер", "link": "/plit/masters" }
     ],
     "rights": "Бардык укуктар корголгон."
   },

@@ -50,7 +50,7 @@ const Footer = () => {
           transition={{ duration: 0.7, delay: 0.4 }}
           className="text-sm space-y-1 text-start ml-40"
         >
-          <h4 className="font-semibold mb-2">{t("footer.pagesTitle")}</h4>
+          <h4 className="font-semibold mb-2 text-lg">{t("footer.pagesTitle")}</h4>
           {footerLinks.map(({ label, link }) => (
             <a
               key={label}
