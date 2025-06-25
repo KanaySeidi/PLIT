@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import Example from "../Surfacing/Example";
+import Example from "../molecules/Example";
 
 const containerVariants = {
   hidden: { opacity: 0 },

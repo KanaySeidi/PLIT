@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import logoRu from "../assets/icon/plitfootru.svg";
-import logoKg from "../assets/icon/plitfootkg.svg";
+import logoRu from "../../assets/icon/plitfootru.svg";
+import logoKg from "../../assets/icon/plitfootkg.svg";
 
 const Footer = () => {
   const { t, i18n } = useTranslation();

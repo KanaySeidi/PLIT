@@ -1,54 +1,50 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useAdminStore } from "./useAdminStore";
-import { AiOutlineHome } from "react-icons/ai";
 import { MdOutlineMenuBook } from "react-icons/md";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import { HiOutlineUserAdd } from "react-icons/hi";
-import { HiOutlineDocumentText } from "react-icons/hi";
 import { RiNewspaperLine } from "react-icons/ri";
 import { GiScales } from "react-icons/gi";
-import { FaGraduationCap } from "react-icons/fa";
-import { useState } from "react";
+import { HiOutlineDocumentText } from "react-icons/hi";
+import { MdAdminPanelSettings } from "react-icons/md";
+import { GiTeacher } from "react-icons/gi";
+import { GiMechanicGarage } from "react-icons/gi";
 
 function AdminSidebar() {
-  const { closePanel } = useAdminStore();
+  const { closePanel, isOpen, openPanel } = useAdminStore();
   const location = useLocation();
 
   useEffect(() => {
     closePanel();
   }, [location.pathname]);
 
-  const [isOpen, setIsOpen] = useState(false);
-
   const menuItems = [
-    { icon: <AiOutlineHome />, text: "Главная", path: "/admin/home" },
     { icon: <MdOutlineMenuBook />, text: "Курсы", path: "/admin/courses" },
-    {
-      icon: <AiOutlineInfoCircle />,
-      text: "Информация",
-      path: "/admin/information",
-    },
-    {
-      icon: <HiOutlineUserAdd />,
-      text: "Абитуриентам",
-      path: "/admin/applicant",
-    },
     {
       icon: <HiOutlineDocumentText />,
       text: "Документация",
-      path: "/admin/news",
+      path: "/admin/docs",
     },
-    { icon: <GiScales />, text: "НПА КР", path: "/admin" },
+    { icon: <GiScales />, text: "НПА КР", path: "/admin/npa" },
     { icon: <RiNewspaperLine />, text: "Новости", path: "/admin/news" },
-    { icon: <FaGraduationCap />, text: "ПЛИТ", path: "/admin/plit" }, // Используем Emoji как заглушку
+    {
+      icon: <MdAdminPanelSettings />,
+      text: "Администрация",
+      path: "/admin/teachersad",
+    },
+    {
+      icon: <GiTeacher />,
+      text: "Педагоги",
+      path: "/admin/teachersad",
+    },
+    { icon: <GiMechanicGarage />, text: "Мастера", path: "/admin/teachersad" },
   ];
 
   return (
-    <div className={`flex`}>
+    <div className={`flex `}>
       <div
-        onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={() => setIsOpen(false)}
+        onMouseEnter={openPanel}
+        onMouseLeave={closePanel}
         className={`h-screen bg-[#5a0a2d] transition-all duration-300 ease-in-out
           ${isOpen ? "w-56" : "w-16"}
           flex flex-col justify-between fixed`}

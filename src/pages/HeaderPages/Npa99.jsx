@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
-const SelfReport = () => {
+const Npa99 = () => {
   const { t } = useTranslation();
   const [openSection, setOpenSection] = useState(null);
 
@@ -13,8 +13,9 @@ const SelfReport = () => {
   };
 
   return (
-    <div className="w-full px-4 pt-32 pb-20 bg-gradient-to-b from-gray-100 to-gray-300 ">
-      <div className="mx-auto w-full max-w-lg h-auto divide-y divide-gray-300 rounded-xl bg-white shadow-[6px_6px_12px_rgba(128,0,32,0.15)]">
+    <div className="w-full px-4 pt-32 pb-20 bg-gradient-to-b from-gray-100 to-gray-300">
+      <div className="mx-auto w-full max-w-lg h-auto divide-y divide-gray-300 rounded-xl bg-white shadow-lg">
+        {/* Первая секция */}
         <Disclosure>
           {({ open }) => (
             <div className="p-6">
@@ -22,8 +23,8 @@ const SelfReport = () => {
                 onClick={() => handleToggle("webDeveloper")}
                 className="group flex w-full items-center justify-between border-b border-gray-300 pb-4"
               >
-                <span className="w-full text-lg font-semibold bg-bordo text-white px-2 py-1 rounded transition-colors">
-                  {t("docsprograms.selfassessmentreports")}
+                <span className="text-lg font-semibold bg-bordo text-white px-2 py-1 rounded transition-colors">
+                  {t("npa99.title1")}
                 </span>
                 <motion.div
                   animate={{
@@ -44,21 +45,45 @@ const SelfReport = () => {
                     className="mt-4 p-4 border border-gray-300 rounded-lg bg-gray-50"
                   >
                     <p className="text-xl font-bold text-bordo text-center mb-4">
-                      {t("docsdescriptions.initvetprogramselfassessment")}
+                      {t("npa99.title2")}
                     </p>
-                    <div className="flex flex-col gap-2 text-center">
+                    <div className="flex flex-col gap-2">
                       {[
                         {
-                          href: "https://docs.google.com/document/d/1jcFyQonlRUM0BEMRH9weV6kZovdSodtS/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-                          text: t("links.itVETprogramSelfAssessment"),
+                          href: "https://drive.google.com/file/d/1hC1i5V3A1-JSxb7t472QE82IsvZVk9zb/view?usp=sharing",
+                          text: t("npa99.ustav"),
                         },
                         {
-                          href: "https://docs.google.com/document/d/1AE2QoZollbF6GTctBYmjFgUvlhk6NQGz/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-                          text: t("links.mechvetselfassessment"),
+                          href: "https://drive.google.com/file/d/1xn0AFxpMAMIRDweCFZb9oYmTufhADFUh/view?usp=drive_link",
+                          text: t("npa99.strategy"),
                         },
                         {
-                          href: "https://docs.google.com/document/d/1IH6-HX0265TmclD_g16Gk3swTwOid6c0/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-                          text: t("links.geneduselfassessment"),
+                          href: "https://drive.google.com/file/d/1jXrRv7Jp-fHbydxSqtoiXZDacI0AqdXd/view?usp=drive_link",
+                          text: t("npa99.certificate1"),
+                        },
+                        {
+                          href: "https://drive.google.com/file/d/1FRajf7LQyxu3yKnjV5NxZ4auzeELmcSv/view?usp=drive_link",
+                          text: t("npa99.certificate2"),
+                        },
+                        {
+                          href: "https://drive.google.com/file/d/1PXOviW5Ef_xBAq0XaRJG8xHY4Iowpl-M/view?usp=drive_link",
+                          text: t("npa99.certificate3"),
+                        },
+                        {
+                          href: "https://drive.google.com/file/d/1E1e2Qmah2EY3kOclJhnm5KEECsLTwW7x/view?usp=drive_link",
+                          text: t("npa99.politics"),
+                        },
+                        {
+                          href: "https://docs.google.com/document/d/1oX3GtT9iZSBOySEHO2hREcSsqJk3axfF/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
+                          text: t("npa99.mission"),
+                        },
+                        {
+                          href: "https://drive.google.com/file/d/13FsB6tND0q7QQspRdnAWH3uhS5A9_4QA/view?usp=drive_link",
+                          text: t("npa99.license1"),
+                        },
+                        {
+                          href: "https://drive.google.com/file/d/1PBQHY8nnoVjhbQ0hrekEcoDjnqrB_dKO/view?usp=drive_link",
+                          text: t("npa99.license2"),
                         },
                       ].map(({ href, text }) => (
                         <motion.a
@@ -85,4 +110,4 @@ const SelfReport = () => {
   );
 };
 
-export default SelfReport;
+export default Npa99;

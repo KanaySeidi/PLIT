@@ -1,6 +1,6 @@
 import React, { useState } from "react"; // Добавляем useState
 import { motion, AnimatePresence } from "framer-motion";
-import Modal from "../../components/Surfacing/Modal";
+import Modal from "../../components/molecules/Modal";
 import { useTranslation } from "react-i18next";
 
 const Students = () => {

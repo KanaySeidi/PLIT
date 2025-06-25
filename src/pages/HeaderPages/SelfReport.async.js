@@ -1,3 +1,3 @@
 import { lazy } from "react";
 
-export const SelfReport = lazy(() => import("./SelfReport"))
+export const SelfReport = lazy(() => import("./SelfReport"));

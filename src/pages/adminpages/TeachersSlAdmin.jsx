@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 const TeachersSlAdmin = () => {
   const [content, setContent] = useState({
-    title: "",
-    description: "",
+    title: "Добро пожаловать!",
+    description: "Описание главной страницы",
     image: null,
   });
 
@@ -17,12 +17,12 @@ const TeachersSlAdmin = () => {
   };
 
   const handleSave = () => {
-    console.log("Сохранено:", content);
     // Здесь можно отправить данные на сервер через API
+    console.log("Сохранено:", content);
   };
 
   const handleDelete = () => {
-    setContent({ title: "", description: "", image: null });
+    // Логика удаления контента
     console.log("Контент удален");
   };
 
@@ -37,7 +37,7 @@ const TeachersSlAdmin = () => {
             name="title"
             value={content.title}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border p-2"
           />
         </div>
         <div>
@@ -46,7 +46,7 @@ const TeachersSlAdmin = () => {
             name="description"
             value={content.description}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border p-2"
           />
         </div>
         <div>
@@ -54,7 +54,7 @@ const TeachersSlAdmin = () => {
           <input
             type="file"
             onChange={handleImageChange}
-            className="w-full border p-2 rounded"
+            className="w-full border p-2"
           />
         </div>
         <button
