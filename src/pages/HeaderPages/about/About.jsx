@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import HeroSection from "../../components/common/HeroSection";
-import Button from "../../components/ui/Button";
+import HeroSection from "./common/HeroSection";
+
 
 function AboutPage() {
   const { t } = useTranslation();

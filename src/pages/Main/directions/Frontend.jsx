@@ -1,10 +1,10 @@
-import DirectionPage from "../../components/molecules/DirectionPage";
+import DirectionPage from "../../../components/molecules/DirectionPage";
 import { useTranslation } from "react-i18next";
 
-import img from "../../assets/img/front.png";
-import img2 from "../../assets/img/front2.png";
-import time from "../../assets/icon/time.svg";
-import money from "../../assets/icon/money.svg";
+import img from "../../../assets/img/front.png";
+import img2 from "../../../assets/img/front2.png";
+import time from "../../../assets/icon/time.svg";
+import money from "../../../assets/icon/money.svg";
 
 const Frontend = () => {
   const { t } = useTranslation();

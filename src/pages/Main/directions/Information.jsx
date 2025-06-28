@@ -1,10 +1,10 @@
-import DirectionPage from "../../components/molecules/DirectionPage";
+import DirectionPage from "../../../components/molecules/DirectionPage";
 import { useTranslation } from "react-i18next";
 
-import Iimg from "../../assets/img/Information.jpg";
-import Iimg2 from "../../assets/img/Information2.jpg";
-import time from "../../assets/icon/time.svg";
-import money from "../../assets/icon/money.svg";
+import Iimg from "../../../assets/img/Information.jpg";
+import Iimg2 from "../../../assets/img/Information2.jpg";
+import time from "../../../assets/icon/time.svg";
+import money from "../../../assets/icon/money.svg";
 
 const Information = () => {
   const { t } = useTranslation();

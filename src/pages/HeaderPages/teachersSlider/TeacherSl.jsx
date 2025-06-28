@@ -7,16 +7,16 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 // Импорты изображений
-import teacher1 from "../../assets/img/teacher1.jpg";
-import teacher2 from "../../assets/img/teacher2.jpg";
-import teacher3 from "../../assets/img/teacher3.jpg";
-import teacher4 from "../../assets/img/teacher4.jpg";
-import teacher5 from "../../assets/img/teacher5.jpg";
-import teacher6 from "../../assets/img/teacher6.jpg";
-import teacher7 from "../../assets/img/teacher7.jpg";
-import teacher8 from "../../assets/img/teacher8.jpg";
-import teacher9 from "../../assets/img/teacher9.jpg";
-import teacher10 from "../../assets/img/teacher10.jpg";
+import teacher1 from "../../../assets/img/teacher1.jpg";
+import teacher2 from "../../../assets/img/teacher2.jpg";
+import teacher3 from "../../../assets/img/teacher3.jpg";
+import teacher4 from "../../../assets/img/teacher4.jpg";
+import teacher5 from "../../../assets/img/teacher5.jpg";
+import teacher6 from "../../../assets/img/teacher6.jpg";
+import teacher7 from "../../../assets/img/teacher7.jpg";
+import teacher8 from "../../../assets/img/teacher8.jpg";
+import teacher9 from "../../../assets/img/teacher9.jpg";
+import teacher10 from "../../../assets/img/teacher10.jpg";
 
 const TeacherSl = () => {
   const navigate = useNavigate();

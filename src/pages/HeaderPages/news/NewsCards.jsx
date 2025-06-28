@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import img1 from "../../assets/img/1.jpg";
+import img1 from "../../../assets/img/1.jpg";
 
 export const NewsCards = () => {
   const { t } = useTranslation();

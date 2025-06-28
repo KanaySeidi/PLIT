@@ -20,127 +20,127 @@ const RpObraz = () => {
   const russianGroupLinks = [
     {
       href: "https://docs.google.com/document/d/1Dd-szqypQ0QOFFbi3d_OwJ8EkT8UES5d/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "geometry_umk_rus",
+      textKey: "links.geometry_umk_rus",
     },
     {
       href: "https://docs.google.com/document/d/1bYQ2exw6nJiMBXrqsa9u9GdB1Le_GDyK/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "chio_rp_rus",
+      textKey: "links.chio_rp_rus",
     },
     {
       href: "https://docs.google.com/document/d/1L45fKtqaKsbprt_hnQi2r4_xmGgY1FQr/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "chemistry_rp_rus",
+      textKey: "links.chemistry_rp_rus",
     },
     {
       href: "https://docs.google.com/document/d/1FhGJLywVmCeggp30ihCJa0sigPXzP0rh/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "physics_rp_rus",
+      textKey: "links.physics_rp_rus",
     },
     {
       href: "https://docs.google.com/document/d/1Jkk8bXXyx1UKmYIH4xhbVDs5wvroDbsj/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "russian_language_rp_rus",
+      textKey: "links.russian_language_rp_rus",
     },
     {
       href: "https://docs.google.com/document/d/17CDYwwJal1cgWZwH0cRxgO9gGtjXgwkU/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "russian_literature_rp_rus",
+      textKey: "links.russian_literature_rp_rus",
     },
     {
       href: "https://docs.google.com/document/d/18yJee1ygYo2eU8Jxaq90hurTYZ6KGRv0/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "world_history_kyrgyzstan_rp_rus",
+      textKey: "links.world_history_kyrgyzstan_rp_rus",
     },
     {
       href: "https://docs.google.com/document/d/1e8jZS1-zVherUC9jVD81aHQ2IN82cBxs/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "kyrgyz_language_rp_rus",
+      textKey: "links.kyrgyz_language_rp_rus",
     },
     {
       href: "https://docs.google.com/document/d/1MZCKH9KbjRCVYhbj1n8La__aACiuglEH/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "kyrgyz_literature_rp_rus",
+      textKey: "links.kyrgyz_literature_rp_rus",
     },
     {
       href: "https://docs.google.com/document/d/1YYqMwTsf0Tr4aOFqyVhLke1vvoNonnI6/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "geography_rp_rus",
+      textKey: "links.geography_rp_rus",
     },
     {
       href: "https://docs.google.com/document/d/1VPouCaIHszpooqLJuS4msOiobf2tjgGn/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "biology_rp_rus",
+      textKey: "links.biology_rp_rus",
     },
     {
       href: "https://docs.google.com/document/d/1v5VOAnex-gf8Ndig5UwXKbzdXgNS2A1I/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "english_language_rp_rus",
+      textKey: "links.english_language_rp_rus",
     },
     {
       href: "https://docs.google.com/document/d/1o3eNkh5YQP95_HKYOtJIZhkiPwxXNR2y/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "algebra_rp_rus",
+      textKey: "links.algebra_rp_rus",
     },
     {
       href: "https://docs.google.com/document/d/1jDoZZX2doGYsFqhpxWqftumkSUIjKQOK/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "dpm_rp_rus",
+      textKey: "links.dpm_rp_rus",
     },
   ];
 
   const kyrgyzGroupLinks = [
     {
       href: "https://docs.google.com/document/d/100U-oG59LCSeqbmgdsLcEMw-G6BG5U7A/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "geometry_umk_kg",
+      textKey: "links.geometry_umk_kg",
     },
     {
       href: "https://docs.google.com/document/d/1zTaihQ3fq3Qi-TEHQFId6lbzPxt2DoQ3/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
 
-      textKey: "algebra_umk_kg",
+      textKey: "links.algebra_umk_kg",
     },
     {
       href: "https://docs.google.com/document/d/1jMtKOFdvP0AS4N9iWMQwxa6h5ztZErqd/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "russian_language_rp_kg",
+      textKey: "links.russian_language_rp_kg",
     },
     {
       href: "https://docs.google.com/document/d/1RZWv4BWaK-YXjSpE_i5RA9WB6GkO9aeU/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "russian_language_umk_kg",
+      textKey: "links.russian_language_umk_kg",
     },
     {
       href: "https://docs.google.com/document/d/1Sbgjc46-KdwAp-MsoCuXnHrE-7lBaciD/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "russian_literature_rp_kg",
+      textKey: "links.russian_literature_rp_kg",
     },
     {
       href: "https://docs.google.com/document/d/1msqCkTBHdL1YlArztF4Ku2vmfDTNQ1pi/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "russian_literature_umk_kg",
+      textKey: "links.russian_literature_umk_kg",
     },
     {
       href: "https://docs.google.com/document/d/12c8jA-93eq3kwtf237iwvoXP27QhHv4R/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "chemistry_rp_kg",
+      textKey: "links.chemistry_rp_kg",
     },
     {
       href: "https://docs.google.com/document/d/1-kdX99I75CNLqopJRW7FvGVg6hn5CF8_/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "physics_rp_kg",
+      textKey: "links.physics_rp_kg",
     },
     {
       href: "https://docs.google.com/document/d/1C5F1P-TwDdMWBqRjO26dnUypy9i_rLOD/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "history_rp_kg",
+      textKey: "links.history_rp_kg",
     },
     {
       href: "https://docs.google.com/document/d/18p4Lrd8EdpHSpQMqVd8jekOE_zZrGc4J/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "kyrgyz_literature_rp_kg",
+      textKey: "links.kyrgyz_literature_rp_kg",
     },
     {
       href: "https://docs.google.com/document/d/1aJoB0TRfQ9LQSHWcCEy8jGC3R0WdtENn/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "dpm_rp_kg",
+      textKey: "links.dpm_rp_kg",
     },
     {
       href: "https://docs.google.com/document/d/19bD0wBtHXa6gG2yAWZwj6UOb2qk04TNq/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "geography_rp_kg",
+      textKey: "links.geography_rp_kg",
     },
     {
       href: "https://docs.google.com/document/d/1j8VREkw9TvcVBjgdTWKpJJZT43B2J0TQ/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "biology_rp_kg",
+      textKey: "links.biology_rp_kg",
     },
     {
       href: "https://docs.google.com/document/d/1g2jJOSoOfPCtHRtgMdG3F79Xw_XCwjjp/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "human_society_rp_kg",
+      textKey: "links.human_society_rp_kg",
     },
     {
       href: "https://docs.google.com/document/d/1TaY2MCO2kK_5Tl42JyfuMOCKMs5_s7r2/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "kyrgyz_language_rp_kg",
+      textKey: "links.kyrgyz_language_rp_kg",
     },
     {
       href: "https://docs.google.com/document/d/1tfwBSzZ47Ftfer3HSS3UFI0rccBs7kI_/edit?usp=drive_link&ouid=101506021742149629101&rtpof=true&sd=true",
-      textKey: "kyrgyz_language_umk_kg",
+      textKey: "links.kyrgyz_language_umk_kg",
     },
   ];
 

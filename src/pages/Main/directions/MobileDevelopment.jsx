@@ -1,10 +1,10 @@
-import DirectionPage from "../../components/molecules/DirectionPage";
+import DirectionPage from "../../../components/molecules/DirectionPage";
 import { useTranslation } from "react-i18next";
 
-import img from "../../assets/img/mobDevelop.webp";
-import img2 from "../../assets/img/mobDeveloper.webp";
-import time from "../../assets/icon/time.svg";
-import money from "../../assets/icon/money.svg";
+import img from "../../../assets/img/mobDevelop.webp";
+import img2 from "../../../assets/img/mobDeveloper.webp";
+import time from "../../../assets/icon/time.svg";
+import money from "../../../assets/icon/money.svg";
 
 const MobileDevelopment = () => {
   const { t } = useTranslation();

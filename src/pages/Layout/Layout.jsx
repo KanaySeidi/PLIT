@@ -2,10 +2,9 @@ import { Suspense } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "../../components/organisms/Header";
 import Footer from "../../components/organisms/Footer";
-import LocationPage from "../location/LocationPage";
-import AdminSidebar from "../adminpages/adminSidebar/AdminSidebar";
+import LocationPage from "../Main/LocationPage";
+import AdminSidebar from "../admin/adminSidebar/AdminSidebar";
 import { useNavigate } from "react-router-dom";
-import NPAPosition from "../HeaderPages/NPAPosition";
 
 const Layout = () => {
   const { pathname } = useLocation();

@@ -1,9 +1,9 @@
 import React, { useState } from "react"; // Добавляем useState
 import { motion, AnimatePresence } from "framer-motion";
-import Modal from "../../components/molecules/Modal";
+import Modal from "./Surfacing/Modal";
 import { useTranslation } from "react-i18next";
 
-const Students = () => {
+const Applicants = () => {
   const { t } = useTranslation();
   const [openQuestion, setOpenQuestion] = useState(null);
 
@@ -45,7 +45,7 @@ const Students = () => {
                     </ul>
                   }
                   triggerLabel={
-                    <span className="inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold text-black shadow-inner">
+                    <span className="inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold text-black shadow-inner shadow-white/10 transition duration-300 hover:bg-gray-600 hover:shadow-[0_0_10px_rgba(128,0,32,0.6)]">
                       {t("withStudents.applicantsdoc")}
                     </span>
                   }
@@ -165,4 +165,4 @@ const Students = () => {
   );
 };
 
-export default Students;
+export default Applicants;

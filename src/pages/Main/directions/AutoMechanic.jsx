@@ -1,10 +1,10 @@
-import DirectionPage from "../../components/molecules/DirectionPage";
+import DirectionPage from "../../../components/molecules/DirectionPage";
 import { useTranslation } from "react-i18next";
 
-import Cimg from "../../assets/img/CarMechanic.jpg";
-import Cimg2 from "../../assets/img/CarMechanic2.jpg";
-import time from "../../assets/icon/time.svg";
-import money from "../../assets/icon/money.svg";
+import Cimg from "../../../assets/img/CarMechanic.jpg";
+import Cimg2 from "../../../assets/img/CarMechanic2.jpg";
+import time from "../../../assets/icon/time.svg";
+import money from "../../../assets/icon/money.svg";
 const AutoMechanic = () => {
   const { t } = useTranslation();
 
