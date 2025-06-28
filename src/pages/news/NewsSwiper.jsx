@@ -1,11 +1,14 @@
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 export const NewsSwiper = ({ mainArticle, articles, currentId }) => {
+  const currentArticleId = useMemo(() => parseInt(currentId), [currentId]);
+
   return (
     <div className="flex flex-col gap-4 max-w-xs">
       {[mainArticle, ...articles]
-        .filter((a) => a.id !== parseInt(currentId))
+        .filter((a) => a.id !== currentArticleId)
         .map((item) => (
           <Link to={`/news/${item.id}`} key={item.id}>
             <motion.div
@@ -16,7 +19,7 @@ export const NewsSwiper = ({ mainArticle, articles, currentId }) => {
               className="relative w-full shadow-lg rounded overflow-hidden group transition-all duration-300 transform hover:scale-[1.02]"
             >
               <img
-                src={item.image}
+                src={item.image || "/fallback.jpg"}
                 alt={item.title}
                 className="w-full h-36 object-cover group-hover:brightness-90 transition duration-300"
               />

@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { motion } from "framer-motion";
@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export const NewsPhoto = ({
-  galleryImages,
+  galleryImages = [],
   setGallerySwiperInstance,
   galleryPaginationRef,
   galleryPrevRef,
@@ -34,7 +34,22 @@ export const NewsPhoto = ({
   }, [galleryPrevRef, galleryNextRef, setGallerySwiperInstance]);
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto py-10">
+    <div className="relative w-full max-w-5xl mx-auto py-10">
+      {/* Стрелки по бокам */}
+      <button
+        ref={galleryPrevRef}
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-black/70 text-white px-3 py-2 rounded-full hover:bg-black transition"
+      >
+        ←
+      </button>
+      <button
+        ref={galleryNextRef}
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-black/70 text-white px-3 py-2 rounded-full hover:bg-black transition"
+      >
+        →
+      </button>
+
+      {/* Слайдер */}
       <Swiper
         onSwiper={setGallerySwiperInstance}
         modules={[Navigation, Pagination]}
@@ -61,11 +76,13 @@ export const NewsPhoto = ({
                 src={img}
                 alt={`Gallery ${i + 1}`}
                 className="w-full h-64 object-cover"
+                loading="lazy"
               />
             </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>
+
       <div
         ref={galleryPaginationRef}
         className="swiper-pagination mt-6 flex justify-center"
