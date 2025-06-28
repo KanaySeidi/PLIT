@@ -1,44 +1,57 @@
 import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
+import img1 from "../../assets/img/1.jpg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import img1 from "../../assets/img/1.jpg";
 
 export const NewsCards = () => {
   const { t } = useTranslation();
 
-  const cards = [
-    {
-      id: 1,
-      title: t("newsPage.id1.title"),
-      date: t("newsPage.id1.date"),
-      image: img1,
-      highlight: true,
-    },
-    {
-      id: 2,
-      title: t("newsPage.id2.title"),
-      date: t("newsPage.id2.date"),
-      image: img1,
-    },
-    {
-      id: 3,
-      title: t("newsPage.id3.title"),
-      date: t("newsPage.id3.date"),
-      image: img1,
-    },
-    {
-      id: 4,
-      title: t("newsPage.id4.title"),
-      date: t("newsPage.id4.date"),
-      image: img1,
-    },
-    {
-      id: 5,
-      title: t("newsPage.id5.title"),
-      date: t("newsPage.id5.date"),
-      image: img1,
-    },
-  ];
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("newsAdminCards");
+    if (saved) {
+      const parsed = JSON.parse(saved);
+
+      const cleaned = parsed.map(({ content, ...rest }) => rest);
+      setCards(cleaned);
+    } else {
+      setCards([
+        {
+          id: 1,
+          title: t("newsPage.id1.title"),
+          date: t("newsPage.id1.date"),
+          image: img1,
+          highlight: true,
+        },
+        {
+          id: 2,
+          title: t("newsPage.id2.title"),
+          date: t("newsPage.id2.date"),
+          image: img1,
+        },
+        {
+          id: 3,
+          title: t("newsPage.id3.title"),
+          date: t("newsPage.id3.date"),
+          image: img1,
+        },
+        {
+          id: 4,
+          title: t("newsPage.id4.title"),
+          date: t("newsPage.id4.date"),
+          image: img1,
+        },
+        {
+          id: 5,
+          title: t("newsPage.id5.title"),
+          date: t("newsPage.id5.date"),
+          image: img1,
+        },
+      ]);
+    }
+  }, [t]);
 
   return (
     <div className="p-8">
@@ -68,7 +81,7 @@ export const NewsCards = () => {
                 loading="lazy"
               />
               <div className="p-4 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent text-white">
-                <h2 className="text-lg font-bold line-clamp-2">
+                <h2 className="text-lg font-bold line-clamp-2 break-words overflow-hidden">
                   {card.title}
                 </h2>
                 <p className="text-sm font-medium uppercase tracking-widest mt-1">

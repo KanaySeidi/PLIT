@@ -1,30 +1,36 @@
-import { useTranslation } from "react-i18next";
-import { useParams, Link } from "react-router-dom";
-import img1 from "../../assets/img/1.jpg";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowLeft } from "lucide-react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { useParams, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { ArrowLeft, X } from "lucide-react";
 import { motion } from "framer-motion";
-import "swiper/css";
+
+import { NewsSwiper } from "./NewsSwiper";
+import { NewsVideo } from "./NewsVideo";
+import { NewsPhoto } from "./NewsPhoto";
+
+import img1 from "../../assets/img/1.jpg";
+import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css";
 
 export const News = () => {
   const { t } = useTranslation();
   const { id } = useParams();
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-  const [swiperInstance, setSwiperInstance] = useState(null);
+  const galleryPrevRef = useRef(null);
+  const galleryNextRef = useRef(null);
+  const galleryPaginationRef = useRef(null);
+  const [setGallerySwiperInstance] = useState(null);
+  const [activeImage, setActiveImage] = useState(null);
 
-  const mainArticle = {
+  const [mainArticle, setMainArticle] = useState({
     id: 1,
     title: t("newsPage.id1.title"),
     date: t("newsPage.id1.date"),
     image: img1,
     content: t("newsPage.id1.content"),
-  };
+  });
 
-  const articles = [
+  const [articles, setArticles] = useState([
     {
       id: 2,
       title: t("newsPage.id2.title"),
@@ -53,7 +59,32 @@ export const News = () => {
       image: img1,
       content: t("newsPage.id5.content"),
     },
-  ];
+  ]);
+
+  useEffect(() => {
+    const savedData = localStorage.getItem("newsAdminCards");
+    if (!savedData) return;
+
+    try {
+      const parsedCards = JSON.parse(savedData);
+
+      const mainCard = parsedCards.find((card) => card.id === 1);
+      const otherCards = parsedCards.filter((card) => card.id !== 1);
+
+      if (mainCard) {
+        setMainArticle((prev) => ({ ...prev, ...mainCard }));
+      }
+
+      setArticles((prevArticles) =>
+        prevArticles.map((article) => {
+          const updated = otherCards.find((card) => card.id === article.id);
+          return updated ? { ...article, ...updated } : article;
+        })
+      );
+    } catch (error) {
+      console.error("Ошибка при парсинге saved NewsCardsAdmin:", error);
+    }
+  }, [t]);
 
   const article = useMemo(
     () =>
@@ -63,166 +94,104 @@ export const News = () => {
     [id, mainArticle, articles]
   );
 
-  if (!article) {
-    return (
-      <div className="text-center p-10 text-red-600 text-lg">
-        Статья не найдена 😢
-      </div>
-    );
-  }
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    if (
-      swiperInstance &&
-      swiperInstance.params &&
-      swiperInstance.params.navigation &&
-      prevRef.current &&
-      nextRef.current &&
-      swiperInstance.params.navigation
-    ) {
-      swiperInstance.params.navigation.prevEl = prevRef.current;
-      swiperInstance.params.navigation.nextEl = nextRef.current;
-      swiperInstance.navigation.destroy();
-      swiperInstance.navigation.init();
-      swiperInstance.navigation.update();
-    }
-  }, [swiperInstance, prevRef, nextRef]);
+  const mediaData = JSON.parse(localStorage.getItem(`newsMedia_${id}`) || "{}");
+
+  const galleryImages = mediaData.galleryImages || [];
+  const videoSrc = mediaData.videoSrc || "";
+  const mainImage = mediaData.mainImage || article.image;
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-5xl mx-auto px-4 py-12">
-        <Link
-          to="/news"
-          className="inline-flex items-center text-white hover:bg-red-900 transform transition duration-300 mb-8 bg-bordo rounded p-2"
-        >
-          <ArrowLeft className="w-5 h-5 mr-2" />
-          Назад к новостям
-        </Link>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-6"
-        >
-          <p className="text-sm text-gray-500 uppercase font-medium tracking-widest">
-            {article.date}
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mt-2">
-            {article.title}
-          </h1>
-        </motion.div>
-
-        <motion.img
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          src={article.image}
-          alt={article.title}
-          loading="lazy"
-          className="w-full h-[400px] object-cover rounded shadow-xl mb-10"
-        />
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="prose prose-lg prose-gray max-w-none"
-        >
-          {article.content.split("\n").map((p, idx) => (
-            <p key={idx}>{p.trim()}</p>
-          ))}
-        </motion.div>
-
-        <div className="relative w-full max-w-6xl mx-auto py-10">
-          <button
-            aria-label="Previous slide"
-            ref={prevRef}
-            className="absolute -left-12 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md rounded-full p-3 hover:bg-gray-200 transition-all"
+      <div className="max-w-7xl mx-auto p-8 flex flex-col lg:flex-row justify-around">
+        <div className="lg:w-2/3">
+          <Link
+            to="/news"
+            className="inline-flex items-center text-white hover:bg-red-900 transform transition duration-300 mb-8 bg-bordo rounded p-2"
           >
-            <svg
-              className="w-6 h-6 text-bordo"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
+            <ArrowLeft className="w-5 h-5 mr-2" />
+            Назад
+          </Link>
 
-          <button
-            aria-label="Next slide"
-            ref={nextRef}
-            className="absolute -right-12 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md rounded-full p-3 hover:bg-gray-200 transition-all"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-6"
           >
-            <svg
-              className="w-6 h-6 text-bordo"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
+            <p className="text-sm text-gray-500 uppercase font-medium tracking-widest">
+              {article.date}
+            </p>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mt-2 break-words overflow-hidden">
+              {article.title}
+            </h1>
+          </motion.div>
 
-          <Swiper
-            watchOverflow={true}
-            onSwiper={setSwiperInstance}
-            modules={[Navigation]}
-            spaceBetween={20}
-            slidesPerView={1}
-            breakpoints={{
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            src={mainImage}
+            alt={article.title}
+            loading="lazy"
+            className="w-full h-[400px] object-cover rounded shadow-xl mb-10"
+          />
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="max-w-none break-words whitespace-pre-wrap mb-10"
           >
-            {[mainArticle, ...articles]
-              .filter((a) => a.id !== parseInt(id))
-              .map((item) => (
-                <SwiperSlide key={item.id}>
-                  <Link to={`/news/${item.id}`}>
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5 }}
-                      className="relative shadow-lg rounded overflow-hidden"
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-64 object-cover"
-                      />
-                      <div className="p-4 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 text-white">
-                        <h2 className="text-lg font-bold mt-1 line-clamp-2">
-                          {item.title}
-                        </h2>
-                        <p className="text-sm font-semibold mt-1">
-                          {item.date}
-                        </p>
-                      </div>
-                    </motion.div>
-                  </Link>
-                </SwiperSlide>
-              ))}
-          </Swiper>
+            {article?.content?.split("\n").map((p, idx) => (
+              <p key={idx}>{p.trim()}</p>
+            ))}
+          </motion.div>
+
+          <NewsVideo videoSrc={videoSrc} />
+
+          <NewsPhoto
+            galleryImages={galleryImages}
+            setGallerySwiperInstance={setGallerySwiperInstance}
+            galleryPaginationRef={galleryPaginationRef}
+            galleryPrevRef={galleryPrevRef}
+            galleryNextRef={galleryNextRef}
+            setActiveImage={setActiveImage}
+          />
+        </div>
+
+        <div className="sticky top-20 self-start h-fit">
+          <NewsSwiper
+            mainArticle={mainArticle}
+            articles={articles}
+            currentId={id}
+          />
         </div>
       </div>
+
+      {activeImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center"
+          onClick={() => setActiveImage(null)}
+        >
+          <button
+            onClick={() => setActiveImage(null)}
+            className="absolute top-6 right-6 text-white hover:text-red-500 transition"
+            aria-label="Закрыть изображение"
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <img
+            src={activeImage}
+            alt="Full view"
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-3xl max-h-[80vh] rounded shadow-lg object-contain"
+          />
+        </div>
+      )}
     </div>
   );
 };

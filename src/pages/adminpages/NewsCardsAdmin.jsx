@@ -1,4 +1,4 @@
-import { NewsAdmin } from "./NewsAdmin";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export const NewsCardsAdmin = () => {
@@ -46,7 +46,6 @@ export const NewsCardsAdmin = () => {
     return saved ? JSON.parse(saved) : defaultCards;
   });
 
-  // Сохраняем в localStorage при изменении
   useEffect(() => {
     localStorage.setItem("newsAdminCards", JSON.stringify(cards));
   }, [cards]);
@@ -64,6 +63,15 @@ export const NewsCardsAdmin = () => {
     };
     if (file) {
       reader.readAsDataURL(file);
+    }
+  };
+
+  const handleResetCard = (id) => {
+    const defaultCard = defaultCards.find((card) => card.id === id);
+    if (defaultCard) {
+      setCards((prev) =>
+        prev.map((card) => (card.id === id ? { ...defaultCard } : card))
+      );
     }
   };
 
@@ -103,7 +111,7 @@ export const NewsCardsAdmin = () => {
                 />
               </div>
               <div className="absolute top-2 right-2">
-                <label className="text-white bg-black/50 px-3 py-1 text-sm rounded cursor-pointer">
+                <label className="text-white bg-black/70 px-3 py-1 text-sm rounded cursor-pointer">
                   Сменить фото
                   <input
                     type="file"
@@ -137,10 +145,24 @@ export const NewsCardsAdmin = () => {
                 rows={1}
               />
             </div>
+            <div className="mt-4 flex justify-between px-4 pb-4 gap-6">
+              <button
+                onClick={() => handleResetCard(card.id)}
+                className="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 transition"
+              >
+                Очистить
+              </button>
+
+              <Link
+                to={`/admin/news/${card.id}`}
+                className="bg-bordo text-white px-4 py-2 rounded hover:bg-red-900 transition"
+              >
+                Перейти к новости
+              </Link>
+            </div>
           </div>
         ))}
       </div>
-      <NewsAdmin />
     </div>
   );
 };
