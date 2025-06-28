@@ -52,7 +52,7 @@ export default function AdminSidebar() {
       <div
         onMouseEnter={openPanel}
         onMouseLeave={closePanel}
-        className={`h-screen bg-[#5a0a2d] absolute z-10 transition-all duration-300 ease-in-out
+        className={`h-screen bg-[#5a0a2d] fixed z-10 transition-all duration-300 ease-in-out
           ${isOpen ? "w-56" : "w-16"}
           flex flex-col justify-between fixed`}
       >

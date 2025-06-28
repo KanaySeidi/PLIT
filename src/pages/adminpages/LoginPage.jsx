@@ -5,7 +5,7 @@ const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const handleLogin = () => {
     // Проверка логина и пароля
