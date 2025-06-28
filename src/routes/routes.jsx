@@ -25,14 +25,14 @@ import {
   NewsCardsAdmin,
   PlitAdmin,
   AdminAbout,
-  InternalPagesAdmin,
   TeacherSl,
   NewsCards,
   News,
   HomeAdmin,
+  TeacherSlAdmin,
+  Npa99,
 } from "../pages";
 import Layout from "../pages/adminpages/adminSidebar/Layout";
-import { TeacherSlAdmin } from "../pages/adminpages/TeacherSlAdmin";
 
 const routes = [
   { path: "/", element: <Main /> },
@@ -55,6 +55,7 @@ const routes = [
   { path: "/news", element: <NewsCards /> },
   { path: "/news/:id", element: <News /> },
   { path: "/plit/about", element: <About /> },
+  { path: "/npa99", element: <Npa99 /> },
   {
     path: "/admin",
     element: <Layout />,
@@ -69,8 +70,8 @@ const routes = [
       { path: "newsCards", element: <NewsCardsAdmin /> },
       { path: "plit", element: <PlitAdmin /> },
       { path: "about", element: <AdminAbout /> },
-      { path: "internal-pages", element: <InternalPagesAdmin /> },
-      { path: "teachersad", element: <TeacherSlAdmin /> },
+      // { path: "internal-pages", element: <InternalPagesAdmin /> },
+      { path: "teachersad", element: <TeacherSlAdmin />},
     ],
   },
 ];

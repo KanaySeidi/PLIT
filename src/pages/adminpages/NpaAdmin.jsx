@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 
-const InternalPagesAdmin = () => {
+const NpaAdmin = () => {
   const [content, setContent] = useState({
     title: "Добро пожаловать!",
     description: "Описание главной страницы",
+    title: "",
+    description: "",
     image: null,
   });
 
@@ -20,9 +22,10 @@ const InternalPagesAdmin = () => {
     // Здесь можно отправить данные на сервер через API
     console.log("Сохранено:", content);
   };
+  };
 
   const handleDelete = () => {
-    // Логика удаления контента
+    setContent({ title: "", description: "", image: null });
     console.log("Контент удален");
   };
 
@@ -38,6 +41,7 @@ const InternalPagesAdmin = () => {
             value={content.title}
             onChange={handleChange}
             className="w-full border p-2"
+            className="w-full border p-2 rounded"
           />
         </div>
         <div>
@@ -47,6 +51,7 @@ const InternalPagesAdmin = () => {
             value={content.description}
             onChange={handleChange}
             className="w-full border p-2"
+            className="w-full border p-2 rounded"
           />
         </div>
         <div>
@@ -55,6 +60,7 @@ const InternalPagesAdmin = () => {
             type="file"
             onChange={handleImageChange}
             className="w-full border p-2"
+            className="w-full border p-2 rounded"
           />
         </div>
         <button
@@ -72,6 +78,5 @@ const InternalPagesAdmin = () => {
       </div>
     </div>
   );
-};
 
-export default InternalPagesAdmin;
+export default NpaAdmin;

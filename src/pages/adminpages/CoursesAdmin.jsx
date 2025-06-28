@@ -1,30 +1,47 @@
-import React, { useState, useEffect } from "react";
-import { FaSave, FaPlus, FaEllipsisV } from "react-icons/fa";
+import React, { useEffect } from "react";
+import {
+  fetchCoursesByType,
+  createCourse,
+  deleteCourse,
+  updateCourse,
+} from "../../components/api/auth/coursesAuth";
+import { useCoursesStore } from "../../components/api/store/coursesStore";
+import { FaSave, FaEllipsisV } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const CoursesAdmin = () => {
-  const [courses, setCourses] = useState(() => {
-    const savedCourses = localStorage.getItem("courses");
-    return savedCourses ? JSON.parse(savedCourses) : {};
-  });
-
-  const [selectedCategory, setSelectedCategory] = useState("sports");
-  const [newCourse, setNewCourse] = useState({
-    category: "sports",
-    title: "",
-    description: "",
-    price: "",
-    image: null,
-  });
-
-  const [editCourse, setEditCourse] = useState(null);
-  const [showMenu, setShowMenu] = useState(null);
+  const {
+    courses,
+    selectedCategory,
+    newCourse,
+    editCourse,
+    showMenu,
+    setSelectedCategory,
+    setNewCourse,
+    setEditCourse,
+    setShowMenu,
+    setCourses,
+    resetNewCourse,
+    clearEditCourse,
+  } = useCoursesStore();
 
   useEffect(() => {
-    localStorage.setItem("courses", JSON.stringify(courses));
-  }, [courses]);
+    fetchCourses();
+    console.log(courses);
+    
+  }, [selectedCategory]);
 
-  const handleAddCourse = () => {
+  const fetchCourses = async () => {
+    try {
+      const data = await fetchCoursesByType(selectedCategory);
+      setCourses(selectedCategory, data);
+    } catch (error) {
+      console.error("Error fetching courses:", error);
+      setCourses(selectedCategory, []); // Устанавливаем пустой массив при ошибке
+    }
+  };
+
+  const handleAddCourse = async () => {
     if (
       !newCourse.category ||
       !newCourse.title ||
@@ -32,41 +49,27 @@ const CoursesAdmin = () => {
       !newCourse.price
     )
       return;
-    const id = Date.now();
-    const courseWithId = {
-      ...newCourse,
-      id,
-      imagePreview: newCourse.image
-        ? URL.createObjectURL(newCourse.image)
-        : null,
-    };
-    setCourses((prev) => ({
-      ...prev,
-      [newCourse.category]: [...(prev[newCourse.category] || []), courseWithId],
-    }));
-    setNewCourse({
-      category: selectedCategory,
-      title: "",
-      description: "",
-      price: "",
-      image: null,
-    });
+
+    try {
+      const response = await createCourse(newCourse);
+      setCourses(selectedCategory, [...(courses[selectedCategory] || []), response]);
+      resetNewCourse();
+    } catch (error) {
+      console.error("Error saving course:", error);
+    }
   };
 
-  const handleDeleteCourse = (course) => {
-    setCourses((prev) => {
-      const updatedCategory = prev[course.category].filter(
+  const handleDeleteCourse = async (course) => {
+    try {
+      await deleteCourse(course.id);
+      const updatedCategory = (courses[course.category] || []).filter(
         (c) => c.id !== course.id
       );
-      const updatedCourses = { ...prev };
-      if (updatedCategory.length === 0) {
-        delete updatedCourses[course.category];
-      } else {
-        updatedCourses[course.category] = updatedCategory;
-      }
-      return updatedCourses;
-    });
-    setShowMenu(null);
+      setCourses(course.category, updatedCategory);
+      setShowMenu(null);
+    } catch (error) {
+      console.error("Error deleting course:", error);
+    }
   };
 
   const handleEditCourse = (course) => {
@@ -74,7 +77,7 @@ const CoursesAdmin = () => {
     setShowMenu(null);
   };
 
-  const handleSaveEdit = () => {
+  const handleSaveEdit = async () => {
     if (
       !editCourse.category ||
       !editCourse.title ||
@@ -82,45 +85,39 @@ const CoursesAdmin = () => {
       !editCourse.price
     )
       return;
-    setCourses((prev) => {
-      const updatedCourses = { ...prev };
-      updatedCourses[editCourse.category] = updatedCourses[
-        editCourse.category
-      ].map((c) => (c.id === editCourse.id ? editCourse : c));
-      return updatedCourses;
-    });
-    setEditCourse(null);
+
+    try {
+      const response = await updateCourse(editCourse);
+      const updatedCourses = (courses[editCourse.category] || []).map((c) =>
+        c.id === editCourse.id ? response : c
+      );
+      setCourses(editCourse.category, updatedCourses);
+      clearEditCourse();
+    } catch (error) {
+      console.error("Error updating course:", error);
+    }
   };
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (editCourse) {
       if (name === "image" && files) {
-        setEditCourse((prev) => ({
-          ...prev,
-          [name]: files[0],
-          imagePreview: URL.createObjectURL(files[0]),
-        }));
+        setEditCourse({ ...editCourse, [name]: files[0], imagePreview: URL.createObjectURL(files[0]) });
       } else {
-        setEditCourse((prev) => ({ ...prev, [name]: value }));
+        setEditCourse({ ...editCourse, [name]: value });
       }
     } else {
       if (name === "image" && files) {
-        setNewCourse((prev) => ({
-          ...prev,
-          [name]: files[0],
-          imagePreview: URL.createObjectURL(files[0]),
-        }));
+        setNewCourse(name, files[0]);
+        setNewCourse("imagePreview", URL.createObjectURL(files[0]));
       } else {
-        setNewCourse((prev) => ({ ...prev, [name]: value }));
+        setNewCourse(name, value);
       }
     }
   };
 
   const handleCategoryChange = (e) => {
-    const category = e.target.value;
-    setSelectedCategory(category);
-    setNewCourse((prev) => ({ ...prev, category }));
+    setSelectedCategory(e.target.value);
   };
 
   const categories = ["sports", "language", "professional"];
@@ -143,11 +140,11 @@ const CoursesAdmin = () => {
           ))}
         </select>
       </div>
-
+      
       {selectedCategory && (
         <>
           <div className="space-y-8">
-            {courses[selectedCategory] &&
+            {Array.isArray(courses[selectedCategory]) &&
               courses[selectedCategory].length > 0 && (
                 <div className="space-y-4">
                   <h2 className="text-2xl font-semibold text-[#222]">
@@ -160,9 +157,9 @@ const CoursesAdmin = () => {
                         key={course.id}
                         className="bg-white rounded-2xl shadow-md p-4 relative"
                       >
-                        {course.imagePreview && (
+                        {course.image && course.image.fileName && (
                           <img
-                            src={course.imagePreview}
+                            src={`${API_URL}/images/${course.image.fileName}`} // Адаптируйте URL для изображений
                             alt={course.title}
                             className="w-full h-32 object-cover rounded-xl mb-3"
                             onError={(e) => (e.target.style.display = "none")}

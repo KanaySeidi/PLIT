@@ -19,7 +19,8 @@ const Layout = () => {
 
   return (
     <div>
-      {isAdminPath ? <AdminSidebar /> : <Header />}
+      {isAdminPath ? null : <Header />}
+
       <button
         className="fixed right-6 top-4 text-6xl text-white"
         onClick={goHome}
